@@ -1,0 +1,8 @@
+site_name: Engineering Wiki
+nav:
+  - Architecture: architecture.md
+  - Software: software.md
+  - Data: data.md
+  - Design: design.md
+extra_css:
+  - css/extra.css
