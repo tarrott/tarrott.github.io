@@ -1,8 +1,37 @@
 site_name: Engineering Wiki
 nav:
-  - Architecture: architecture.md
-  - Software: software.md
-  - Data: data.md
+  - Architecture:
+    - High-level Design: architecture/highlevel_design.m
+    - Linux: architecture/linux.md
+    - Virtualization: architecture/virtualization.md
+    - CICD: architecture/cicd.md
+    - Monitoring: architecture/monitoring.md
+    - Security: architecture/security.md
+    - Chaos Engineering: architecture/chaos_eng.mdd
+    - Homelab: architecture/homelab.md
+    - Case Studies: architecture/case_studies.md
+  - Software:
+    - Computer Science: software/computer_science.md
+    - Data Structures: software/data_structures.md
+    - Algorithms: software/algorithms.md
+    - Design Patterns: software/design_patterns.md
+    - Best Practices: software/best_practices.md
+    - OOP: software/oop.md
+    - Functional Paradigm: software/functional_paradigm.md
+    - Python: software/python.md
+    - GUIs: software/guis.md
+  - Data:
+    - Data Pipelines: data/pipelines.md
+    - Data Analysis: data/danalysis.md
+    - Machine Learning: data/machine_learning.md
+    - Big Data: data/big_data.md
+    - Data Storage: data/storage.md
+  - Math:
+    - Linear Algebra: math/linear_algebra.md
+    - Statistics: math/statistics.md
+    - Calculus: math/calculus.md
   - Design: design.md
+  - Resources: resources.md
+  - Wiki: wiki.md
 extra_css:
   - css/extra.css
