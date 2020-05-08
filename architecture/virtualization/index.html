@@ -1,316 +1,458 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Virtualization - Engineering Wiki</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <link href="../../css/extra.css" rel="stylesheet">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Virtualization - Engineering Wiki</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Virtualization";
+    var mkdocs_page_input_path = "architecture\\virtualization.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Engineering Wiki</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="wy-body-for-nav" role="document">
 
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown active">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Architecture <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../highlevel_design.m" class="dropdown-item">High-level Design</a>
-</li>
-                                    
-<li>
-    <a href="../linux/" class="dropdown-item">Linux</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active">Virtualization</a>
-</li>
-                                    
-<li>
-    <a href="../cicd/" class="dropdown-item">CICD</a>
-</li>
-                                    
-<li>
-    <a href="../monitoring/" class="dropdown-item">Monitoring</a>
-</li>
-                                    
-<li>
-    <a href="../security/" class="dropdown-item">Security</a>
-</li>
-                                    
-<li>
-    <a href="../chaos_eng.mdd" class="dropdown-item">Chaos Engineering</a>
-</li>
-                                    
-<li>
-    <a href="../homelab/" class="dropdown-item">Homelab</a>
-</li>
-                                    
-<li>
-    <a href="../case_studies/" class="dropdown-item">Case Studies</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Software <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../software/computer_science/" class="dropdown-item">Computer Science</a>
-</li>
-                                    
-<li>
-    <a href="../../software/data_structures/" class="dropdown-item">Data Structures</a>
-</li>
-                                    
-<li>
-    <a href="../../software/algorithms/" class="dropdown-item">Algorithms</a>
-</li>
-                                    
-<li>
-    <a href="../../software/design_patterns/" class="dropdown-item">Design Patterns</a>
-</li>
-                                    
-<li>
-    <a href="../../software/best_practices/" class="dropdown-item">Best Practices</a>
-</li>
-                                    
-<li>
-    <a href="../../software/oop/" class="dropdown-item">OOP</a>
-</li>
-                                    
-<li>
-    <a href="../../software/functional_paradigm/" class="dropdown-item">Functional Paradigm</a>
-</li>
-                                    
-<li>
-    <a href="../../software/python/" class="dropdown-item">Python</a>
-</li>
-                                    
-<li>
-    <a href="../../software/guis/" class="dropdown-item">GUIs</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../data/pipelines/" class="dropdown-item">Data Pipelines</a>
-</li>
-                                    
-<li>
-    <a href="../../data/danalysis.md" class="dropdown-item">Data Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../data/machine_learning/" class="dropdown-item">Machine Learning</a>
-</li>
-                                    
-<li>
-    <a href="../../data/big_data/" class="dropdown-item">Big Data</a>
-</li>
-                                    
-<li>
-    <a href="../../data/storage/" class="dropdown-item">Data Storage</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Math <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../math/linear_algebra/" class="dropdown-item">Linear Algebra</a>
-</li>
-                                    
-<li>
-    <a href="../../math/statistics/" class="dropdown-item">Statistics</a>
-</li>
-                                    
-<li>
-    <a href="../../math/calculus/" class="dropdown-item">Calculus</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../design/" class="nav-link">Design</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../resources/" class="nav-link">Resources</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../wiki/" class="nav-link">Wiki</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../linux/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../cicd/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
+  <div class="wy-grid-for-nav">
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#virtualization" class="nav-link">Virtualization</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#vagrant" class="nav-link">Vagrant</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#containerization" class="nav-link">Containerization</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#container-orchestration" class="nav-link">Container Orchestration</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Engineering Wiki</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
 
-<h1 id="virtualization">Virtualization</h1>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Architecture</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="" href="../highlevel_design.m">High-level Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Virtualization</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#vagrant">Vagrant</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#boxes">Boxes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#synced-folders">Synced Folders</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vagrantfile">Vagrantfile</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#containerization">Containerization</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#docker-compose">Docker Compose</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#container-orchestration">Container Orchestration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#kubernetes">Kubernetes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#core-concepts">Core Concepts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#minikube">Minikube</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#create-clutser">Create clutser</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#profiles">Profiles</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#invoke-a-kubernetes-service">Invoke a kubernetes service</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kubectl">Kubectl</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#yaml-configuration">YAML Configuration</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#helm">Helm</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#logging">Logging</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#stern">Stern</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#kail">Kail</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cicd/">CICD</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../monitoring/">Monitoring</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../chaos_eng.mdd">Chaos Engineering</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../homelab/">Homelab</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../case_studies/">Case Studies</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Software</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/computer_science/">Computer Science</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/data_structures/">Data Structures</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/algorithms/">Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/design_patterns/">Design Patterns</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/best_practices/">Best Practices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/oop/">OOP</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/functional_paradigm/">Functional Paradigm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/guis/">GUIs</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Data</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/pipelines/">Data Pipelines</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../data/danalysis.md">Data Analysis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/machine_learning/">Machine Learning</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/big_data/">Big Data</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/storage/">Data Storage</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Math</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/linear_algebra/">Linear Algebra</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/statistics/">Statistics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/calculus/">Calculus</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/">Design</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../resources/">Resources</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../wiki/">Wiki</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Engineering Wiki</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Architecture &raquo;</li>
+        
+      
+    
+    <li>Virtualization</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="virtualization">Virtualization</h1>
+<hr />
 <h2 id="vagrant">Vagrant</h2>
+<p><code>vagrant init ubuntu/bionic64</code>
+<code>vagrant box add centos/8</code>
+<code>vagrant status</code></p>
+<p><code>vagrant up</code>
+<code>vagrant up &lt;hostname&gt;</code>
+<code>vagrant suspend</code> stores state on RAM
+<code>vagrant halt</code> stores state on Disk
+<code>vagrant destroy -f</code> removes stored state</p>
+<p><code>vagrant ssh &lt;hostname&gt;</code>
+<code>vagrant ssh-config</code></p>
+<h3 id="boxes">Boxes</h3>
+<p>https://app.vagrantup.com/boxes/search</p>
+<h3 id="synced-folders">Synced Folders</h3>
+<p>"By default, Vagrant shares your project directory (remember, that is the one with the Vagrantfile) to the /vagrant directory in your guest machine."</p>
+<h3 id="vagrantfile">Vagrantfile</h3>
+<pre><code>Vagrant.configure(&quot;3&quot;) do |config|
+    # create mongo VM
+    config.vm.define &quot;mongo&quot; do |mongo|
+        mongo.vm.box = &quot;bento/ubuntu-16.04&quot;
+        mongo.vm.provider &quot;virtualbox&quot; do |vb|
+            vb.memory = &quot;512&quot;
+        end
+        mongo.vm.network &quot;private_netowrk&quot;, ip: &quot;10.8.0.20&quot;
+        mongo.vm.provision &quot;file&quot;, source: &quot;files/mongo.conf&quot;,  destination: &quot;~/mongod/conf&quot;
+        # try provisioning with ansible instead of shell script
+        mongo.vm.provision &quot;shell&quot;, path: &quot;provisioners/install-mongo.sh&quot;
+    end
+
+    # create node VM
+    config.vm.define &quot;node&quot; do |node|
+        node.vm.box = &quot;bento/ubuntu-16.04&quot;
+        node.vm.network &quot;fowarded_port&quot;, guest: 3000, host:8000
+        node.vm.provider &quot;virtualbox&quot; do |vb|
+            vb.memory = &quot;512&quot;
+        end
+        node.vm.network &quot;private_network&quot;, ip: &quot;10.8.0.21&quot;
+        # try provisioning with ansible instead of shell script
+        node.vm.provision &quot;shell&quot;, path: &quot;privisioners/install-node.sh&quot;
+    end
+
+    # creates 3 ubuntu VMs
+    (5..7).each do |i|
+        config.vm.define &quot;ubuntu#{i}&quot; do |ubuntu|
+            ubuntu.vm.box = &quot;ubuntu/bionic64&quot;
+            ubuntu.vm.network &quot;private_network&quot;, ip: &quot;10.8.0.#{i}&quot;
+        end
+    end
+
+    config.vm.provider &quot;virtualbox&quot; do |v|
+        v.memory = 8192
+        v.cpus = 4
+    end
+end
+</code></pre>
+
 <hr />
 <h2 id="containerization">Containerization</h2>
 <h3 id="docker">Docker</h3>
+<p><code>docker exec</code>
+<code>docker events</code></p>
 <h3 id="docker-compose">Docker Compose</h3>
 <hr />
 <h2 id="container-orchestration">Container Orchestration</h2>
-<h3 id="kubernetes">Kubernetes</h3>
-<h3 id="minikube">Minikube</h3></div>
-            </div>
-        </div>
+<h2 id="kubernetes">Kubernetes</h2>
+<p><a href="https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads">AKS Concepts</a></p>
+<h3 id="core-concepts">Core Concepts</h3>
+<ul>
+<li><strong>Nodes</strong>: a single machine, cluster resource to store data, run jobs, maintain workloads and create network routes</li>
+<li><strong>Node Pools</strong>:</li>
+<li><strong>Control Plane</strong>: set of containers (can be multiple master nodes) that manages the cluster: contains controller manager, API server, etcd, scheduler, CoreDNS, etc.</li>
+<li><strong>kubelet</strong>: kubernetes agent running on worker nodes</li>
+<li><strong>kube-proxy</strong>:</li>
+<li><strong>Container runtime</strong>:</li>
+<li><strong>Kubetctl</strong>: CLI to configure kubernetes and deploy &amp; manage applications</li>
+<li><strong>Pods</strong>: can be comprised of multiple containers deployed on a single node, receives 1 IP</li>
+<li><strong>Namespaces</strong>:</li>
+<li><strong>Labels &amp; Annotations</strong>: allows to filter on related resources in the cluster</li>
+<li><strong>Service</strong>: network endpoint to connect to a pod, 4 types:<ul>
+<li>ClusterIP: only available within the cluster</li>
+<li>NodePort: high port allocated on each node to be reachable outside of the cluster</li>
+<li>LoadBalancer: controls an external load balancer endpoint external to the cluster</li>
+<li>ExternalName: adds CNAME DNS record to CoreDNS to allow pods to use a specified DNS name to reach a service outside of the cluster</li>
+</ul>
+</li>
+<li><strong>Service Discovery</strong>: custom DNS server that all Pods use to resolve names of other services, IPs and ports</li>
+<li><strong>ReplicaSets</strong>: used to scale pods to a desired state and hold the current status for the system</li>
+<li><strong>DaemonSets</strong>: used to deploy a single instance of an application on each node (e.g. log/metric exporter)</li>
+<li><strong>StatefulSets</strong>: used to deploy applications that require the use of the same node and data persistence</li>
+<li><strong>Jobs/CronJobs</strong>: used to deploy a container to complete a specific workload and be destory on successful completion</li>
+<li><strong>ConfigMaps &amp; Secrets</strong>: key-value environment variables to be passed to running workloads to determine different runtime behaviors, secrets are the envrypted version</li>
+<li><strong>Deployments</strong>: a set of metadata to describe the requirements of a running workload</li>
+<li><strong>Scheduler</strong>: ensures that if pods or nodes encounter problems, additional pods are ran on healthy nodes</li>
+<li><strong>Storage</strong>: an abstraction layer to manage data persistency to outlast the lifetime of a pod</li>
+<li><strong>CRDs</strong>: custom resource definitions</li>
+</ul>
+<h3 id="minikube">Minikube</h3>
+<ul>
+<li>Install minikube</li>
+<li>Install kubectl</li>
+</ul>
+<h6 id="create-clutser">Create clutser</h6>
+<ul>
+<li><code>minikube start</code> (defaults to 2GB RAM, 2 CPUs, 20GB disk space)</li>
+<li>Bigger applications: <code>minikube start --memory=8192 --cpu=4 --disk-size=50g</code></li>
+<li>Get the cluster IP: <code>minikube ip</code></li>
+</ul>
+<h6 id="profiles">Profiles</h6>
+<p><code>minikube start -p &lt;profile&gt; --memory=8192 --cpu=4 --disk-size=50g</code></p>
+<h6 id="invoke-a-kubernetes-service">Invoke a kubernetes service</h6>
+<p><code>minikube service &lt;service_name&gt;</code></p>
+<h3 id="kubectl">Kubectl</h3>
+<ul>
+<li><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">Cheatsheet</a></li>
+<li><code>kubectl version</code></li>
+<li><code>kubectl apply -f filename.yml</code>:</li>
+<li>Watch pods: <code>kubectl get pods -w</code></li>
+<li><code>kubectl get pods --all-namespaces</code></li>
+<li><code>kubectl get service</code></li>
+<li><code>kubectl get all</code></li>
+<li>Docs: <code>kubectl explain services --recursive</code><ul>
+<li>Filter: <code>kubectl explain services.spec</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="yaml-configuration">YAML Configuration</h4>
+<ul>
+<li>Requirements:<ul>
+<li><code>kind</code></li>
+<li><code>apiVersion</code></li>
+<li><code>metadata</code></li>
+<li><code>spec</code></li>
+</ul>
+</li>
+</ul>
+<h6 id="example-of-a-service-deployment-defined-in-the-same-file">Example of a Service &amp; Deployment defined in the same file</h6>
+<pre><code>kind: Service
+apiVersion: v1
+metadata:
+    name: app-nginx-service
+spec:
+    type: NodePort
+    ports:
+    - port: 80
+    selector:
+        app: app-nginx
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+    name: app-nginx-deployment
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: app-nginx
+    template:
+        metadata:
+            labels:
+                app: app-nginx
+                mycustomlabel: &quot;true&quot;
+        spec:
+            containers:
+            - name: nginx
+              image: nginx:stable
+</code></pre>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../search/main.js" defer></script>
+<h6 id="testing">Testing</h6>
+<ul>
+<li>Manual deploy: <code>docker run</code> equivalent <code>kubectl run my-app --image app:latest</code></li>
+<li>Cleanup/<code>docker rm</code> equivalent: <code>kubectl delete deployment my-app</code></li>
+<li>Manual scale: <code>kubectl scale deploy/my-app --replicas 2</code> (<code>kubectl scale deployment my-app</code> also works)</li>
+<li>Manually create service: <code>kubectl expose</code></li>
+<li>Logs of single pod: <code>kubectl logs deploy/my-app --folow --tail 1</code></li>
+<li>Logs of up to 5 pods: <code>kubectl logs deploy/my-app -l run=my-app</code></li>
+<li>Inspect a specific pod: <code>kubectl descibe pod/my-app-74dh8h72d7-2j6kv</code></li>
+<li><code>kubectl create deployment sample --image my-app:latest --dry-run -o yaml</code></li>
+</ul>
+<h3 id="helm">Helm</h3>
+<h3 id="logging">Logging</h3>
+<p><code>kubectl -n &lt;namespace&gt; logs -f deployment/&lt;app-name&gt; --all-containers=true --since=10m</code></p>
+<h6 id="stern">Stern</h6>
+<p><code>stern -n &lt;namespace&gt; &lt;app-name&gt; -t --since 10m</code></p>
+<h6 id="kail">Kail</h6>
+<p><code>kail -n &lt;namespace&gt; -d &lt;deployment&gt; --label size=large</code>
+<code>kail -n &lt;namespace&gt; --svc &lt;service&gt; --ignore size=large --since=2h</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cicd/" class="btn btn-neutral float-right" title="CICD">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../linux/" class="btn btn-neutral" title="Linux"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
         </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../linux/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../cicd/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
 </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
-    </body>
+</body>
 </html>

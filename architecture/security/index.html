@@ -1,295 +1,326 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Security - Engineering Wiki</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <link href="../../css/extra.css" rel="stylesheet">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Security - Engineering Wiki</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Security";
+    var mkdocs_page_input_path = "architecture\\security.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Engineering Wiki</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="wy-body-for-nav" role="document">
 
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown active">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Architecture <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../highlevel_design.m" class="dropdown-item">High-level Design</a>
-</li>
-                                    
-<li>
-    <a href="../linux/" class="dropdown-item">Linux</a>
-</li>
-                                    
-<li>
-    <a href="../virtualization/" class="dropdown-item">Virtualization</a>
-</li>
-                                    
-<li>
-    <a href="../cicd/" class="dropdown-item">CICD</a>
-</li>
-                                    
-<li>
-    <a href="../monitoring/" class="dropdown-item">Monitoring</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active">Security</a>
-</li>
-                                    
-<li>
-    <a href="../chaos_eng.mdd" class="dropdown-item">Chaos Engineering</a>
-</li>
-                                    
-<li>
-    <a href="../homelab/" class="dropdown-item">Homelab</a>
-</li>
-                                    
-<li>
-    <a href="../case_studies/" class="dropdown-item">Case Studies</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Software <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../software/computer_science/" class="dropdown-item">Computer Science</a>
-</li>
-                                    
-<li>
-    <a href="../../software/data_structures/" class="dropdown-item">Data Structures</a>
-</li>
-                                    
-<li>
-    <a href="../../software/algorithms/" class="dropdown-item">Algorithms</a>
-</li>
-                                    
-<li>
-    <a href="../../software/design_patterns/" class="dropdown-item">Design Patterns</a>
-</li>
-                                    
-<li>
-    <a href="../../software/best_practices/" class="dropdown-item">Best Practices</a>
-</li>
-                                    
-<li>
-    <a href="../../software/oop/" class="dropdown-item">OOP</a>
-</li>
-                                    
-<li>
-    <a href="../../software/functional_paradigm/" class="dropdown-item">Functional Paradigm</a>
-</li>
-                                    
-<li>
-    <a href="../../software/python/" class="dropdown-item">Python</a>
-</li>
-                                    
-<li>
-    <a href="../../software/guis/" class="dropdown-item">GUIs</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../data/pipelines/" class="dropdown-item">Data Pipelines</a>
-</li>
-                                    
-<li>
-    <a href="../../data/danalysis.md" class="dropdown-item">Data Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../data/machine_learning/" class="dropdown-item">Machine Learning</a>
-</li>
-                                    
-<li>
-    <a href="../../data/big_data/" class="dropdown-item">Big Data</a>
-</li>
-                                    
-<li>
-    <a href="../../data/storage/" class="dropdown-item">Data Storage</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Math <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../math/linear_algebra/" class="dropdown-item">Linear Algebra</a>
-</li>
-                                    
-<li>
-    <a href="../../math/statistics/" class="dropdown-item">Statistics</a>
-</li>
-                                    
-<li>
-    <a href="../../math/calculus/" class="dropdown-item">Calculus</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../design/" class="nav-link">Design</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../resources/" class="nav-link">Resources</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../wiki/" class="nav-link">Wiki</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../monitoring/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../homelab/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
+  <div class="wy-grid-for-nav">
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#security" class="nav-link">Security</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
-
-<h1 id="security">Security</h1></div>
-            </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Engineering Wiki</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
 </div>
+      </div>
 
-    </body>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Architecture</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="" href="../highlevel_design.m">High-level Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../virtualization/">Virtualization</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cicd/">CICD</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../monitoring/">Monitoring</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Security</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#rsa-gpg">RSA &amp; GPG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#securing-a-web-server">Securing a Web Server</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#debian">Debian</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#firewall">Firewall</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secrets">Secrets</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#vault">Vault</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#setup">Setup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#add-secrets">Add secrets</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get-secrets">Get secrets</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#delete-secrets">Delete secrets</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#kali-linux">Kali Linux</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../chaos_eng.mdd">Chaos Engineering</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../homelab/">Homelab</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../case_studies/">Case Studies</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Software</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/computer_science/">Computer Science</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/data_structures/">Data Structures</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/algorithms/">Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/design_patterns/">Design Patterns</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/best_practices/">Best Practices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/oop/">OOP</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/functional_paradigm/">Functional Paradigm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/guis/">GUIs</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Data</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/pipelines/">Data Pipelines</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../data/danalysis.md">Data Analysis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/machine_learning/">Machine Learning</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/big_data/">Big Data</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/storage/">Data Storage</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Math</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/linear_algebra/">Linear Algebra</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/statistics/">Statistics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/calculus/">Calculus</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/">Design</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../resources/">Resources</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../wiki/">Wiki</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Engineering Wiki</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Architecture &raquo;</li>
+        
+      
+    
+    <li>Security</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="security">Security</h1>
+<h3 id="rsa-gpg">RSA &amp; GPG</h3>
+<ul>
+<li><code>ssh-keygen -t rsa -C user@email</code><ul>
+<li>user in comment should match the user to login to remote system</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="securing-a-web-server">Securing a Web Server</h2>
+<p><a href="https://www.ssllabs.com/ssltest/analyze.html">SSL Test</a></p>
+<h3 id="debian">Debian</h3>
+<h4 id="firewall">Firewall</h4>
+<hr />
+<h2 id="secrets">Secrets</h2>
+<ul>
+<li>sealed secrets: encrypted secrets stored in repositories</li>
+</ul>
+<h3 id="vault">Vault</h3>
+<ul>
+<li>an alternative to storing secrets as encrypted text in repositories that offers additional features beyond secure secret storage:<ul>
+<li>dynamic secrets: generating secrets for on-demand access</li>
+<li>data encryption: encrypt and decrypt data in databases without Vault actually storing it</li>
+<li>leasing and renewl: associates a lease with all secrets that provides the ability to renew the leases or revoke the secret if expired</li>
+<li>revocation: revoke single secrets or a tree of secrets such as all secrets read by a specific user or of a particular type (useful for key rolling and locking down systems)</li>
+<li>monitor access</li>
+</ul>
+</li>
+</ul>
+<h6 id="setup">Setup</h6>
+<ol>
+<li>
+<p>Install</p>
+</li>
+<li>
+<p>Manual: download vault binary and adding it to PATH</p>
+</li>
+<li>Mac (Homebrew): brew install vault</li>
+<li>
+<p>Windows (Chocolately): choco install vault</p>
+</li>
+<li>
+<p>Start a DEV server</p>
+</li>
+<li><code>vault server -dev</code></li>
+<li>
+<p>NOTE: Never run the DEV server in production!</p>
+</li>
+<li>
+<p>Save configuration</p>
+</li>
+<li>
+<p>Save the generated unseal key into a new file called "unseal.key"</p>
+</li>
+<li>
+<p>Add environment variables:</p>
+<ul>
+<li><code>export VAULT_ADDR="http://127.0.0.1:8200"</code></li>
+<li><code>export VAULT_DEV_ROOT_TOKEN_ID="s.TolAAwSmTYlBmE0E1M4M0ADG"</code></li>
+</ul>
+</li>
+<li>
+<p>Check server satuts</p>
+</li>
+<li><code>vault status</code></li>
+</ol>
+<h6 id="add-secrets">Add secrets</h6>
+<p><code>vault kv put secret/hello foo=world excited=yes</code></p>
+<h6 id="get-secrets">Get secrets</h6>
+<ul>
+<li><code>vault kv get secret/hello</code></li>
+<li><code>vault kv get -field=excited secret/hello</code></li>
+<li><code>vault kv get -format=json secret/hello | jq -r .data.data.excited</code></li>
+</ul>
+<h6 id="delete-secrets">Delete secrets</h6>
+<p><code>vault kv delete secret/hello</code></p>
+<hr />
+<h2 id="kali-linux">Kali Linux</h2>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../homelab/" class="btn btn-neutral float-right" title="Homelab">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../monitoring/" class="btn btn-neutral" title="Monitoring"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../monitoring/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../homelab/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
 </html>

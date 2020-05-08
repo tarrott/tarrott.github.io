@@ -1,234 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>CICD - Engineering Wiki</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <link href="../../css/extra.css" rel="stylesheet">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>CICD - Engineering Wiki</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "CICD";
+    var mkdocs_page_input_path = "architecture\\cicd.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Engineering Wiki</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="wy-body-for-nav" role="document">
 
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown active">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Architecture <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../highlevel_design.m" class="dropdown-item">High-level Design</a>
-</li>
-                                    
-<li>
-    <a href="../linux/" class="dropdown-item">Linux</a>
-</li>
-                                    
-<li>
-    <a href="../virtualization/" class="dropdown-item">Virtualization</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active">CICD</a>
-</li>
-                                    
-<li>
-    <a href="../monitoring/" class="dropdown-item">Monitoring</a>
-</li>
-                                    
-<li>
-    <a href="../security/" class="dropdown-item">Security</a>
-</li>
-                                    
-<li>
-    <a href="../chaos_eng.mdd" class="dropdown-item">Chaos Engineering</a>
-</li>
-                                    
-<li>
-    <a href="../homelab/" class="dropdown-item">Homelab</a>
-</li>
-                                    
-<li>
-    <a href="../case_studies/" class="dropdown-item">Case Studies</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Software <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../software/computer_science/" class="dropdown-item">Computer Science</a>
-</li>
-                                    
-<li>
-    <a href="../../software/data_structures/" class="dropdown-item">Data Structures</a>
-</li>
-                                    
-<li>
-    <a href="../../software/algorithms/" class="dropdown-item">Algorithms</a>
-</li>
-                                    
-<li>
-    <a href="../../software/design_patterns/" class="dropdown-item">Design Patterns</a>
-</li>
-                                    
-<li>
-    <a href="../../software/best_practices/" class="dropdown-item">Best Practices</a>
-</li>
-                                    
-<li>
-    <a href="../../software/oop/" class="dropdown-item">OOP</a>
-</li>
-                                    
-<li>
-    <a href="../../software/functional_paradigm/" class="dropdown-item">Functional Paradigm</a>
-</li>
-                                    
-<li>
-    <a href="../../software/python/" class="dropdown-item">Python</a>
-</li>
-                                    
-<li>
-    <a href="../../software/guis/" class="dropdown-item">GUIs</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../data/pipelines/" class="dropdown-item">Data Pipelines</a>
-</li>
-                                    
-<li>
-    <a href="../../data/danalysis.md" class="dropdown-item">Data Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../data/machine_learning/" class="dropdown-item">Machine Learning</a>
-</li>
-                                    
-<li>
-    <a href="../../data/big_data/" class="dropdown-item">Big Data</a>
-</li>
-                                    
-<li>
-    <a href="../../data/storage/" class="dropdown-item">Data Storage</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Math <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../math/linear_algebra/" class="dropdown-item">Linear Algebra</a>
-</li>
-                                    
-<li>
-    <a href="../../math/statistics/" class="dropdown-item">Statistics</a>
-</li>
-                                    
-<li>
-    <a href="../../math/calculus/" class="dropdown-item">Calculus</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../design/" class="nav-link">Design</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../resources/" class="nav-link">Resources</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../wiki/" class="nav-link">Wiki</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../virtualization/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../monitoring/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
+  <div class="wy-grid-for-nav">
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#cicd" class="nav-link">CICD</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#build" class="nav-link">Build</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#test" class="nav-link">Test</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#deploy" class="nav-link">Deploy</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#provision" class="nav-link">Provision</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Engineering Wiki</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
 
-<h1 id="cicd">CICD</h1>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Architecture</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="" href="../highlevel_design.m">High-level Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../virtualization/">Virtualization</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">CICD</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#build">Build</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#jenkins">Jenkins</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#test">Test</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#unit-tests">Unit Tests</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#integration-tests">Integration Tests</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#end-to-end-tests">End-to-end Tests</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deploy">Deploy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#provision">Provision</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#infrastructure-as-code">Infrastructure as Code</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#terraform">Terraform</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ansible">Ansible</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../monitoring/">Monitoring</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../chaos_eng.mdd">Chaos Engineering</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../homelab/">Homelab</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../case_studies/">Case Studies</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Software</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/computer_science/">Computer Science</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/data_structures/">Data Structures</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/algorithms/">Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/design_patterns/">Design Patterns</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/best_practices/">Best Practices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/oop/">OOP</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/functional_paradigm/">Functional Paradigm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/guis/">GUIs</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Data</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/pipelines/">Data Pipelines</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../data/danalysis.md">Data Analysis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/machine_learning/">Machine Learning</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/big_data/">Big Data</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/storage/">Data Storage</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Math</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/linear_algebra/">Linear Algebra</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/statistics/">Statistics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/calculus/">Calculus</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/">Design</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../resources/">Resources</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../wiki/">Wiki</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Engineering Wiki</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Architecture &raquo;</li>
+        
+      
+    
+    <li>CICD</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="cicd">CICD</h1>
 <hr />
 <h2 id="build">Build</h2>
 <h3 id="jenkins">Jenkins</h3>
@@ -247,85 +211,184 @@
 <hr />
 <h2 id="provision">Provision</h2>
 <h3 id="infrastructure-as-code">Infrastructure as Code</h3>
+<h4 id="terraform">Terraform</h4>
+<ul>
+<li>install terraform locally</li>
+<li>download binary</li>
+<li>download checksums &amp; checksum signature</li>
+<li>verify the signartue of the checksum against HashiCorp's GPG key</li>
+<li>add terraform binary to <code>PATH</code></li>
+</ul>
+<h6 id="create-a-vm-on-gce-example">Create a VM on GCE example</h6>
+<ol>
+<li>Once per project enable the GCE API: <code>gcloud services enable compute.googleapis.com</code></li>
+<li>Create Terraform config</li>
+<li>Run commands at creation: <code>metadata_startup_script</code> logs: <code>/var/log/daemon.log</code></li>
+<li>Add ssh keys: <code>metadata = { ssh-keys = ### }</code></li>
+<li>Run Terraform</li>
+<li>terraform init</li>
+<li>terraform plan</li>
+<li>terraform apply</li>
+<li>Clean up</li>
+</ol>
+<p>Terraform config <code>main.tf</code></p>
+<pre><code>resource &quot;google_compute_instance&quot; &quot;default&quot; {
+  name         = &quot;vm-${random_id.instance_id.hex}&quot;
+  machine_type = &quot;f1-micro&quot;
+  zone         = &quot;us-west1-a&quot;
+
+  boot_disk {
+    initialize_params {
+      image = &quot;debian-cloud/debian-9&quot;
+    }
+  }
+
+  # ...
+}
+</code></pre>
+
 <h4 id="ansible">Ansible</h4>
-<h4 id="terraform">Terraform</h4></div>
-            </div>
-        </div>
+<ul>
+<li><a href="https://github.com/jmal98/ansiblecm">Ansible Control Machine (Dockerized)</a></li>
+<li><code>ansible-console</code> - REPL that comes with tab completion</li>
+<li>Access ENV variables: <code>{{ lookup('env','USER') }}"</code></li>
+<li><code>command</code> module escapes commands, while the <code>shell</code> module does not</li>
+</ul>
+<h6 id="configuring-vms-from-windows">Configuring VMs from Windows</h6>
+<ol>
+<li>Create a control node VM with debian or ubuntu</li>
+<li>ssh into control node VM</li>
+<li><code>apt-get -y update &amp;&amp; apt-get -y install ansible</code></li>
+</ol>
+<p>Note: run an installation script after creating a VM with Terraform</p>
+<pre><code>sudo apt update
+sudo apt -y upgrade
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
+</code></pre>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../search/main.js" defer></script>
+<ol>
+<li>Point to inventory dir</li>
+</ol>
+<pre><code>[defaults]
+inventory = /vagrant/inv
+host_key_checking = False
+</code></pre>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+<h6 id="docs">Docs</h6>
+<ul>
+<li><a href="https://docs.ansible.com">Ansible Docs</a></li>
+<li><a href="https://galaxy.ansible.com/docs">Ansible Galaxy Docs</a></li>
+<li><code>ansible-doc copy</code></li>
+<li><code>ansible-doc -t connection</code></li>
+<li><code>anisble-doc -t shell --list</code></li>
+<li><code>ansible-doc -t shell csh</code></li>
+<li>list commands with <code>ansible</code> + tab</li>
+</ul>
+<h6 id="inventory">Inventory</h6>
+<ul>
+<li><code>ansible-inventory --graph --vars</code></li>
+<li><code>ansible-inventory --list</code></li>
+</ul>
+<p><em>Inventory definitions in YAML</em>
+all:
+  hosts:
+    ubuntu10:
+      ansible_host: 192.168.50.10
+      ansible_private_key_file: .vagrant/machines/ubuntu10/virtualbox/private_key</p>
+<p><em>Child group</em>
+[ubuntu]
+ubuntu10
+ubuntu11</p>
+<h1 id="ubuntu12">ubuntu12</h1>
+<p><em>Parent group</em>
+[vagrant:children]
+centos
+ubuntu</p>
+<p>[vagrant:vars]
+ansible_user=vagrant
+ansible_port=22</p>
+<h6 id="ad-hoc-command">Ad-hoc command</h6>
+<ul>
+<li><code>ansible all -m ping</code></li>
+<li><code>ansible -m command -a "git config --global --list" vagrant</code></li>
+<li><code>ansible -m copy -a "src=master.gitconfig dest=~/.gitconfig" localehost</code></li>
+<li>dry run: add <code>--check</code></li>
+<li>show changes: add <code>--diff</code></li>
+<li>show package managers: <code>ansible -m setup -a "filter=ansible_pkg_mgr" all</code></li>
+</ul>
+<h6 id="playbook">Playbook</h6>
+<ul>
+<li><code>ansible-playbook playbook.yml</code></li>
+<li>Debug: add <code>-v</code> up to <code>-vvvv</code></li>
+</ul>
+<pre><code>name: Ensure ~/.gitconfig copied from master.gitconfig
+hosts: localhost
+tasks:
+- name: copy git config
+  copy:
+    src: &quot;mast.gitconfig&quot;
+    dest: &quot;~/.gitconfig&quot;
+  when: ... # conditional
+  become: yes # escalate privilege
+  register git_config_copy # register output to variable
+
+- name: print captured variable
+  debug: var=git_config_copy
+</code></pre>
+              
             </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../monitoring/" class="btn btn-neutral float-right" title="Monitoring">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../virtualization/" class="btn btn-neutral" title="Virtualization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
         </div>
-    </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../virtualization/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../monitoring/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
 </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
-    </body>
+</body>
 </html>

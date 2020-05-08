@@ -1,279 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Linux - Engineering Wiki</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <link href="../../css/extra.css" rel="stylesheet">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Linux - Engineering Wiki</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Linux";
+    var mkdocs_page_input_path = "architecture\\linux.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Engineering Wiki</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="wy-body-for-nav" role="document">
 
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown active">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Architecture <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../highlevel_design.m" class="dropdown-item">High-level Design</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active">Linux</a>
-</li>
-                                    
-<li>
-    <a href="../virtualization/" class="dropdown-item">Virtualization</a>
-</li>
-                                    
-<li>
-    <a href="../cicd/" class="dropdown-item">CICD</a>
-</li>
-                                    
-<li>
-    <a href="../monitoring/" class="dropdown-item">Monitoring</a>
-</li>
-                                    
-<li>
-    <a href="../security/" class="dropdown-item">Security</a>
-</li>
-                                    
-<li>
-    <a href="../chaos_eng.mdd" class="dropdown-item">Chaos Engineering</a>
-</li>
-                                    
-<li>
-    <a href="../homelab/" class="dropdown-item">Homelab</a>
-</li>
-                                    
-<li>
-    <a href="../case_studies/" class="dropdown-item">Case Studies</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Software <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../software/computer_science/" class="dropdown-item">Computer Science</a>
-</li>
-                                    
-<li>
-    <a href="../../software/data_structures/" class="dropdown-item">Data Structures</a>
-</li>
-                                    
-<li>
-    <a href="../../software/algorithms/" class="dropdown-item">Algorithms</a>
-</li>
-                                    
-<li>
-    <a href="../../software/design_patterns/" class="dropdown-item">Design Patterns</a>
-</li>
-                                    
-<li>
-    <a href="../../software/best_practices/" class="dropdown-item">Best Practices</a>
-</li>
-                                    
-<li>
-    <a href="../../software/oop/" class="dropdown-item">OOP</a>
-</li>
-                                    
-<li>
-    <a href="../../software/functional_paradigm/" class="dropdown-item">Functional Paradigm</a>
-</li>
-                                    
-<li>
-    <a href="../../software/python/" class="dropdown-item">Python</a>
-</li>
-                                    
-<li>
-    <a href="../../software/guis/" class="dropdown-item">GUIs</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../data/pipelines/" class="dropdown-item">Data Pipelines</a>
-</li>
-                                    
-<li>
-    <a href="../../data/danalysis.md" class="dropdown-item">Data Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../../data/machine_learning/" class="dropdown-item">Machine Learning</a>
-</li>
-                                    
-<li>
-    <a href="../../data/big_data/" class="dropdown-item">Big Data</a>
-</li>
-                                    
-<li>
-    <a href="../../data/storage/" class="dropdown-item">Data Storage</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Math <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../math/linear_algebra/" class="dropdown-item">Linear Algebra</a>
-</li>
-                                    
-<li>
-    <a href="../../math/statistics/" class="dropdown-item">Statistics</a>
-</li>
-                                    
-<li>
-    <a href="../../math/calculus/" class="dropdown-item">Calculus</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../design/" class="nav-link">Design</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../resources/" class="nav-link">Resources</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="../../wiki/" class="nav-link">Wiki</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../virtualization/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
+  <div class="wy-grid-for-nav">
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#linux" class="nav-link">Linux</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#configuration" class="nav-link">Configuration</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#bash" class="nav-link">Bash</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#system-diagnostics" class="nav-link">System Diagnostics</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#file-system-management" class="nav-link">File System Management</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#text-manipulation" class="nav-link">Text Manipulation</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#package-management" class="nav-link">Package Management</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#netowrking" class="nav-link">Netowrking</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#notes" class="nav-link">Notes</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Engineering Wiki</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
 
-<h1 id="linux">Linux</h1>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Architecture</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="" href="../highlevel_design.m">High-level Design</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Linux</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#system-diagnostics">System Diagnostics</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-system-management">File System Management</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#filepaths">Filepaths</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#daily-driver">Daily Driver</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#application-development">Application Development</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#system">System</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#text-manipulation">Text Manipulation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#package-management">Package Management</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#apk">apk</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#apt-apt-get">apt / apt-get</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dpkg">dpkg</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#yum">yum</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pacman">pacman</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#netowrking">Netowrking</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cron-scheduler">Cron Scheduler</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bash">Bash</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bash_profile-vs-bashrc">bash_profile vs. bashrc</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#shell-scripting">Shell Scripting</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#script-arguments">Script arguments</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#functions">Functions</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#distros">Distros</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bashrc-vs-bash_profile">.bashrc vs. .bash_profile</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../virtualization/">Virtualization</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cicd/">CICD</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../monitoring/">Monitoring</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../chaos_eng.mdd">Chaos Engineering</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../homelab/">Homelab</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../case_studies/">Case Studies</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Software</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/computer_science/">Computer Science</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/data_structures/">Data Structures</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/algorithms/">Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/design_patterns/">Design Patterns</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/best_practices/">Best Practices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/oop/">OOP</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/functional_paradigm/">Functional Paradigm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/guis/">GUIs</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Data</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/pipelines/">Data Pipelines</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../data/danalysis.md">Data Analysis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/machine_learning/">Machine Learning</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/big_data/">Big Data</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data/storage/">Data Storage</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Math</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/linear_algebra/">Linear Algebra</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/statistics/">Statistics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../math/calculus/">Calculus</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../design/">Design</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../resources/">Resources</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../wiki/">Wiki</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Engineering Wiki</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Architecture &raquo;</li>
+        
+      
+    
+    <li>Linux</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="linux">Linux</h1>
+<ul>
+<li><code>apt-get update &amp;&amp; apt-get upgrade</code></li>
+<li><code>yum update</code></li>
+</ul>
 <h2 id="configuration">Configuration</h2>
 <ul>
-<li>hostname -f</li>
-<li>dpkg-reconfigure tzdata / timedatectl set-timezone</li>
+<li>No password configured: <code>sudo passwd</code></li>
+<li><code>hostname -f</code></li>
+<li><code>dpkg-reconfigure tzdata / timedatectl set-timezone</code></li>
+<li>fdisk</li>
 </ul>
-<hr />
-<h2 id="bash">Bash</h2>
-<h3 id="shell-scripting">Shell Scripting</h3>
-<h4 id="script-arguments">Script arguments</h4>
-<h4 id="functions">Functions</h4>
 <hr />
 <h2 id="system-diagnostics">System Diagnostics</h2>
 <ul>
-<li>free</li>
-<li>top (htop)</li>
+<li><code>free -h</code></li>
+<li>top / htop</li>
 <li>df -h</li>
 <li>vmstat</li>
+<li>ps -ef</li>
+<li>pgrep / pidof</li>
 </ul>
 <hr />
 <h2 id="file-system-management">File System Management</h2>
 <ul>
 <li>ln -s</li>
 <li>cp -R</li>
+<li>mkdir -p</li>
+<li>touch</li>
 <li>mv</li>
 <li>rm</li>
+<li>scp</li>
+<li>tree</li>
+</ul>
+<h4 id="filepaths">Filepaths</h4>
+<ul>
+<li><a href="http://www.pathname.com/fhs/">Filesystem Hierarchy Standard</a></li>
+<li><a href="https://help.ubuntu.com/community/LinuxFilesystemTreeOverview">Linux Filesystem Tree Overview</a></li>
+</ul>
+<h6 id="daily-driver">Daily Driver</h6>
+<ul>
+<li>repos: <code>~/repos/github/</code></li>
+<li><code>/home</code> home sweet home, this is the place for users' home directories.</li>
+</ul>
+<h6 id="application-development">Application Development</h6>
+<ul>
+<li><code>/opt</code> stores additional software not handled by the package manager.</li>
+<li><code>/tmp</code> is a place for temporary files used by applications</li>
+<li><code>/var</code>is dedicated to variable data, such as logs, databases, websites, and temporary spool (e-mail etc.) files that persist from one boot to the next. A notable directory it contains is /var/log where system log files are kept.</li>
+</ul>
+<h6 id="system">System</h6>
+<ul>
+<li><code>/bin</code> is a place for most commonly used terminal commands, like ls, mount, rm, etc.</li>
+<li><code>/etc</code> contains system-global configuration files, which affect the system's behavior for all users.</li>
+<li><code>/root</code> is the superuser's home directory, not in /home/ to allow for booting the system even if /home/ is not available.</li>
+<li><code>/usr</code> contains the majority of user utilities and applications, and partly replicates the root directory structure, containing for instance, among others, /usr/bin/ and /usr/lib.</li>
+<li><code>/boot</code> contains files needed to start up the system, including the Linux kernel, a RAM disk image and bootloader configuration files.</li>
+<li><code>/dev</code> contains all device files, which are not regular files but instead refer to various hardware devices on the system, including hard drives.</li>
+<li><code>/lib</code> contains very important dynamic libraries and kernel modules</li>
+<li><code>/media</code> is intended as a mount point for external devices, such as hard drives or removable media (floppies, CDs, DVDs).</li>
+<li><code>/mnt</code> is also a place for mount points, but dedicated specifically to "temporarily mounted" devices, such as network filesyste</li>
 </ul>
 <hr />
 <h2 id="text-manipulation">Text Manipulation</h2>
-<p>-grep</p>
+<ul>
+<li>grep</li>
+<li>awk</li>
+<li>sed / jq</li>
+</ul>
+<p><code>.vimrc</code></p>
+<pre><code>colorscheme evening
+set relativenumber
+set number
+set colorcolumn=80
+set tabstop=2 shiftwidth=2 expandtab
+set backspace=indent,eol,start
+highlight ColorColum ctermbg=0 guibg=lightgrey
+</code></pre>
+
 <hr />
 <h2 id="package-management">Package Management</h2>
 <h4 id="apk">apk</h4>
@@ -284,94 +311,170 @@
 <hr />
 <h2 id="netowrking">Netowrking</h2>
 <ul>
+<li><code>nmap</code>: show exposed ports</li>
 <li>ping</li>
 <li>traceroute</li>
-<li>netstat</li>
+<li>netstat<ul>
+<li>o flag: show PIDs</li>
+</ul>
+</li>
 <li>telnet</li>
 <li>mtr</li>
+<li>curl<ul>
+<li>I flag: show header info only</li>
+<li>L flag: follow redirects</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="cron-scheduler">Cron Scheduler</h2>
+<ul>
+<li><a href="https://crontab.guru/">cron expressions</a></li>
+<li>Install cron deb/ubuntu<ul>
+<li><code>apt-get update &amp;&amp; apt-get install cron</code></li>
+<li><code>pgrep cron</code> or <code>pidof cron</code></li>
+<li><code>systemctl start cron</code> or <code>service cron start</code> on old systems</li>
+</ul>
+</li>
+<li><code>crontab -e</code><ul>
+<li><em>NOTE: Make sure to add a NEWLINE at the end</em></li>
+</ul>
+</li>
+<li>different environment: cron passes a minimal set of environment variables to cronjobs<ul>
+<li>view them: <code>* * * * * env &gt; /tmp/env.output</code></li>
+</ul>
+</li>
+<li>default log location: <code>/var/log/syslog</code></li>
+<li>redirect cron logs to specified locations<ul>
+<li>e.g. <code>0 15 * * *    /home/user/daily-backup.sh &gt;&gt; /var/log/daily-backup.log 2&gt;&amp;1</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="bash">Bash</h2>
+<ul>
+<li>alias<ul>
+<li><code>alias ll='ls -l'</code></li>
+</ul>
+</li>
+<li>cd -</li>
+<li>pwd</li>
+<li>ls -la</li>
+<li>cat / bat</li>
+</ul>
+<h3 id="bash_profile-vs-bashrc">bash_profile vs. bashrc</h3>
+<ul>
+<li><code>.bash_profile</code> is executed at login, while <code>.bashrc</code> is executed on every shell instance</li>
+<li>can also use an <code>.ini</code> file and source it in the <code>.bash_profile</code> with a <code>source ~/my.ini</code></li>
+</ul>
+<p><code>.bash_profile</code> example:</p>
+<pre><code>export PS1=&quot;\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ &quot;
+#PS1='[${curr_host}@`if [[ &quot;$mh&quot; = &quot;$PWD&quot; ]]; then echo &quot;$PWD&quot;; else echo &quot;~$    {PWD#$ih}&quot;; fi`] $ '
+
+INFA_HOME=/app/infa/Informatica/10.2.0
+JAVA_HOME=$INFA_HOME/java
+PATH=$PATH:$HOME/bin:$INFA_HOME/server/bin:$JAVA_HOME/lib
+PYTHONPATH=$PYTHONPATH:/app-san/infa/infa_shared/Scripts/dimpypkg
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_LIBS:$INFA_HOME/server/bin:$JAVA_HOME/lib:$ODBCHOME/lib:$PWX_HOME
+#LD_LIBRARY_PATH=$INFA_HOME/server/bin
+
+export INFA_HOME
+export JAVA_HOME
+export PATH
+export PYTHONPATH
+export LD_LIBRARY_PATH
+. ./my.ini
+</code></pre>
+
+<p><code>my.ini</code> example"</p>
+<pre><code>#!/bin/sh
+ih=/app-san/infa/infa_shared
+curr_host=`echo $HOSTNAME | cut -d'.' -f 1`
+
+alias lp='ls -alp'
+alias lpt='ls -alptr | tail'
+alias lpd='ls -alp | grep ^d'
+alias lps='ls -alpSr | tail'
+
+alias cache='cd $ih/Cache'
+alias lkp='cd $ih/LkpFiles'
+alias log='cd $ih/log'
+alias temp='cd $ih/Temp'
+alias param='cd $ih/ParamFiles'
+alias scripts='cd $ih/Scripts'
+alias slog='cd $ih/SessLogs'
+alias src='cd $ih/SrcFiles'
+alias tgt='cd $ih/TgtFiles'
+alias wlog='cd $ih/WorkflowLogs'
+alias infa='cd $INFA_HOME'
+</code></pre>
+
+<h3 id="shell-scripting">Shell Scripting</h3>
+<h4 id="script-arguments">Script arguments</h4>
+<h4 id="functions">Functions</h4>
+<hr />
+<h2 id="distros">Distros</h2>
+<ul>
+<li>Servers: Debian</li>
+<li>Daily Driver: Ubuntu &amp; Arch</li>
+<li>Business: CentOS</li>
 </ul>
 <hr />
 <h2 id="notes">Notes</h2>
 <ul>
 <li>https://www.linode.com/docs/tools-reference/linux-system-administration-basics/</li>
-</ul></div>
+</ul>
+<h4 id="bashrc-vs-bash_profile">.bashrc vs. .bash_profile</h4>
+<p>.bash_profile is executed for login shells, while .bashrc is executed for interactive non-login shells.</p>
+<p>When you login (type username and password) via console, either sitting at the machine, or remotely via ssh: .bash_profile is executed to configure your shell before the initial command prompt.</p>
+<p>But, if you’ve already logged into your machine and open a new terminal window (xterm) then .bashrc is executed before the window command prompt. .bashrc is also run when you start a new bash instance by typing /bin/bash in a terminal.</p>
+              
             </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../virtualization/" class="btn btn-neutral float-right" title="Virtualization">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
         </div>
-    </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="../virtualization/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
 </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
-    </body>
+</body>
 </html>

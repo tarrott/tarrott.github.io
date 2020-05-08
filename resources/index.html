@@ -1,228 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Resources - Engineering Wiki</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <link href="../css/extra.css" rel="stylesheet">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Resources - Engineering Wiki</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-        <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Resources";
+    var mkdocs_page_input_path = "resources.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="..">Engineering Wiki</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="wy-body-for-nav" role="document">
 
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Architecture <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../architecture/highlevel_design.m" class="dropdown-item">High-level Design</a>
-</li>
-                                    
-<li>
-    <a href="../architecture/linux/" class="dropdown-item">Linux</a>
-</li>
-                                    
-<li>
-    <a href="../architecture/virtualization/" class="dropdown-item">Virtualization</a>
-</li>
-                                    
-<li>
-    <a href="../architecture/cicd/" class="dropdown-item">CICD</a>
-</li>
-                                    
-<li>
-    <a href="../architecture/monitoring/" class="dropdown-item">Monitoring</a>
-</li>
-                                    
-<li>
-    <a href="../architecture/security/" class="dropdown-item">Security</a>
-</li>
-                                    
-<li>
-    <a href="../architecture/chaos_eng.mdd" class="dropdown-item">Chaos Engineering</a>
-</li>
-                                    
-<li>
-    <a href="../architecture/homelab/" class="dropdown-item">Homelab</a>
-</li>
-                                    
-<li>
-    <a href="../architecture/case_studies/" class="dropdown-item">Case Studies</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Software <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../software/computer_science/" class="dropdown-item">Computer Science</a>
-</li>
-                                    
-<li>
-    <a href="../software/data_structures/" class="dropdown-item">Data Structures</a>
-</li>
-                                    
-<li>
-    <a href="../software/algorithms/" class="dropdown-item">Algorithms</a>
-</li>
-                                    
-<li>
-    <a href="../software/design_patterns/" class="dropdown-item">Design Patterns</a>
-</li>
-                                    
-<li>
-    <a href="../software/best_practices/" class="dropdown-item">Best Practices</a>
-</li>
-                                    
-<li>
-    <a href="../software/oop/" class="dropdown-item">OOP</a>
-</li>
-                                    
-<li>
-    <a href="../software/functional_paradigm/" class="dropdown-item">Functional Paradigm</a>
-</li>
-                                    
-<li>
-    <a href="../software/python/" class="dropdown-item">Python</a>
-</li>
-                                    
-<li>
-    <a href="../software/guis/" class="dropdown-item">GUIs</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../data/pipelines/" class="dropdown-item">Data Pipelines</a>
-</li>
-                                    
-<li>
-    <a href="../data/danalysis.md" class="dropdown-item">Data Analysis</a>
-</li>
-                                    
-<li>
-    <a href="../data/machine_learning/" class="dropdown-item">Machine Learning</a>
-</li>
-                                    
-<li>
-    <a href="../data/big_data/" class="dropdown-item">Big Data</a>
-</li>
-                                    
-<li>
-    <a href="../data/storage/" class="dropdown-item">Data Storage</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Math <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../math/linear_algebra/" class="dropdown-item">Linear Algebra</a>
-</li>
-                                    
-<li>
-    <a href="../math/statistics/" class="dropdown-item">Statistics</a>
-</li>
-                                    
-<li>
-    <a href="../math/calculus/" class="dropdown-item">Calculus</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="navitem">
-                                <a href="../design/" class="nav-link">Design</a>
-                            </li>
-                            <li class="navitem active">
-                                <a href="./" class="nav-link">Resources</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="../wiki/" class="nav-link">Wiki</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../design/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../wiki/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
+  <div class="wy-grid-for-nav">
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#books" class="nav-link">Books</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#podcasts" class="nav-link">Podcasts</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#websites" class="nav-link">Websites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Engineering Wiki</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
 
-<h1 id="books">Books</h1>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Architecture</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="../architecture/highlevel_design.m">High-level Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/linux/">Linux</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/virtualization/">Virtualization</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/cicd/">CICD</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/monitoring/">Monitoring</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/security/">Security</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../architecture/chaos_eng.mdd">Chaos Engineering</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/homelab/">Homelab</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/case_studies/">Case Studies</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Software</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../software/computer_science/">Computer Science</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../software/data_structures/">Data Structures</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../software/algorithms/">Algorithms</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../software/design_patterns/">Design Patterns</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../software/best_practices/">Best Practices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../software/oop/">OOP</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../software/functional_paradigm/">Functional Paradigm</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../software/python/">Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../software/guis/">GUIs</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Data</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../data/pipelines/">Data Pipelines</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../data/danalysis.md">Data Analysis</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data/machine_learning/">Machine Learning</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data/big_data/">Big Data</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../data/storage/">Data Storage</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Math</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../math/linear_algebra/">Linear Algebra</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../math/statistics/">Statistics</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../math/calculus/">Calculus</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../design/">Design</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Resources</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#books">Books</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#university-moocs">University MOOCS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#data-structures-algorithms">Data Structures &amp; Algorithms</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#java-oop">Java / OOP</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#computer-architecture">Computer Architecture</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#data-engineering-courses">Data Engineering Courses</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#devops-engineering-courses">DevOps Engineering Courses</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unafilliated-moocs">Unafilliated MOOCS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#online-tutorials">Online Tutorials</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sentdex">Sentdex</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#python">Python</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#web">Web</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fun">Fun</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other">Other</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#other-media">Other Media</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#podcasts">Podcasts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#websites">Websites</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#architecture-engineering">Architecture &amp; Engineering</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#technical-interview">Technical Interview</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#learning-labs">Learning Labs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#oss">OSS</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../wiki/">Wiki</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Engineering Wiki</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Resources</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="curriculum">Curriculum</h1>
+<hr />
+<h2 id="books">Books</h2>
 <table>
 <thead>
 <tr>
@@ -283,44 +275,59 @@
 <td>Architecture</td>
 </tr>
 <tr>
+<td>Algorithms to Live By</td>
+<td>Christian &amp; Griffiths</td>
+<td>Software Engineering</td>
+</tr>
+<tr>
 <td>Clean Code</td>
 <td>Robert Cecil Martin</td>
-<td>Software</td>
+<td>Software Engineering</td>
 </tr>
 <tr>
 <td>Growing Object Oriented Software...</td>
 <td>Steve Freeman &amp; Nat Pryce</td>
-<td>Software</td>
+<td>Software Engineering</td>
 </tr>
 <tr>
 <td>Code Complete, Second Edition</td>
 <td>Steve McConnell</td>
-<td>Software</td>
+<td>Software Engineering</td>
 </tr>
 <tr>
 <td>Refactoring</td>
 <td>Kent Beck &amp; Martin Fowler</td>
-<td>Software</td>
+<td>Software Engineering</td>
 </tr>
 <tr>
 <td>Design Patterns</td>
 <td>Gang of Four</td>
-<td>Software</td>
+<td>Software Engineering</td>
 </tr>
 <tr>
 <td>Head First Design Patterns</td>
 <td>E. Freeman &amp; K. Sierra</td>
-<td>Software</td>
+<td>Software Engineering</td>
 </tr>
 <tr>
 <td>Analysis Patterns</td>
 <td>Martin Fowler</td>
-<td>Software</td>
+<td>Software Engineering</td>
+</tr>
+<tr>
+<td>Operating Systems: Three Easy Pieces</td>
+<td>A. &amp; R. Arpaci-Dusseau</td>
+<td>Software Engineering</td>
 </tr>
 <tr>
 <td>Working Effectively with Legacy Code</td>
 <td>Michael Feathers</td>
-<td>Software</td>
+<td>Software Engineering</td>
+</tr>
+<tr>
+<td>The Data Engineering Cookbook</td>
+<td>Andreas Kretz</td>
+<td>Data Engineering</td>
 </tr>
 <tr>
 <td>Python for Data Analysis</td>
@@ -344,128 +351,232 @@
 </tr>
 </tbody>
 </table>
-<h1 id="podcasts">Podcasts</h1>
-<h3 id="software-engineering">Software Engineering</h3>
+<hr />
+<h2 id="university-moocs">University MOOCS</h2>
+<h4 id="data-structures-algorithms">Data Structures &amp; Algorithms</h4>
+<ul>
+<li><strong>Stanford</strong> <a href="http://web.stanford.edu/class/archive/cs/cs106x/cs106x.1182/lectures.shtml">CS106X Data Structures</a></li>
+<li><strong>Princeton</strong> <a href="https://www.coursera.org/learn/algorithms-part1">Algorithms Part 1</a></li>
+<li><strong>Princeton</strong> <a href="https://www.coursera.org/learn/algorithms-part2">Algorithms Part 2</a></li>
+<li><strong>MIT</strong> <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/">Algorithms</a></li>
+<li><strong>MIT</strong> <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/">Advanced Data Structures</a></li>
+<li><strong>U Alberta</strong> <a href="https://www.coursera.org/learn/design-patterns">Design Patterns</a></li>
+</ul>
+<h3 id="java-oop">Java / OOP</h3>
+<ul>
+<li><strong>UC San Diego</strong> <a href="https://www.coursera.org/specializations/java-object-oriented">OOP Java Programming Specialization</a><ul>
+<li><a href="https://www.coursera.org/learn/object-oriented-java?specialization=java-object-oriented">Object Oriented Programming in Java</a></li>
+<li><a href="https://www.coursera.org/learn/data-structures-optimizing-performance?specialization=java-object-oriented">Data Structures and Performance</a></li>
+<li><a href="https://www.coursera.org/learn/advanced-data-structures?specialization=java-object-oriented">Advanced Data Structures in Java</a></li>
+<li><a href="https://www.coursera.org/learn/cs-tech-interview?specialization=java-object-oriented">Mastering the Software Engineering Interview</a></li>
+<li><a href="https://www.coursera.org/learn/intermediate-programming-capstone">Capstone: Analyzing (Social) Network Data</a></li>
+</ul>
+</li>
+<li><strong>RICE</strong> <a href="https://www.coursera.org/specializations/pcdp">Parallel, Concurrent, and Distributed Programming in Java</a><ul>
+<li><a href="https://www.coursera.org/learn/parallel-programming-in-java">Parallel Programming</a></li>
+<li><a href="https://www.coursera.org/learn/concurrent-programming-in-java">Concurrent Programming</a></li>
+<li><a href="https://www.coursera.org/learn/distributed-programming-in-java">Distributed Programming</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="computer-architecture">Computer Architecture</h4>
+<ul>
+<li><strong>Stanford</strong> <a href="https://see.stanford.edu/Course/CS107">CS107 Computer Organization &amp; Systems</a></li>
+<li><strong>Stanford</strong> <a href="https://see.stanford.edu/Course/CS107">CS143 Computer Organization &amp; Systems</a></li>
+<li><strong>U Jerusalem</strong> <a href="https://www.coursera.org/learn/build-a-computer">Nand to Tetris, Part 1</a></li>
+<li><strong>U Jerusalem</strong> <a href="https://www.coursera.org/learn/nand2tetris2">Nand to Tetris, Part 2</a></li>
+</ul>
+<h4 id="data-engineering-courses">Data Engineering Courses</h4>
+<ul>
+<li><strong>Stanford</strong> <a href="https://online.stanford.edu/courses/soe-ydatabases-databases">Databases</a></li>
+<li><strong>Stanford</strong> <a href="https://www.coursera.org/learn/machine-learning">Machine Learning</a></li>
+<li><strong>Georgia Tech</strong> <a href="https://www.udacity.com/course/machine-learning-for-trading--ud501">Machine Learning for Trading</a></li>
+<li><strong>U San Francisco</strong> <a href="https://www.fast.ai/2017/07/17/num-lin-alg/">Computational Linear Algebra</a></li>
+<li><strong>U San Francisco</strong> <a href="http://course18.fast.ai/ml">Applied ML</a></li>
+</ul>
+<h4 id="devops-engineering-courses">DevOps Engineering Courses</h4>
+<ul>
+<li><strong>U Virginia</strong> <a href="https://www.coursera.org/learn/uva-darden-continous-delivery-devops">CICD DevOps</a></li>
+</ul>
+<hr />
+<h2 id="unafilliated-moocs">Unafilliated MOOCS</h2>
+<ul>
+<li><strong>Educative</strong> <a href="https://www.educative.io/courses/grokking-the-system-design-interview">Grokking the System Design Interview</a></li>
+<li><strong>Gaurav Sen</strong> <a href="https://www.youtube.com/playlist?list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX">System Design</a></li>
+<li><strong>Udacity</strong> <a href="https://www.udacity.com/course/cloud-dev-ops-nanodegree--nd9991">CloudOps Engineer</a></li>
+<li><strong>Bret Fisher</strong>: Docker &amp; Kubernetes</li>
+<li><strong>Jose Portilla</strong><ul>
+<li>Data Strucutres &amp; Algorithms in Python</li>
+<li>Data Analysis &amp; Machine Learning</li>
+</ul>
+</li>
+<li><strong>Khan Academy</strong><ul>
+<li>Statistics (inference &amp; probability)</li>
+<li>Linear Algebra</li>
+<li>Calculus 1,2, &amp; 3</li>
+</ul>
+</li>
+<li><strong>Deeplearning.ai</strong>: <a href="https://www.coursera.org/specializations/tensorflow-in-practice">Tensorflow</a></li>
+<li><a href="http://pages.cs.wisc.edu/~remzi/OSTEP/">Operating Systems: Three Easy Pieces Course</a></li>
+</ul>
+<hr />
+<h2 id="online-tutorials">Online Tutorials</h2>
+<ul>
+<li><a href="https://www.tensorflow.org/learn">Tensorflow Docs</a></li>
+<li><a href="https://databricks.com/spark/getting-started-with-apache-spark">Spark Tutorials, Data Bricks</a></li>
+<li>[PySpark](https://www.edx.org/course/big-data-analytics-using-spark</li>
+<li><a href="https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/">Azure</a></li>
+<li><a href="https://azure.microsoft.com/mediahandler/files/resourcefiles/kubernetes-learning-path/">K8s</a>Kubernetes%20Learning%20Path_Version%202.0.pdf</li>
+<li>[Terraform - [https://learn.hashicorp.com/terraform/azure/intro_az</li>
+<li><a href="https://backtest-rookies.com/getting-started/#bt">Backtrader Tutorials</a><ul>
+<li><a href="https://github.com/mementum/backtrader">GitHub</a></li>
+<li><a href="https://www.backtrader.com/home/helloalgotrading/">Hello World</a></li>
+<li><a href="https://backtest-rookies.com/2017/05/30/getting-setup-python-and-backtrader/">Setup</a></li>
+<li><a href="https://backtest-rookies.com/2017/06/02/getting-started-first-script/">First Script</a></li>
+<li><a href="https://backtest-rookies.com/2017/06/11/using-analyzers-backtrader/">Using Analyzers</a></li>
+<li><a href="https://backtest-rookies.com/2017/06/26/optimize-strategies-backtrader/">Optimization</a></li>
+<li><a href="https://backtest-rookies.com/2017/11/01/backtrader-making-modular-code/">Modularization</a></li>
+<li><a href="https://backtest-rookies.com/2017/11/08/backtrader-creating-analyzers/">Creating Analyzers</a></li>
+<li><a href="https://backtest-rookies.com/2017/12/06/backtrader-data-replay/">Data Replay</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="sentdex">Sentdex</h2>
+<h3 id="python">Python</h3>
+<ul>
+<li><a href="https://pythonprogramming.net/introduction-intermediate-python-tutorial/">Intermediate Python</a></li>
+<li><a href="https://pythonprogramming.net/introduction-python3-pandas-data-analysis/">Pandas</a></li>
+<li><a href="https://pythonprogramming.net/machine-learning-tutorial-python-introduction/">Machine Learning</a></li>
+<li><a href="https://pythonprogramming.net/machine-learning-python-sklearn-intro/">Scikit-learn</a></li>
+<li><a href="https://pythonprogramming.net/getting-stock-prices-python-programming-for-finance/">Finance</a></li>
+<li><a href="https://pythonprogramming.net/introduction-deep-learning-python-tensorflow-keras/">Deep Learning</a></li>
+<li><a href="https://pythonprogramming.net/matplotlib-intro-tutorial/">Matplotlib</a></li>
+<li><a href="https://pythonprogramming.net/data-visualization-application-dash-python-tutorial-introduction/">Dash</a></li>
+</ul>
+<h6 id="web">Web</h6>
+<ul>
+<li><a href="https://pythonprogramming.net/django-web-development-python-tutorial/">Django</a></li>
+<li><a href="https://pythonprogramming.net/practical-flask-introduction/">Flask</a></li>
+<li><a href="https://pythonprogramming.net/introduction-scraping-parsing-beautiful-soup-tutorial/">Beauitful Soup</a></li>
+</ul>
+<h6 id="fun">Fun</h6>
+<ul>
+<li><a href="https://pythonprogramming.net/intro-alexa-skill-flask-ask-python-tutorial/">Alexa Skills</a></li>
+<li><a href="https://pythonprogramming.net/introduction-kivy-application-python-tutorial/">Kivy/KivEnt</a></li>
+<li><a href="https://pythonprogramming.net/starcraft-ii-ai-python-sc2-tutorial/">AI SC2</a></li>
+<li><a href="https://pythonprogramming.net/flat-clustering-machine-learning-python-scikit-learn/">Unsupervised ML</a></li>
+<li><a href="https://pythonprogramming.net/q-learning-reinforcement-learning-python-tutorial/">Reinforcement Learning</a></li>
+</ul>
+<h3 id="other">Other</h3>
+<ul>
+<li><a href="https://pythonprogramming.net/go/introduction-go-language-programming-tutorial/">Golang</a></li>
+<li><a href="https://pythonprogramming.net/introduction-raspberry-pi-tutorials/">RasPi</a></li>
+<li><a href="https://pythonprogramming.net/build-supercomputer-raspberry-pi/">RasPi Distributed Computing</a></li>
+<li><a href="https://pythonprogramming.net/quantum-computer-programming-tutorial/">Quantum Computer Programming</a></li>
+</ul>
+<hr />
+<h2 id="other-media">Other Media</h2>
+<h3 id="podcasts">Podcasts</h3>
 <ul>
 <li>Software Engineering Daily</li>
 <li>Talk Python</li>
 <li>Python Bytes</li>
+<li>The Changelog</li>
+<li>Command Line Heros</li>
+<li>Machine Learning Guide</li>
+<li>Darknet Diaries</li>
+<li>Coding Blocks .NET</li>
 </ul>
-<h1 id="websites">Websites</h1>
-<h3 id="architecture-engineering">Architecture &amp; Engineering</h3>
+<h3 id="websites">Websites</h3>
+<h6 id="architecture-engineering">Architecture &amp; Engineering</h6>
 <ul>
 <li>https://12factor.net/</li>
 <li>https://martinfowler.com/</li>
 <li>https://staffeng.com/</li>
 <li>https://free-for.dev/</li>
 <li>https://teachyourselfcs.com/</li>
-<li>Microsoft Kubernetes Learning Path</li>
 <li>https://learnk8s.io/production-best-practices</li>
+<li>https://github.com/andkret/Cookbook</li>
 </ul>
-<h3 id="learning-labs">Learning Labs</h3>
+<h6 id="technical-interview">Technical Interview</h6>
+<ul>
+<li>https://leetcode.com/</li>
+<li>https://www.hackerrank.com/ (SQL)</li>
+<li>https://www.interviewcake.com/</li>
+<li>https://hackernoon.com/google-interview-questions-deconstructed-the-knights-dialer-f780d516f029</li>
+</ul>
+<h6 id="learning-labs">Learning Labs</h6>
 <ul>
 <li>https://linuxacademy.com/</li>
 <li>https://www.katacoda.com/</li>
 </ul>
-<h3 id="software-engineering-courses">Software Engineering Courses</h3>
+<h3 id="oss">OSS</h3>
 <ul>
-<li>Algos: MIT, Princeton</li>
-<li>Data Structures: Stanford CS106X</li>
-<li>Computer Organization &amp; Systems: Standford CS107</li>
-<li>Google Interview: https://hackernoon.com/google-interview-questions-deconstructed-the-knights-dialer-f780d516f029</li>
+<li>Datacase: dbeaver</li>
+<li>Terminal Emulator:<ul>
+<li>Mac: iTerm2</li>
+<li>Linux: Konsole</li>
+<li>Windows: MobaXterm</li>
 </ul>
-<h3 id="data-engineering-courses">Data Engineering Courses</h3>
-<ul>
-<li>Machine Learning - https://www.coursera.org/learn/machine-learning</li>
-<li>Linear Algebra - Deeplearning.ai, fast.ai</li>
-<li>Khan Academy - statistics (inference &amp; probability), linear algebra, calculus 1,2,3</li>
-<li>Tensorflow Docs - https://www.tensorflow.org/learn</li>
-<li>Tensorflow - AI, Deep Learning, Neural Netowrks, Natural Language Processing, Time Series https://www.coursera.org/specializations/tensorflow-in-practice</li>
-<li>PySpark - https://www.edx.org/course/big-data-analytics-using-spark</li>
+</li>
+<li>Source Code Editors:<ul>
+<li>Python/Golang: VSCode</li>
+<li>Java: IntelliJ IDEA</li>
+<li>Kubernetes: Lens</li>
 </ul>
-<h3 id="devops-engineering-courses">DevOps Engineering Courses</h3>
-<ul>
-<li>Azure: https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/</li>
-<li>K8s: https://azure.microsoft.com/mediahandler/files/resourcefiles/kubernetes-learning-path/Kubernetes%20Learning%20Path_Version%202.0.pdf</li>
-<li>Terraform - https://learn.hashicorp.com/terraform/azure/intro_az</li>
-</ul></div>
+</li>
+</ul>
+              
             </div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../js/base.js" defer></script>
-        <script src="../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../wiki/" class="btn btn-neutral float-right" title="Wiki">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../design/" class="btn btn-neutral" title="Design"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
         </div>
-    </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../design/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../wiki/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
-    </body>
+</body>
 </html>
