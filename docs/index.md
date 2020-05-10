@@ -6,6 +6,8 @@
 ---
 ## Blacksmith Shop (Service)
 - Sign your work
+    - a professional pride of ownership - "I stand behind my work"
+    - an indicator of quality, people should see the signature and expect the work to be solid, well written, tested, and documented
 
 1. present the end story - visuals/graphs/charts - for managers/clients
     - what they want/are excited to see
@@ -26,3 +28,17 @@ What does it take to be a top performer? - KPIs/Metrics
 
 ---
 ## Guild System (Career)
+
+### Aprentice
+- Bachelor's Degree
+- Learn one new language and technology every year
+- Read a technical book a quarter
+
+### Journeyman
+- Master's Degree
+- Open-Source Software
+- Participate in local user groups
+- Experiment with different environments
+- Stay current (industry leaders, blogs, journals, trade magazines, newsgroups)
+
+### Master

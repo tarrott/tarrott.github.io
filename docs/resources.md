@@ -10,12 +10,13 @@ The Pragmatic Programmer               | Andrew Hunt & David Thomas | Career
 Soft Skills                            | John Sonmez                | Career
 Cracking the Code Interview            | Laakman McDowell           | Career
 The Linux Command Lines                | William E. Shotts Jr.      | Linux
+Designing Data-Intensive Apps...       | Martin Kleppmann           | Architecture
+Analysis Patterns                      | Martin Fowler              | Architecture
+Patterns of Enterprise App Architeture | Martin Fowler              | Architecture
 Designing Distributed Systems          | Brenden Burns              | Architecture
 Kubernetes Up and Running              | Brenden Burns              | Architecture
 Managing Kubernetes                    | Brenden Burns              | Architecture
 Kubernetes Best Practices              | Brenden Burns              | Architecture
-Designing Data-Intensive Apps...       | Martin Kleppmann           | Architecture
-Patterns of Enterprise App Architeture | Martin Fowler              | Architecture
 Algorithms to Live By                  | Christian & Griffiths      | Software Engineering
 Clean Code                             | Robert Cecil Martin        | Software Engineering
 Growing Object Oriented Software...    | Steve Freeman & Nat Pryce  | Software Engineering
@@ -23,9 +24,10 @@ Code Complete, Second Edition          | Steve McConnell            | Software E
 Refactoring                            | Kent Beck & Martin Fowler  | Software Engineering
 Design Patterns                        | Gang of Four               | Software Engineering
 Head First Design Patterns             | E. Freeman & K. Sierra     | Software Engineering
-Analysis Patterns                      | Martin Fowler              | Software Engineering
 Operating Systems: Three Easy Pieces   | A. & R. Arpaci-Dusseau     | Software Engineering
 Working Effectively with Legacy Code   | Michael Feathers           | Software Engineering
+The Mythical Man Month                 |                            | Software Engineering
+UML Distilled                          | Martin Fowler              | Software Engineering
 The Data Engineering Cookbook          | Andreas Kretz              | Data Engineering
 Python for Data Analysis               | Wes Mckinney               | Data Engineering
 Python for Finance                     | Yves Hilpisch              | Data Engineering
@@ -152,6 +154,9 @@ The Design Of Everyday Things          | Dom Norman                 | Design
 - Darknet Diaries
 - Coding Blocks .NET
 
+### Professional Societies
+- Association for Computing Machinery (ACM)
+- IEEE Computer Society
 
 ### Websites
 
