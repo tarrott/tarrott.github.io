@@ -160,6 +160,20 @@
 <p>System design</p>
 <hr />
 <h2 id="orthagonal-architecture">Orthagonal Architecture</h2>
+<ul>
+<li>decoupling (you can change the UI or database without affecting the other)<ul>
+<li>two different user interfaces should be able to be supported by the same underlying code base</li>
+</ul>
+</li>
+<li>design components that are self-contained, independent, and with a single, well-defined purpose<ul>
+<li>when components are isolated then one can change wihtout affecting the others</li>
+<li>allow components to communicate based on external interfaces that are consistent</li>
+</ul>
+</li>
+<li>module design - if one module is comprimised it will not affect the others</li>
+<li>temporal decoupling - allow for concurrency to reduce time-based dependencies of a system</li>
+<li>gain in productivity and reduces risk</li>
+</ul>
 <hr />
 <h2 id="iterative-design">Iterative Design</h2>
 <hr />
@@ -207,6 +221,9 @@
 <hr />
 <h2 id="message-queues">Message Queues</h2>
 <h2 id="publisher-subscriber">Publisher / Subscriber</h2>
+<ul>
+<li>allow for filtering of events so that components can subscribe to only the events they need</li>
+</ul>
 <hr />
 <h2 id="database-sharding">Database Sharding</h2>
 <hr />

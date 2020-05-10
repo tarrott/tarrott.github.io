@@ -171,6 +171,18 @@
                 <h1 id="algorithms">Algorithms</h1>
 <ul>
 <li>algorithm categories</li>
+<li>how long does the algorithm run with 1,000 records and does it scale to 1 million?</li>
+<li>common sense estimation<ul>
+<li>O(n): simple loops (1 to n)</li>
+<li>O(n^2): nested loops</li>
+<li>O(lg(n)): binary chop (halves the set it considers each time it starts the loop)</li>
+<li>O(nlg(n)): divide and conquer (partition input, work on partitions separetly, and then combine results)<ul>
+<li>degrades to O(n^2) when fed sorted imput</li>
+</ul>
+</li>
+<li>O(2^n): combinatoric (permutations)</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h2 id="sorting">Sorting</h2>

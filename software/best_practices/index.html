@@ -81,11 +81,27 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Best Practices</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#12-factor-app">12 Factor App</a>
+    <li class="toctree-l2"><a class="reference internal" href="#manage-growth-of-requirements">Manage Growth of Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tracer-bullets">Tracer Bullets</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#temporal-coupling">Temporal Coupling</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dynamic-configuration">Dynamic Configuration</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#unit-tests">Unit Tests</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#test-harness">Test Harness</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#integration-tests">Integration Tests</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#end-to-end-tests">End-to-end tests</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#performance-testings">Performance testings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#usability-testing">Usability testing</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#tdd">TDD</a>
     </li>
@@ -93,15 +109,33 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#ddd">DDD</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-in-production">Testing in Production</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-tests">Testing Tests</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#refactoring">Refactoring</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#dry-code">DRY Code</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#source-control-management">Source Control Management</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#documentation-comments">Documentation &amp; Comments</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#api-naming-conventions">API Naming Conventions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#code-generators">Code Generators</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#passive">Passive</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#active">Active</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#estimating">Estimating</a>
     </li>
     </ul>
                     </li>
@@ -185,21 +219,179 @@
             <div class="section">
               
                 <h1 id="best-practices">Best Practices</h1>
-<h2 id="12-factor-app">12 Factor App</h2>
+<hr />
+<h2 id="manage-growth-of-requirements">Manage Growth of Requirements</h2>
+<ul>
+<li>track scope creep</li>
+<li>communicate expectations continiously</li>
+<li>maintain a project glossary that defines all terms and how they are used in the project</li>
+<li>go the extra mile and deliver quality of life features</li>
+</ul>
+<hr />
+<h2 id="tracer-bullets">Tracer Bullets</h2>
+<ul>
+<li>prototype with a real and simplified version of the project</li>
+<li>it will contain all of the structure, error checking, documentation, and self-checking that production code has, it will not be fully-functional however</li>
+<li>once an end-to-end connection among components of the system is achieved, testing with users can begin</li>
+<li>adding additional functionality afterwards becomes straightforward</li>
+</ul>
+<hr />
+<h2 id="temporal-coupling">Temporal Coupling</h2>
+<ul>
+<li>allow for concurrency of tasks not dependent on each other</li>
+<li>reduces time-based dependency and increase flexibility</li>
+</ul>
+<hr />
+<h2 id="dynamic-configuration">Dynamic Configuration</h2>
+<ul>
+<li>allow for the system to be highly configurable with metadata<ul>
+<li>from screen colors and prompt text to algorithms, database and UI style</li>
+</ul>
+</li>
+</ul>
 <hr />
 <h2 id="testing">Testing</h2>
 <h3 id="unit-tests">Unit Tests</h3>
+<ul>
+<li>shows examples of how to use all the functionality of a module</li>
+<li>provides a means to build regressions tests to validate further changes to the code</li>
+<li>test subcomponents of a module first before testing the entire module</li>
+<li>use test coverage<ul>
+<li>most importantly test every state of the program rather than every line of code</li>
+<li>x / (0 to 999) only has two states - testing 0 will cause an error while all 999 other tests will not</li>
+</ul>
+</li>
+</ul>
+<h3 id="test-harness">Test Harness</h3>
+<ul>
+<li>standard way to specify setup and cleanup</li>
+<li>method for selecting indivdual tests or all available tests</li>
+<li>means of analyzing output for expected or unexpected results</li>
+<li>standardized form of failure reporting and logging status</li>
+<li>xUnit (Kent Beck &amp; Erich Gamma)</li>
+</ul>
+<h3 id="integration-tests">Integration Tests</h3>
+<ul>
+<li>shows that major subsystems sthat make up the project work with each other</li>
+</ul>
+<h3 id="end-to-end-tests">End-to-end tests</h3>
+<ul>
+<li>does it meet the functional requirements of the system</li>
+</ul>
+<h3 id="performance-testings">Performance testings</h3>
+<ul>
+<li>stress test with real-world conditions (number of users/connections/transactions per second)</li>
+<li>how well does it scale?</li>
+<li>test resource exhaustion, errors, and recovery</li>
+</ul>
+<h3 id="usability-testing">Usability testing</h3>
+<ul>
+<li>sit down with the end user who will use the system to understand their tasks/goals that the system is trying to help them accomplish</li>
+<li>record requirements, use cases and scenarios</li>
+<li>Alistair Cockburn template:<ul>
+<li>characteristic information (goal, scope, level, preconditions, success/failed end condition, primary actor, trigger)</li>
+<li>main success scenario</li>
+<li>extensions</li>
+<li>variations</li>
+<li>related information (priority, performance target, frequency, superordinate/subordinate use cases, channel to primary actor, secondary actors)</li>
+<li>schedule</li>
+<li>open issues</li>
+</ul>
+</li>
+</ul>
 <h3 id="tdd">TDD</h3>
 <h3 id="bdd">BDD</h3>
 <h3 id="ddd">DDD</h3>
+<h3 id="testing-in-production">Testing in Production</h3>
+<ul>
+<li>the final release is sometimes compiled/configured differently from earlier versions and should be tested all over again</li>
+</ul>
+<h3 id="testing-tests">Testing Tests</h3>
+<ul>
+<li>introduce bugs and ensure that the tests complain about them</li>
+<li>catch bugs once and then add them into the tests, do not let them reappear uncaught</li>
+</ul>
 <hr />
 <h2 id="refactoring">Refactoring</h2>
+<ol>
+<li>don't refactor and add functionality simultaneously</li>
+<li>ensure that good tests are present and run them as often as possible</li>
+<li>take short, deliberate steps and test after each change</li>
+</ol>
+<h3 id="dry-code">DRY Code</h3>
 <hr />
 <h2 id="source-control-management">Source Control Management</h2>
 <hr />
 <h2 id="documentation-comments">Documentation &amp; Comments</h2>
+<ul>
+<li>comments should discuss <em>why</em> something is done, the code already shows <em>how</em></li>
+<li>documentation is another view of the same underlying model<ul>
+<li>incorporate it into the development process, don't let it become an afterthought</li>
+</ul>
+</li>
+<li>automate html documentation using code generators</li>
+</ul>
 <hr />
 <h2 id="api-naming-conventions">API Naming Conventions</h2>
+<hr />
+<h2 id="code-generators">Code Generators</h2>
+<h4 id="passive">Passive</h4>
+<ul>
+<li>templates for creating new source files</li>
+<li>performing one-off conversions from one language to another</li>
+<li>producing lookup tables and other resources that are expensive to compute at runtime</li>
+</ul>
+<h4 id="active">Active</h4>
+<ul>
+<li>adhearing to the DRY principle</li>
+<li>allows for a single model to produce multiple views</li>
+<li>getting two disparate environments to work together can benefit greatly from an active code generator</li>
+<li>e.g. a schema ran through a code generator to produce both the software code and documentation in html</li>
+</ul>
+<hr />
+<h2 id="estimating">Estimating</h2>
+<ul>
+<li>check requirements</li>
+<li>analyze risk</li>
+<li>design, implement, integrate</li>
+<li>validate with users</li>
+<li>
+<p>iterate</p>
+</li>
+<li>
+<p>understand what is being asked</p>
+<ul>
+<li>understand the scope (assuming these conditions, then...)</li>
+<li>ask someone else who has done something similar before</li>
+<li>come back with an answer after making calculations</li>
+</ul>
+</li>
+<li>estimate based on a simplified model of the problem<ul>
+<li>the simplified model will inevitably introduce inaccuracies</li>
+<li>doubling the effort on refining the model might only give a slight increase to accuracy however</li>
+</ul>
+</li>
+<li>break the model into components<ul>
+<li>identify their parameters that affect how the component contributes to the overall model</li>
+</ul>
+</li>
+<li>assign values to the parameters<ul>
+<li>work out which ones have the most impact on the result and concentrate on getting those right</li>
+</ul>
+</li>
+<li>calculate the answers multiple times with varying parameter values<ul>
+<li>hedge the final answer based on conditions</li>
+</ul>
+</li>
+<li>the units used make a difference in the interpretation of the result<ul>
+<li>1-15 days: days</li>
+<li>3-8 weeks: weeks</li>
+<li>8-30 weeks: months</li>
+<li>30+ weeks: think hard before delivering an estimate</li>
+</ul>
+</li>
+<li>go back and evaluate the estimate with the reality</li>
+</ul>
               
             </div>
           </div>
