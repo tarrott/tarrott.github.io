@@ -1,17 +1,41 @@
 # Security
+- secure access to services and infrastructure resources
+    - network access controls
+    - identity and access privileges
+- encrypt in transit and stored data
+- monitor & alert:
+    - user activity
+    - network traffic
+    - cloud & network configuration
+    - in all environments
+- identify vulnerabilities in:
+    - application code (static code analysis)
+    - build artifacts
+    - VM & Container images
+    - operating systems
+    - cloud & networking configuration
 
 ### RSA & GPG
 - `ssh-keygen -t rsa -C user@email`
     - user in comment should match the user to login to remote system
 
 ---
+## Server Security Best Practices
+- keep instances up to date and patched
+- enforce hardening
+- add vulnerability monitoring
+- implement monitoring and alerting tools
+
+
+---
 ## Securing a Web Server
 [SSL Test](https://www.ssllabs.com/ssltest/analyze.html)
 
 ### Debian
+- fail2ban
 
 #### Firewall
-
+- ufw
 
 ---
 ## Secrets
@@ -56,6 +80,16 @@
 
 ###### Delete secrets
 `vault kv delete secret/hello`
+
+
+---
+## Network Traffic
+
+### Ingress
+- can be controlled and restricted using network ACLs, security groups, which are both effective firewalls, routing rules, and host based endpoint security tools which oftentimes contain firewall capabilities.
+
+### Egress
+- handled using internet gateways and nat gateways. As with ingress traffic, egress traffic should also be controlled and restricted for a number of reasons.
 
 ---
 

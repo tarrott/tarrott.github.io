@@ -93,6 +93,7 @@ class MyClass:
         :param name : The name of the class
         :return: The new value of :attr:`name`.
         """
+```
 ---
 ## Package Management
 
@@ -101,3 +102,21 @@ class MyClass:
 - pip install requirements.txt
 
 ### pipenv
+
+---
+## Common Errors
+- RescursionError = stack overflow
+
+
+---
+## Sets
+```
+light_bulbs = set()
+
+light_bulbs.add('incandescent')
+light_bulbs.add('compact fluorescent')
+light_bulbs.add('LED')
+
+'LED' in light_bulbs  # True
+'halogen' in light_bulbs  # False
+```

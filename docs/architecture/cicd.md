@@ -3,6 +3,16 @@
 ---
 ## Build
 
+### Immutable Instances - Image Pipeline
+1. Base OS image
+2. Security hardening, patching, agents -> Hardened image
+3. Application configuration -> Application Image
+4. Security Scanning -> Released image
+5. No changes performed on instances of the image prior to launching them in environments
+6. Any further changes require building a new image and restarting the pipeline from step 1
+
+- If immutable is not an option in the environment, then use a configuration management tool (Ansible) to track changes to the environment in a source version control repository
+
 ### Jenkins
 
 ---

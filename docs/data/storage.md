@@ -3,7 +3,20 @@
 ## Relational Databases
 
 #### PostgreSQL
-
+Command	| Action
+------- | -----------------
+\l      | List available databases
+\c      | dbname	Connect to a new database
+\dt     | List available tables
+\d      | tablename	Describe the details of given table
+\dn     | List all schemas in the current database
+\df     | List functions in the current database
+\h      | Get help on syntax of SQL commands
+\?      | Lists all psql slash commands
+\set    | System variables list
+\timing | Shows how long a query took to execute
+\x      | Show expanded query results
+\q      | Quit psql
 
 #### MySQL
 

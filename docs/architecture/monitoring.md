@@ -20,6 +20,19 @@ The 3 pillars of Observability:
 - system
 - platform
 
+### Server Metrics
+- CPU Utilization
+- Memory Utilization
+- Network Utilization
+- Disk Performance and Read/Writes
+- Disk Space
+
+### Optimization Game Plan
+1. Run performance tests
+2. Capture and analyze metrics
+3. Select the optimal instance
+4. Monitor for outliers to make sure the optimal instance continues to be optimal
+
 ### Grafana
 
 ---

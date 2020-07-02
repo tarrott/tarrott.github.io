@@ -10,14 +10,33 @@
     - O(2^n): combinatoric (permutations)
 
 ---
+## Patterns
+1. Brute Force
+    - enumerate all possible solutions, and check them for correctness
+2. Greedy
+    - Keep track of the base answer so far, in one pass through the input
+3. Hash Table
+    - Spend space to save time by using a hash map or sometimes just an array
 
+---
 ## Sorting
 
 ---
-
 ## Recursion
+- even if the algorithm does not create any data structures, the call stack will generate O(n) space complexity
+
+---
+## Dynamic Programming
 
 
 ---
+## Graph
 
-## Dynamic Programming
+### BFS
+- queue
+- will find shortest path
+- usually takes more memory than DFS
+
+### DFS
+- stack
+- can easily be implemented with recursion

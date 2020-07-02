@@ -2,12 +2,11 @@
 
 
 ---
-
 ## Books
 Name                                   | Author                     | Field
 --------------------------             | -----------------          | -------------
-The Pragmatic Programmer               | Andrew Hunt & David Thomas | Career
-Soft Skills                            | John Sonmez                | Career
+~The Pragmatic Programmer               | Andrew Hunt & David Thomas | Career
+~Soft Skills                            | John Sonmez                | Career
 Cracking the Code Interview            | Laakman McDowell           | Career
 The Linux Command Lines                | William E. Shotts Jr.      | Linux
 Designing Data-Intensive Apps...       | Martin Kleppmann           | Architecture
@@ -35,13 +34,12 @@ Deep Learning                          | Courville et. all          | Data Engin
 The Design Of Everyday Things          | Dom Norman                 | Design
 
 ---
-
 ## University MOOCS
 #### Data Structures & Algorithms
 - **Stanford** [CS106X Data Structures](http://web.stanford.edu/class/archive/cs/cs106x/cs106x.1182/lectures.shtml)
 - **Princeton** [Algorithms Part 1](https://www.coursera.org/learn/algorithms-part1)
 - **Princeton** [Algorithms Part 2](https://www.coursera.org/learn/algorithms-part2)
-- **MIT** [Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/)
+- ~**MIT** [Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/)
 - **MIT** [Advanced Data Structures](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/)
 - **U Alberta** [Design Patterns](https://www.coursera.org/learn/design-patterns)
 
@@ -62,9 +60,10 @@ The Design Of Everyday Things          | Dom Norman                 | Design
 - **Stanford** [CS143 Computer Organization & Systems](https://see.stanford.edu/Course/CS107)
 - **U Jerusalem** [Nand to Tetris, Part 1](https://www.coursera.org/learn/build-a-computer)
 - **U Jerusalem** [Nand to Tetris, Part 2](https://www.coursera.org/learn/nand2tetris2)
+- **U Wisconsin-Madison** [Operating Systems: Three Easy Pieces Course](http://pages.cs.wisc.edu/~remzi/OSTEP/)
 
 #### Data Engineering Courses
-- **Stanford** [Databases](https://online.stanford.edu/courses/soe-ydatabases-databases)
+- ~**Stanford** [Databases](https://online.stanford.edu/courses/soe-ydatabases-databases)
 - **Stanford** [Machine Learning](https://www.coursera.org/learn/machine-learning)
 - **Georgia Tech** [Machine Learning for Trading](https://www.udacity.com/course/machine-learning-for-trading--ud501)
 - **U San Francisco** [Computational Linear Algebra](https://www.fast.ai/2017/07/17/num-lin-alg/)
@@ -74,12 +73,13 @@ The Design Of Everyday Things          | Dom Norman                 | Design
 - **U Virginia** [CICD DevOps](https://www.coursera.org/learn/uva-darden-continous-delivery-devops)
 
 ---
-
 ## Unafilliated MOOCS
-- **Educative** [Grokking the System Design Interview](https://www.educative.io/courses/grokking-the-system-design-interview)
-- **Gaurav Sen** [System Design](https://www.youtube.com/playlist?list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX)
-- **Udacity** [CloudOps Engineer](https://www.udacity.com/course/cloud-dev-ops-nanodegree--nd9991)
-- **Bret Fisher**: Docker & Kubernetes
+- **Design Gurus** [Grokking the System Design Interview](https://www.educative.io/courses/grokking-the-system-design-interview)
+- ~**Gaurav Sen** [System Design](https://www.youtube.com/playlist?list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX)
+- ~**Shivang Sarawagi** [Web Application & Software Architecture](https://www.educative.io/courses/web-application-software-architecture-101)
+- ~**Udacity** [AWS Cloud Architect](https://www.udacity.com/course/aws-cloud-architect-nanodegree--nd063)
+- ~**A Cloud Guru** [AWS Certified Solutions Architect Associate 2020](https://acloud.guru/learn/aws-certified-solutions-architect-associate)
+- ~**Bret Fisher**: Docker & Kubernetes
 - **Jose Portilla**
     - Data Strucutres & Algorithms in Python
     - Data Analysis & Machine Learning
@@ -88,17 +88,16 @@ The Design Of Everyday Things          | Dom Norman                 | Design
     - Linear Algebra
     - Calculus 1,2, & 3
 - **Deeplearning.ai**: [Tensorflow](https://www.coursera.org/specializations/tensorflow-in-practice)
-- [Operating Systems: Three Easy Pieces Course](http://pages.cs.wisc.edu/~remzi/OSTEP/)
+- []
 
 ---
-
 ## Online Tutorials
 - [Tensorflow Docs](https://www.tensorflow.org/learn)
 - [Spark Tutorials, Data Bricks](https://databricks.com/spark/getting-started-with-apache-spark)
 - [PySpark](https://www.edx.org/course/big-data-analytics-using-spark
 - [Azure](https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/)
 - [K8s](https://azure.microsoft.com/mediahandler/files/resourcefiles/kubernetes-learning-path/)Kubernetes%20Learning%20Path_Version%202.0.pdf
-- [Terraform - [https://learn.hashicorp.com/terraform/azure/intro_az
+- [Terraform](https://learn.hashicorp.com/terraform/azure/intro_az)
 - [Backtrader Tutorials](https://backtest-rookies.com/getting-started/#bt)
     - [GitHub](https://github.com/mementum/backtrader)
     - [Hello World](https://www.backtrader.com/home/helloalgotrading/)
@@ -141,7 +140,6 @@ The Design Of Everyday Things          | Dom Norman                 | Design
 - [Quantum Computer Programming](https://pythonprogramming.net/quantum-computer-programming-tutorial/)
 
 ---
-
 ## Other Media
 
 ### Podcasts
@@ -159,6 +157,7 @@ The Design Of Everyday Things          | Dom Norman                 | Design
 - IEEE Computer Society
 
 ### Websites
+- https://github.com/kahun/awesome-sysadmin
 
 ###### Architecture & Engineering
 - https://12factor.net/
@@ -172,7 +171,7 @@ The Design Of Everyday Things          | Dom Norman                 | Design
 ###### Technical Interview
 - https://leetcode.com/
 - https://www.hackerrank.com/ (SQL)
-- https://www.interviewcake.com/
+- ~[Interview Cake](https://www.interviewcake.com/)
 - https://hackernoon.com/google-interview-questions-deconstructed-the-knights-dialer-f780d516f029
 
 ###### Learning Labs
@@ -181,7 +180,7 @@ The Design Of Everyday Things          | Dom Norman                 | Design
 
 
 ### OSS
-- Datacase: dbeaver
+- Database: dbeaver
 - Terminal Emulator:
     - Mac: iTerm2
     - Linux: Konsole

@@ -73,6 +73,11 @@ end
 
 ### Docker Compose
 
+### Binding the Docker Socket
+Running docker commands from inside a container
+
+- Linux: `-v /var/run/docker.sock:/var/run/docker.sock`
+- Windows: `-v //var/run/docker.sock:/var/run/docker.sock`
 
 ---
 
@@ -131,6 +136,7 @@ end
 - Watch pods: `kubectl get pods -w`
 - `kubectl get pods --all-namespaces`
 - `kubectl get service`
+- `kubectl get nodes`
 - `kubectl get all`
 - Docs: `kubectl explain services --recursive`
     - Filter: `kubectl explain services.spec`
