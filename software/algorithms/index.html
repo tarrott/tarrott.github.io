@@ -77,11 +77,21 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Algorithms</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#patterns">Patterns</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#sorting">Sorting</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#recursion">Recursion</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#dynamic-programming">Dynamic Programming</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#graph">Graph</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bfs">BFS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dfs">DFS</a>
+    </li>
+        </ul>
     </li>
     </ul>
                     </li>
@@ -185,11 +195,43 @@
 </li>
 </ul>
 <hr />
+<h2 id="patterns">Patterns</h2>
+<ol>
+<li>Brute Force<ul>
+<li>enumerate all possible solutions, and check them for correctness</li>
+</ul>
+</li>
+<li>Greedy<ul>
+<li>Keep track of the base answer so far, in one pass through the input</li>
+</ul>
+</li>
+<li>Hash Table<ul>
+<li>Spend space to save time by using a hash map or sometimes just an array</li>
+</ul>
+</li>
+</ol>
+<hr />
 <h2 id="sorting">Sorting</h2>
 <hr />
 <h2 id="recursion">Recursion</h2>
+<ul>
+<li>even if the algorithm does not create any data structures, the call stack will generate O(n) space complexity</li>
+</ul>
 <hr />
 <h2 id="dynamic-programming">Dynamic Programming</h2>
+<hr />
+<h2 id="graph">Graph</h2>
+<h3 id="bfs">BFS</h3>
+<ul>
+<li>queue</li>
+<li>will find shortest path</li>
+<li>usually takes more memory than DFS</li>
+</ul>
+<h3 id="dfs">DFS</h3>
+<ul>
+<li>stack</li>
+<li>can easily be implemented with recursion</li>
+</ul>
               
             </div>
           </div>

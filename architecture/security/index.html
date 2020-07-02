@@ -64,6 +64,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#rsa-gpg">RSA &amp; GPG</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#server-security-best-practices">Server Security Best Practices</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#securing-a-web-server">Securing a Web Server</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#debian">Debian</a>
@@ -87,6 +89,14 @@
     <li class="toctree-l4"><a class="reference internal" href="#delete-secrets">Delete secrets</a>
     </li>
         </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#network-traffic">Network Traffic</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ingress">Ingress</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#egress">Egress</a>
     </li>
         </ul>
     </li>
@@ -193,6 +203,29 @@
             <div class="section">
               
                 <h1 id="security">Security</h1>
+<ul>
+<li>secure access to services and infrastructure resources<ul>
+<li>network access controls</li>
+<li>identity and access privileges</li>
+</ul>
+</li>
+<li>encrypt in transit and stored data</li>
+<li>monitor &amp; alert:<ul>
+<li>user activity</li>
+<li>network traffic</li>
+<li>cloud &amp; network configuration</li>
+<li>in all environments</li>
+</ul>
+</li>
+<li>identify vulnerabilities in:<ul>
+<li>application code (static code analysis)</li>
+<li>build artifacts</li>
+<li>VM &amp; Container images</li>
+<li>operating systems</li>
+<li>cloud &amp; networking configuration</li>
+</ul>
+</li>
+</ul>
 <h3 id="rsa-gpg">RSA &amp; GPG</h3>
 <ul>
 <li><code>ssh-keygen -t rsa -C user@email</code><ul>
@@ -201,10 +234,24 @@
 </li>
 </ul>
 <hr />
+<h2 id="server-security-best-practices">Server Security Best Practices</h2>
+<ul>
+<li>keep instances up to date and patched</li>
+<li>enforce hardening</li>
+<li>add vulnerability monitoring</li>
+<li>implement monitoring and alerting tools</li>
+</ul>
+<hr />
 <h2 id="securing-a-web-server">Securing a Web Server</h2>
 <p><a href="https://www.ssllabs.com/ssltest/analyze.html">SSL Test</a></p>
 <h3 id="debian">Debian</h3>
+<ul>
+<li>fail2ban</li>
+</ul>
 <h4 id="firewall">Firewall</h4>
+<ul>
+<li>ufw</li>
+</ul>
 <hr />
 <h2 id="secrets">Secrets</h2>
 <ul>
@@ -268,6 +315,16 @@
 </ul>
 <h6 id="delete-secrets">Delete secrets</h6>
 <p><code>vault kv delete secret/hello</code></p>
+<hr />
+<h2 id="network-traffic">Network Traffic</h2>
+<h3 id="ingress">Ingress</h3>
+<ul>
+<li>can be controlled and restricted using network ACLs, security groups, which are both effective firewalls, routing rules, and host based endpoint security tools which oftentimes contain firewall capabilities.</li>
+</ul>
+<h3 id="egress">Egress</h3>
+<ul>
+<li>handled using internet gateways and nat gateways. As with ingress traffic, egress traffic should also be controlled and restricted for a number of reasons.</li>
+</ul>
 <hr />
 <h2 id="kali-linux">Kali Linux</h2>
               

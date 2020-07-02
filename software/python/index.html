@@ -127,6 +127,10 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#common-errors">Common Errors</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sets">Sets</a>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../guis/">GUIs</a>
@@ -290,26 +294,28 @@
 <li>clean old builds: <code>make clean html</code></li>
 </ol>
 <p>Tip: Use reStructured Text in Docstrings to automatically generate documentation:
-module Docstring:
-```
-"""
+module Docstring:</p>
+<pre><code>&quot;&quot;&quot;
     module.py
-    ---------</p>
-<pre><code>This module contains a module-level docstring
-</code></pre>
-<p>"""</p>
-<p>class MyClass:
-    """
-    The MyClass class represents a generic class. Link to the :meth:<code>run</code> method.
-    """</p>
-<pre><code>def run(self, name):
-    """
-    Runs the class with the name of :attr:`name`.
+    ---------
 
-    :param name : The name of the class
-    :return: The new value of :attr:`name`.
-    """
+    This module contains a module-level docstring
+&quot;&quot;&quot;
+
+class MyClass:
+    &quot;&quot;&quot;
+    The MyClass class represents a generic class. Link to the :meth:`run` method.
+    &quot;&quot;&quot;
+
+    def run(self, name):
+        &quot;&quot;&quot;
+        Runs the class with the name of :attr:`name`.
+
+        :param name : The name of the class
+        :return: The new value of :attr:`name`.
+        &quot;&quot;&quot;
 </code></pre>
+
 <hr />
 <h2 id="package-management">Package Management</h2>
 <h3 id="pip">pip</h3>
@@ -318,6 +324,22 @@ module Docstring:
 <li>pip install requirements.txt</li>
 </ul>
 <h3 id="pipenv">pipenv</h3>
+<hr />
+<h2 id="common-errors">Common Errors</h2>
+<ul>
+<li>RescursionError = stack overflow</li>
+</ul>
+<hr />
+<h2 id="sets">Sets</h2>
+<pre><code>light_bulbs = set()
+
+light_bulbs.add('incandescent')
+light_bulbs.add('compact fluorescent')
+light_bulbs.add('LED')
+
+'LED' in light_bulbs  # True
+'halogen' in light_bulbs  # False
+</code></pre>
               
             </div>
           </div>

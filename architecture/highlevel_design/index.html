@@ -206,28 +206,205 @@
     -</li>
 </ol>
 <hr />
+<h2 id="tiers-vs-layers">Tiers vs. Layers</h2>
+<ul>
+<li>tiers involve physical separation of components in a system (UI, backend server, database, cache, message queues, load balancers, search, data processing, shared services)</li>
+<li>layers of an application represent the organization of the code (user interface, business logic, service, or data access layer)</li>
+</ul>
+<hr />
 <h2 id="distributed-systems">Distributed Systems</h2>
 <hr />
-<h2 id="scaling">Scaling</h2>
+<h2 id="scalability">Scalability</h2>
+<ul>
+<li>the ability of an application to handle &amp; withstand increased workload without sacrificing latency</li>
+<li>if the app takes x seconds to respond to a user reqiest, it should take the same x seconds to respond to each of the million concurrent user requests on the app</li>
+</ul>
 <h4 id="vertical">Vertical</h4>
+<ul>
+<li>adding more compute power</li>
+<li>does not require code refactoring</li>
+</ul>
 <h4 id="horizontal">Horizontal</h4>
+<ul>
+<li>adding more nodes/hardware to existing hardware resource pool</li>
+<li>requires code refactoring to utilize distributed resources</li>
+<li>higher availability</li>
+</ul>
 <hr />
 <h4 id="monolith">Monolith</h4>
+<ul>
+<li>Simpler to build, test and deploy</li>
+<li>Weaknesses:<ul>
+<li>small code changes require an entire redeployment of the application</li>
+<li>requires thorough regression testing</li>
+<li>introduces single points of failure</li>
+<li>flexibility and scalability are harder to achieve</li>
+<li>limits the use of the application using heterogenous technologies</li>
+<li>tend to be stateful and therefore making it more difficult to be cloud-native and distributed</li>
+</ul>
+</li>
+</ul>
 <h4 id="microservice">Microservice</h4>
+<ul>
+<li>Fault isolation</li>
+<li>Easier management</li>
+<li>Easier development</li>
+<li>Ease of adding new features</li>
+<li>Ease of maintenance</li>
+<li>High availability</li>
+<li>Separated responsiblity/concerns (separate teams gain increased productivity and complete ownership)</li>
+<li>Weaknesses:<ul>
+<li>greatly increased complexity in management and monitoring of the system (distributed logging, networking, service discovery, CICD, alerts, tracing, health checks, etc.)</li>
+<li>requires more components or code to manage and utilize the distributed nodes</li>
+<li>requires more human resources to manage the more complex system</li>
+<li>storing consistency is hard to guarentee in a distributed environment (leans on eventual consistency)</li>
+</ul>
+</li>
+</ul>
 <hr />
 <h2 id="load-balancing">Load Balancing</h2>
 <hr />
-<h2 id="consistent-hashing">Consistent Hashing</h2>
+<h2 id="caching">Caching</h2>
+<ul>
+<li>reduces latency, stores data in memory instead of accessing disk - O(1) fetches</li>
+<li>avoids over computing and rerunning joins in SQL which greatly reduces latency</li>
+<li>can continue to serve data requests even when the database server goes down</li>
+<li>can be implanted at any application later - OS, network, CDN, database, client-side, cross-module communication between services in a microservice architecture</li>
+</ul>
+<h3 id="distributed-caching">Distributed Caching</h3>
+<hr />
+<h2 id="data-storage">Data Storage</h2>
+<ul>
+<li>use read-only replica databases to reduce read traffic and as a source for business/financial applications (can be promoted for disaster recovery)</li>
+</ul>
+<h3 id="data-partitioning">Data Partitioning</h3>
+<h3 id="database-sharding">Database Sharding</h3>
+<h3 id="indexes">Indexes</h3>
+<h3 id="proxies">Proxies</h3>
+<h3 id="redundancy-and-replication">Redundancy and Replication</h3>
+<h3 id="sql-vs-nosql">SQL vs. NoSQL</h3>
+<ul>
+<li>RDBs:<ul>
+<li>strong consistency</li>
+<li>ACID transactions</li>
+<li>great for handling relationships</li>
+<li>scalable with caching (especially read-heavy applications)</li>
+</ul>
+</li>
+<li>NoSQL<ul>
+<li>eventual consistency</li>
+<li>horizontal scalability</li>
+<li>great for read/write-heavy applications with little relationships</li>
+</ul>
+</li>
+</ul>
+<h3 id="cap-theorem">CAP Theorem</h3>
+<h3 id="consistent-hashing">Consistent Hashing</h3>
 <hr />
 <h2 id="message-queues">Message Queues</h2>
-<h2 id="publisher-subscriber">Publisher / Subscriber</h2>
 <ul>
+<li>Allows for communication in an environment with heterogeneous technology</li>
+<li>Enables asynchronous behavior in a service to run background processes, tasks, and batch jobs</li>
+<li>Cross-module communication in a microservice architecture</li>
+<li>Exchanges handle message queue logic<ul>
+<li>use binding to deliver messages to queues</li>
+</ul>
+</li>
+</ul>
+<h3 id="publisher-subscriber-model">Publisher / Subscriber Model</h3>
+<ul>
+<li>one to many (broadcast)</li>
 <li>allow for filtering of events so that components can subscribe to only the events they need</li>
 </ul>
+<h3 id="point-to-point-model">Point to Point Model</h3>
+<ul>
+<li>one to one (entity relationship)</li>
+</ul>
 <hr />
-<h2 id="database-sharding">Database Sharding</h2>
+<h2 id="high-availability">High Availability</h2>
+<ul>
+<li>Active-Passive HA mode: set of redundant components in standby node awaiting automatic failover</li>
+<li>Active-Active HA Mode: set of replicated components that share the workload of the system</li>
+<li>Montior: to detect single points of failure and unhealthy components in the system</li>
+<li>Automation: to allow for the system to conduct self-healing or handle increased/decreased workloads</li>
+</ul>
 <hr />
-<h2 id="distributed-caching">Distributed Caching</h2>
+<h2 id="system-testing">System Testing</h2>
+<ul>
+<li>network bandwidth consumption</li>
+<li>throughput</li>
+<li>requests processed within a time range</li>
+<li>latency</li>
+<li>application memory/CPU usage</li>
+<li>end-user experience when the system is under a heavy load</li>
+</ul>
+<hr />
+<h2 id="reducing-bottlenecks">Reducing Bottlenecks</h2>
+<ul>
+<li>horizontally scale workloads servers</li>
+<li>distributed databases</li>
+<li>asynchronous processes &amp; modules wherever possible (reduce unecessary sequential steps)</li>
+<li>data compression</li>
+<li>caching (write-through cache) - only hit a database when it is really required</li>
+<li>use a CDN</li>
+<li>load balancers &amp; efficient configuration</li>
+<li>picking the right databases</li>
+<li>code refactoring</li>
+<li>decoupling</li>
+<li>dynamic analysis / profiling (application profiler, code profiler) to see which processes are taking too long and consuming too many resources</li>
+<li>avoid unnecessary client-server requests (group them together if possible)</li>
+</ul>
+<hr />
+<h2 id="infrastructure-changes">Infrastructure Changes</h2>
+<ul>
+<li>should include<ul>
+<li>impact analysis</li>
+<li>rollback plan</li>
+<li>disaster recovery plan</li>
+<li>code review / discussion</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="cloud-cost-hygiene">Cloud Cost Hygiene</h2>
+<ul>
+<li>naming conventions</li>
+<li>tags (to associate resources to cost centers)<ul>
+<li>group</li>
+<li>lifecycle</li>
+<li>person</li>
+<li>application</li>
+</ul>
+</li>
+<li>IT Governance rules</li>
+<li>establish user roles and controls</li>
+<li>billing alarms</li>
+</ul>
+<h3 id="storage-costs-considerations">Storage Costs Considerations</h3>
+<ul>
+<li>storage capacity provisioned/used</li>
+<li>data transfer</li>
+<li>replication</li>
+<li>access patterns</li>
+</ul>
+<hr />
+<h2 id="types-of-architecture">Types of Architecture</h2>
+<h3 id="client-server">Client-server</h3>
+<h3 id="peer-to-peer-p2p">Peer to Peer (P2P)</h3>
+<ul>
+<li>blockchain</li>
+<li>node to node connections</li>
+</ul>
+<h3 id="federated">Federated</h3>
+<ul>
+<li>extension of decenteralized architecture</li>
+<li>nodes are grouped and connect to pod servers that enable node discovery</li>
+<li>pods connect to each other to form the backbone of the network</li>
+</ul>
+<h3 id="event-driven">Event-driven</h3>
+<ul>
+<li>reactive programming (Tornado, Nodejs, akka, etc.)</li>
+</ul>
 <hr />
 <h2 id="notes">Notes</h2>
               

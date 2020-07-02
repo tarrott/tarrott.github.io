@@ -78,16 +78,30 @@
     <li class="toctree-l2"><a class="reference internal" href="#strings">Strings</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#arrays">Arrays</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#static">Static</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#hash-tables">Hash Tables</a>
+    <li class="toctree-l3"><a class="reference internal" href="#dynamic">Dynamic</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#linked-lists">Linked Lists</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hash-tables">Hash Tables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sets">Sets</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#trees">Trees</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#ast">AST</a>
+    <li class="toctree-l3"><a class="reference internal" href="#binary-tree">Binary Tree</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#bst">BST</a>
+    <li class="toctree-l3"><a class="reference internal" href="#binary-search-tree-bst">Binary Search Tree (BST)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#avl">AVL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#red-black">Red-Black</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#perfect-tree">Perfect Tree</a>
     </li>
         </ul>
     </li>
@@ -185,16 +199,150 @@
 <h2 id="strings">Strings</h2>
 <hr />
 <h2 id="arrays">Arrays</h2>
-<hr />
-<h2 id="hash-tables">Hash Tables</h2>
+<ul>
+<li>Strenghts:<ul>
+<li>fast lookups</li>
+<li>fast appends</li>
+<li>cache-friendly</li>
+</ul>
+</li>
+<li>
+<p>Weaknesses:</p>
+<ul>
+<li>fixed size</li>
+<li>costly inserts and deletes</li>
+</ul>
+</li>
+<li>
+<p>space -&gt; O(n)</p>
+</li>
+<li>lookup -&gt; O(1)</li>
+<li>append -&gt; O(1)</li>
+<li>insert -&gt; O(n)</li>
+<li>delete -&gt; O(n)</li>
+</ul>
+<h3 id="static">Static</h3>
+<ul>
+<li>fast lookups O(1), but each item in the array needs to be the same size, and you need a big block of uninterrupted free memory to store the array</li>
+<li>pointer-based arrays are not reflected in time cost, even though:<ul>
+<li>it's slower because it's not CPU cache-friendly (continious in RAM)</li>
+<li>pointer-based array requires less uninterrupted memory and can accommodate elements that aren't all the same size</li>
+</ul>
+</li>
+</ul>
+<h3 id="dynamic">Dynamic</h3>
+<ul>
+<li>don't have to specify the size ahead of time, but the disadvantage is that some appends can be expensive</li>
+<li>Strenghts:<ul>
+<li>fast lookups</li>
+<li>variable size</li>
+<li>cache-friendly</li>
+</ul>
+</li>
+<li>
+<p>Weaknesses:</p>
+<ul>
+<li>slow worst-case appends</li>
+<li>costly inserts and deletes</li>
+</ul>
+</li>
+<li>
+<p>space -&gt; O(n)</p>
+</li>
+<li>lookup -&gt; O(1)</li>
+<li>append -&gt; O(1)</li>
+<li>insert -&gt; O(n)</li>
+<li>delete -&gt; O(n)</li>
+</ul>
 <hr />
 <h2 id="linked-lists">Linked Lists</h2>
+<ul>
+<li>have faster prepends and faster appends than dynamic arrays O(1), but they have slower lookups O(n)</li>
+</ul>
+<hr />
+<h2 id="hash-tables">Hash Tables</h2>
+<ul>
+<li>use hash function to translate key into an index</li>
+<li>
+<p>handle hash collisions by having the value at the index be a pointer to a linked list with all keys that collide (considered rare enough with complicated balancing to still have O(1) lookups)</p>
+</li>
+<li>
+<p>Strenghts:</p>
+<ul>
+<li>fast lookups O(1) on average</li>
+<li>flexible keys allowing for most data types</li>
+</ul>
+</li>
+<li>
+<p>Weaknesses:</p>
+<ul>
+<li>slow worst-case lookups O(n)</li>
+<li>unordered keys</li>
+<li>single-directional lookups (O(n) key lookup)</li>
+<li>not cache-friendly (due to using linked lists)</li>
+</ul>
+</li>
+<li>
+<p>space -&gt; O(n)</p>
+</li>
+<li>lookup -&gt; O(1) (Worst-case: O(n))</li>
+<li>insert -&gt; O(1) (Worst-case: O(n))</li>
+<li>delete -&gt; O(1) (Worst-case: O(n))</li>
+</ul>
+<hr />
+<h2 id="sets">Sets</h2>
+<ul>
+<li>similar implentation of hash maps but keys do not store associated values</li>
+<li>useful for tracking groups of items—nodes visited in a graph, characters seen in a string, or colors used by neighboring nodes</li>
+</ul>
 <hr />
 <h2 id="trees">Trees</h2>
-<h3 id="ast">AST</h3>
-<h3 id="bst">BST</h3>
+<h3 id="binary-tree">Binary Tree</h3>
+<ul>
+<li>a tree where each node has at most 2 children</li>
+<li>the number of total nodes on each level doubles as we move down the tree</li>
+<li>the number of nodes on the last level is equal to the sum of the number of nodes on all other levels (plus 1)</li>
+<li>total nodes = 2^h - 1</li>
+<li>height = lg(n+1)</li>
+</ul>
+<h3 id="binary-search-tree-bst">Binary Search Tree (BST)</h3>
+<ul>
+<li>ordered binary tree</li>
+<li>the nodes to the left are smaller than the current node</li>
+<li>the nodes to the right are larger than the current node</li>
+</ul>
+<p>Strengths:
+- good performance across the board
+    - lookups O(lg(n))
+    - inserts O(lg(n))
+    - deletes O(lg(n))
+    - better worst-case performance than a hash table O(n) but not as good as its average case O(1)
+- if balanced:
+    - sorted in O(n) time using an in-order traversal
+    - finding an element closest to a value can be done in O(lg(n))</p>
+<p>Weaknesses:
+- poor performance if unbalanced
+- no constant time O(1) operations</p>
+<h3 id="avl">AVL</h3>
+<h3 id="red-black">Red-Black</h3>
+<h3 id="perfect-tree">Perfect Tree</h3>
+<ul>
+<li>height = lg((n+1)/2) + 1 = log(n+1)</li>
+</ul>
 <hr />
 <h2 id="graphs">Graphs</h2>
+<ul>
+<li>Representing links. Graphs are ideal for cases where you're working with things that connect to other things. Nodes and edges could, for example, respectively represent cities and highways, routers and ethernet cables, or Facebook users and their friendships</li>
+<li>
+<p>Scaling challenges. Most graph algorithms are O(n*lg(n))O(n∗lg(n)) or even slower. Depending on the size of your graph, running algorithms across your nodes may not be feasible.</p>
+</li>
+<li>
+<p>directed vs. undirected (links with direction)</p>
+</li>
+<li>cyclic vs. acyclic (cyclic graphs contains at least one unbroken series of nodes with no repeating nodes or edges that connects back to itself)</li>
+<li>weighted vs. unweighted (each edge contains a weight)</li>
+<li>legal coloring vs. illegal coloring (no adjacent nodes have the same color)</li>
+</ul>
               
             </div>
           </div>

@@ -94,6 +94,16 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Data Pipelines</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#data-ingestion">Data Ingestion</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#real-time-streams">Real-time streams</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#batch">Batch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#use-cases">Use Cases</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="" href="../danalysis.md">Data Analysis</a>
@@ -163,6 +173,51 @@
             <div class="section">
               
                 <h1 id="data-pipelines">Data Pipelines</h1>
+<ul>
+<li>facilitate the efficient flow of data from one point to another</li>
+<li>flow of data extraction, transformation, combination, validation, converging of data from multiple streams into one</li>
+<li>
+<p>facilitate parallel processing using distributed data processing</p>
+</li>
+<li>
+<p>data standardization (cleanup beforehand to avoid processing errors)</p>
+</li>
+<li>data processing (segregate data into flows based on business requirements &amp; route it to specific destinations)</li>
+<li>data analysis (models and machine learning)</li>
+<li>data visualization (present gathered intel to stakeholders)</li>
+<li>data storage &amp; security (archive and encrypt data)</li>
+</ul>
+<hr />
+<h2 id="data-ingestion">Data Ingestion</h2>
+<ul>
+<li>Data collection layer</li>
+<li>Data query layer</li>
+<li>Data processing layer</li>
+<li>Data visualization layer</li>
+<li>Data storage layer</li>
+<li>Data security layer</li>
+</ul>
+<h3 id="real-time-streams">Real-time streams</h3>
+<ul>
+<li>important for time-critical data (medical, financial, etc.)</li>
+<li>can be slow and require smaller data sets</li>
+<li>Apache Spark, Storm, Kafka, Flink are high-performant due to in-memory storage abd examples of distributed data processing engines capable of processing real-time streaming data</li>
+<li>Spark integrates seemlessly with HDFS, S3, etc.</li>
+</ul>
+<h3 id="batch">Batch</h3>
+<ul>
+<li>analyzing trends over time</li>
+<li>can include full data sets due to it not being time-critical</li>
+<li>ETL flow</li>
+<li>Hadoop implementing MapReduce is lower performant due to disk usage and is used in batch processing data</li>
+</ul>
+<h3 id="use-cases">Use Cases</h3>
+<ul>
+<li>momving big data into a Hadoop cluster to process and run analytics</li>
+<li>moving data (and continuing to update) from the primary storage / legacy systems into Elasticsearch to be indexed and searched on more quickly</li>
+<li>processing and aggregating logs and metrics from servers, services, and IoT devices into Elasticsearch or other time-series databases to be visualized and run analytics on them</li>
+<li>real-time stream processing engines for real-time events (sports, financial, medical, etc.) to dump into message queues such as Kafka or stream computation frameworks (Storm, Nifi, Spark, Flink, Samza, Kinesis, etc.) to implement real-time large-scale data processing features</li>
+</ul>
               
             </div>
           </div>
