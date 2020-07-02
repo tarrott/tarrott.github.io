@@ -49,8 +49,96 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <p class="caption"><span class="caption-text">Architecture</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="" href="../highlevel_design.m">High-level Design</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">High-level Design</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#orthagonal-architecture">Orthagonal Architecture</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#iterative-design">Iterative Design</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-twelve-factor-app">The Twelve-Factor App</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tiers-vs-layers">Tiers vs. Layers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#distributed-systems">Distributed Systems</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scalability">Scalability</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#vertical">Vertical</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#horizontal">Horizontal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#monolith">Monolith</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#microservice">Microservice</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#load-balancing">Load Balancing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#caching">Caching</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#distributed-caching">Distributed Caching</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-storage">Data Storage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#data-partitioning">Data Partitioning</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#database-sharding">Database Sharding</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#indexes">Indexes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#proxies">Proxies</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#redundancy-and-replication">Redundancy and Replication</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sql-vs-nosql">SQL vs. NoSQL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cap-theorem">CAP Theorem</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#consistent-hashing">Consistent Hashing</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#message-queues">Message Queues</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#publisher-subscriber-model">Publisher / Subscriber Model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#point-to-point-model">Point to Point Model</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#high-availability">High Availability</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#system-testing">System Testing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reducing-bottlenecks">Reducing Bottlenecks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#infrastructure-changes">Infrastructure Changes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cloud-cost-hygiene">Cloud Cost Hygiene</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#storage-costs-considerations">Storage Costs Considerations</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#types-of-architecture">Types of Architecture</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#client-server">Client-server</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#peer-to-peer-p2p">Peer to Peer (P2P)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#federated">Federated</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#event-driven">Event-driven</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+    </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux</a>
                     </li>
@@ -62,7 +150,7 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
                     </li>
-                    <li class="toctree-l1"><a class="" href="../chaos_eng.mdd">Chaos Engineering</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../chaos_eng/">Chaos Engineering</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../homelab/">Homelab</a>
                     </li>
@@ -143,6 +231,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../..">Docs</a> &raquo;</li>
     
+      
+        
+          <li>Architecture &raquo;</li>
+        
       
     
     <li>High-level Design</li>
@@ -412,6 +504,13 @@
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../linux/" class="btn btn-neutral float-right" title="Linux">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
 
   <hr/>
 
@@ -434,6 +533,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
+      
+        <span style="margin-left: 15px"><a href="../linux/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
