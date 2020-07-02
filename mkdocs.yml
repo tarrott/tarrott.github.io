@@ -1,13 +1,13 @@
 site_name: Engineering Wiki
 nav:
   - Architecture:
-    - High-level Design: architecture/highlevel_design.m
+    - High-level Design: architecture/highlevel_design.md
     - Linux: architecture/linux.md
     - Virtualization: architecture/virtualization.md
     - CICD: architecture/cicd.md
     - Monitoring: architecture/monitoring.md
     - Security: architecture/security.md
-    - Chaos Engineering: architecture/chaos_eng.mdd
+    - Chaos Engineering: architecture/chaos_eng.md
     - Homelab: architecture/homelab.md
     - Case Studies: architecture/case_studies.md
   - Software:
