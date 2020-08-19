@@ -22,7 +22,7 @@ nav:
     - GUIs: software/guis.md
   - Data:
     - Data Pipelines: data/pipelines.md
-    - Data Analysis: data/danalysis.md
+    - Data Analysis: data/analysis.md
     - Machine Learning: data/machine_learning.md
     - Big Data: data/big_data.md
     - Data Storage: data/storage.md

@@ -11,8 +11,8 @@
 2. git commit & push `master`
 
 ###### User/Org Pages
-1. `cd /build`
-2. `mkdocs gh-deploy --config-file ..\mkdocs.yml --remote-branch  master`
+1. `cd /site`
+2. `mkdocs gh-deploy --config-file ../mkdocs.yml --remote-branch  master`
 3. git commit & push `develop`
 
 ###### Custom Domain
