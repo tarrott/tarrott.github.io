@@ -93,11 +93,12 @@ The Design Of Everyday Things          | Dom Norman                 | Design
 
 ---
 ## Online Tutorials
+- [Haskell](http://learnyouahaskell.com/chapters)
 - [Tensorflow Docs](https://www.tensorflow.org/learn)
 - [Spark Tutorials, Data Bricks](https://databricks.com/spark/getting-started-with-apache-spark)
-- [PySpark](https://www.edx.org/course/big-data-analytics-using-spark
+- [PySpark](https://www.edx.org/course/big-data-analytics-using-spark)
 - [Azure](https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/)
-- [K8s](https://azure.microsoft.com/mediahandler/files/resourcefiles/kubernetes-learning-path/)Kubernetes%20Learning%20Path_Version%202.0.pdf
+- [K8s](https://azure.microsoft.com/mediahandler/files/resourcefiles/kubernetes-learning-path/)Kubernetes%20Learning%20Path_Version%202.0.pdf)
 - [Terraform](https://learn.hashicorp.com/terraform/azure/intro_az)
 - [Backtrader Tutorials](https://backtest-rookies.com/getting-started/#bt)
     - [GitHub](https://github.com/mementum/backtrader)
