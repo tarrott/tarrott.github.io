@@ -5,8 +5,8 @@
 ## Books
 Name                                   | Author                     | Field
 --------------------------             | -----------------          | -------------
-~The Pragmatic Programmer               | Andrew Hunt & David Thomas | Career
-~Soft Skills                            | John Sonmez                | Career
+~The Pragmatic Programmer              | Andrew Hunt & David Thomas | Career
+~Soft Skills                           | John Sonmez                | Career
 Cracking the Code Interview            | Laakman McDowell           | Career
 The Linux Command Lines                | William E. Shotts Jr.      | Linux
 Designing Data-Intensive Apps...       | Martin Kleppmann           | Architecture
@@ -16,16 +16,17 @@ Designing Distributed Systems          | Brenden Burns              | Architectu
 Kubernetes Up and Running              | Brenden Burns              | Architecture
 Managing Kubernetes                    | Brenden Burns              | Architecture
 Kubernetes Best Practices              | Brenden Burns              | Architecture
+Fluent Python                          | Luciano Ramalho            | Software Engineering
 Algorithms to Live By                  | Christian & Griffiths      | Software Engineering
+Code Complete, Second Edition          | Steve McConnell            | Software Engineering
 Clean Code                             | Robert Cecil Martin        | Software Engineering
 Growing Object Oriented Software...    | Steve Freeman & Nat Pryce  | Software Engineering
-Code Complete, Second Edition          | Steve McConnell            | Software Engineering
+The Mythical Man Month                 | Fred Brooks                | Software Engineering
 Refactoring                            | Kent Beck & Martin Fowler  | Software Engineering
 Design Patterns                        | Gang of Four               | Software Engineering
 Head First Design Patterns             | E. Freeman & K. Sierra     | Software Engineering
 Operating Systems: Three Easy Pieces   | A. & R. Arpaci-Dusseau     | Software Engineering
 Working Effectively with Legacy Code   | Michael Feathers           | Software Engineering
-The Mythical Man Month                 |                            | Software Engineering
 UML Distilled                          | Martin Fowler              | Software Engineering
 The Data Engineering Cookbook          | Andreas Kretz              | Data Engineering
 Python for Data Analysis               | Wes Mckinney               | Data Engineering
