@@ -1,5 +1,112 @@
 # Python
 
+## Pyenv
+`brew install pyenv`
+`brew install pyenv-virtualenv`
+install version: `pyenv instal [version]`
+set version: `pyenv global [version]`
+list installed versions: `pyenv versions`
+list virtualenvs: `pyenv virtualenvs`
+activate virutalenv: `pyenv activate`
+
+#### Update .bashrc
+```
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+export PATH="$HOME/.pyenv/bin:$PATH"
+```
+
+## Enumerate Iterable
+`enumerate(iterable, start=0)`
+```
+for index, element in enumerate(l1,100): 
+    print index, element 
+```
+
+---
+## Higher-order functions
+From Composing Programs by John DeNero, Chapter 1.6.1:  
+```
+def summation(n, term):
+    total, k = 0, 1
+    while k <= n:
+        total, k = total + term(k), k + 1
+    return total
+
+def cube(x):
+    return x*x*x
+
+def sum_cubes(n):
+    return summation(n, cube)
+
+result = sum_cubes(3)
+```
+
+
+### Nest Definitions and Lexical Scope
+From Composing Programs by John DeNero, Chapter 1.6.3:  
+```
+def average(x, y):
+    return (x + y)/2
+
+def improve(update, close, guess=1):
+    while not close(guess):
+        guess = update(guess)
+    return guess
+
+def approx_eq(x, y, tolerance=1e-3):
+    return abs(x - y) < tolerance
+
+def sqrt(a):
+    def sqrt_update(x):
+        return average(x, a/x)
+    def sqrt_close(x):
+        return approx_eq(x * x, a)
+    return improve(sqrt_update, sqrt_close)
+
+result = sqrt(256)
+```
+Notice how the nested definition `sqrt_update` still has access to the `a`, which is a formal parameter of its enclosing function `sqrt`. The nested definition extends its parent environment.
+
+"The sqrt_update function carries with it some data: the value for a referenced in the environment in which it was defined. Because they "enclose" information in this way, locally defined functions are often called `closures`."
+
+### Decorators
+import time
+from functools import wraps 
+def timethis(func): 
+''' Decorator that reports the execution time. ''' 
+        @wraps(func)
+        def wrapper(*args, **kwargs): 
+
+        start = time.time()
+        result = func(*args, **kwargs) end = time.time() 
+        print(func.__name__, end-start) 
+        return result 
+    return wrapper
+
+@timethis
+def countdown(n):
+'''Counts down'''
+    whilen>0:
+        n -= 1
+
+> countdown(100000) 
+countdown 0.008917808532714844
+> countdown(10000000) 
+countdown 0.87188299392912
+
+---
+## Python Requests Lib
+
+#### Timeout
+- timeout request after 30 seconds: `resquests.get('https://example.org', timeout=30)`
+
+#### Handle Errors
+- base-class exception: `except requests.exceptions.RequestException as e: raise SystemExit(e)`
+- catch each exception separately: `except requests.exceptions.Timeout`, `TooManyRedirects`, or `RequestException`
+- raise exception for HTTP errors: try `Response.raise_for_status()` and `except requests.exceptions.HTTPError as err`
+
 ---
 ## Type Checking
 - type checker module: `pip install mypy`
@@ -120,3 +227,15 @@ light_bulbs.add('LED')
 'LED' in light_bulbs  # True
 'halogen' in light_bulbs  # False
 ```
+
+---
+## VSCode
+
+#### Set Syntax
+Command Pallete > languages  
+"Change Language Mode"  
+e.g. "SQL Formatter" Extension
+
+#### Format File in Syntax
+Shift + Option + F (Mac)
+

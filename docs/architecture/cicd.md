@@ -26,6 +26,25 @@
 
 ---
 ## Deploy
+Automated deployment characteristics:
+
+- It can be triggered by just one action, like one command on the command line and it will do the job.
+- The steps will be pre-defined, reproducible and predictable.
+- There is little or no human intervention from the start to the end.
+- It should show the deployment progress as it happens, better feedback
+- It should be atomic, which means either all the steps are completed or nothing happens.
+
+Some good to have features for automated deployment tools are:
+
+- It should be able to deploy the same code to multiple servers
+- Each deployment should be done from a given branch/tag/commit of a Version Control System (VCS) like git
+- It should trigger notifications in the form of email/chat message
+- Everyone should be able to view which branch/tag is deployed
+- When a deployment is in progress, it should stop other deployments to start
+- Rollback of the last deployment should be easy and fast.
+
+[Source](https://dev.to/geshan/the-best-automated-deployment-tool-is-the-one-that-fits-your-needs-3o8)
+
 - ansible
 - octopus
 - spinnaker

@@ -58,17 +58,16 @@ The Design Of Everyday Things          | Dom Norman                 | Design
 
 #### Computer Architecture
 - **Stanford** [CS107 Computer Organization & Systems](https://see.stanford.edu/Course/CS107)
-- **Stanford** [CS143 Computer Organization & Systems](https://see.stanford.edu/Course/CS107)
 - **U Jerusalem** [Nand to Tetris, Part 1](https://www.coursera.org/learn/build-a-computer)
 - **U Jerusalem** [Nand to Tetris, Part 2](https://www.coursera.org/learn/nand2tetris2)
 - **U Wisconsin-Madison** [Operating Systems: Three Easy Pieces Course](http://pages.cs.wisc.edu/~remzi/OSTEP/)
 
 #### Data Engineering Courses
-- ~**Stanford** [Databases](https://online.stanford.edu/courses/soe-ydatabases-databases)
-- **Stanford** [Machine Learning](https://www.coursera.org/learn/machine-learning)
 - **Georgia Tech** [Machine Learning for Trading](https://www.udacity.com/course/machine-learning-for-trading--ud501)
-- **U San Francisco** [Computational Linear Algebra](https://www.fast.ai/2017/07/17/num-lin-alg/)
+- **Stanford** [Machine Learning](https://www.coursera.org/learn/machine-learning)
 - **U San Francisco** [Applied ML](http://course18.fast.ai/ml)
+- **U San Francisco** [Practical Deep Learning](https://course.fast.ai)
+- **U San Francisco** [Computational Linear Algebra](https://www.fast.ai/2017/07/17/num-lin-alg/)
 
 #### DevOps Engineering Courses
 - **U Virginia** [CICD DevOps](https://www.coursera.org/learn/uva-darden-continous-delivery-devops)
@@ -89,12 +88,10 @@ The Design Of Everyday Things          | Dom Norman                 | Design
     - Linear Algebra
     - Calculus 1,2, & 3
 - **Deeplearning.ai**: [Tensorflow](https://www.coursera.org/specializations/tensorflow-in-practice)
-- []
 
 ---
 ## Online Tutorials
 - [Haskell](http://learnyouahaskell.com/chapters)
-- [Tensorflow Docs](https://www.tensorflow.org/learn)
 - [Spark Tutorials, Data Bricks](https://databricks.com/spark/getting-started-with-apache-spark)
 - [PySpark](https://www.edx.org/course/big-data-analytics-using-spark)
 - [Kubernetes the Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way)

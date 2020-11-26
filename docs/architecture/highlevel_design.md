@@ -74,6 +74,8 @@ System design
 
 ---
 #### Monolith
+Should be the default choice unless there exists a very good reason to incorporate a microservices architecture - (Sam Newman & Martin Fowler goto; talk)[https://www.youtube.com/watch?v=GBTdnfD6s5Q]  
+
 - Simpler to build, test and deploy
 - Weaknesses:
     - small code changes require an entire redeployment of the application
@@ -84,13 +86,16 @@ System design
     - tend to be stateful and therefore making it more difficult to be cloud-native and distributed
 
 #### Microservice
+Can be incorporated incrementally by migrating small parts of the monolith application to microservices like a dial not an on/off switch - (Sam Newman & Martin Fowler goto; talk)[https://www.youtube.com/watch?v=GBTdnfD6s5Q]   
+
 - Fault isolation
 - Easier management
-- Easier development
+- Isolated development and testing
 - Ease of adding new features
 - Ease of maintenance
 - High availability
 - Separated responsiblity/concerns (separate teams gain increased productivity and complete ownership)
+- Increased scalability options
 - Weaknesses:
     - greatly increased complexity in management and monitoring of the system (distributed logging, networking, service discovery, CICD, alerts, tracing, health checks, etc.)
     - requires more components or code to manage and utilize the distributed nodes

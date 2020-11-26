@@ -3,19 +3,65 @@
 - `yum update`
 
 ## Configuration
+- Disable hibernation: `sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
 - No password configured: `sudo passwd`
 - `hostname -f`
 - `dpkg-reconfigure tzdata / timedatectl set-timezone`
 - fdisk
+- cmd prompt `export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "`
+
+#### SSH Config
+`~/.ssh/config`
+```
+host shortcutname
+HostName server.domain.com
+Port 5555
+User username
+```
+
+---
+## User Administration
+- assign group: `usermod -aG examplegroup exampleusername`
+
+
+---
+## Cloud VMs
+
+#### GCP
+setup root pass: `sudo passwd`
 
 ---
 ## System Diagnostics
+- `uptime -p`
+- `uptime` also shows load average and number of users currently logged in
+
+"The three numbers show the load averages for the last minute, 5 minutes, and 15 minutes respectively. A load average of 1 reflects the full workload of a single processor on the system."
+
+#### CPU
+- number of processors: `grep processor /proc/cpuinfo | wc -l`
+
+#### Memory
 - `free -h`
-- top / htop
-- df -h
-- vmstat
-- ps -ef
-- pgrep / pidof
+- `cat /proc/meminfo`
+- `vmstat -s`
+    - `vmstat 5 10` displays a system’s virtual memory statistics 10 times at 5-second intervals.
+        - `so` shows the amount of data being moved to the swap to free up memory
+        - `si` shows the amount of data being pulled from the swap back into memory
+    - When a server is constantly swapping into and out of memory, that indicates that the load on it is too great for the available resources.
+    - If your system consumes most of its swap area, that might mean that the server is trying to do more than its available memory permits not that it’s low on memory.
+- `top` and `htop`
+    - sort by CPU (P) or Memory (M)
+
+#### Disk
+- `df -h`
+
+#### Processes
+- `ps -ef`
+- `pgrep` and `pidof`
+- services (process name): `service --status-all`
+    - if services is unavailable check `/usr/sbin/service`
+    - add to path
+
 
 ---
 ## File System Management
@@ -57,6 +103,7 @@
 - grep
 - awk
 - sed / jq
+- `cut -d' ' -f2`: `-d` delimter and `-f` field number will get the second word when piped from stdin
 
 `.vimrc`
 ```
@@ -72,17 +119,19 @@ highlight ColorColum ctermbg=0 guibg=lightgrey
 ---
 ## Package Management
 #### apk
-#### apt / apt-get
+#### apt
+- view installed packages: `apt list --installed`
+- specific packge: `apt list -a pkgNameHere`
 #### dpkg
 #### yum
 #### pacman
 
 ---
 ## Netowrking
-- `nmap`: show exposed ports
+- `nmap [localhost or IP]`: show exposed ports
 - ping
 - traceroute
-- netstat
+- `netstat`: See if the service is listening on the correct socket
     - o flag: show PIDs
 - telnet
 - mtr
@@ -105,6 +154,11 @@ highlight ColorColum ctermbg=0 guibg=lightgrey
 - redirect cron logs to specified locations
     - e.g. `0 15 * * *    /home/user/daily-backup.sh >> /var/log/daily-backup.log 2>&1`
 
+---
+## SFTP
+current working directory: `pwd`
+upload files: `put path_to_local_file remote_file`
+download files: `get path_to_remote_file local_file`
 
 ---
 ## Bash
@@ -114,6 +168,10 @@ highlight ColorColum ctermbg=0 guibg=lightgrey
 - pwd
 - ls -la
 - cat / bat
+
+## Git
+- Make git commands (e.g. pull) more verbose: `GIT_SSH_COMMAND="ssh -vv"`
+- View files modified by git pull: `git diff --name-only HEAD@{0} HEAD@{1}`
 
 ### bash_profile vs. bashrc
 - `.bash_profile` is executed at login, while `.bashrc` is executed on every shell instance

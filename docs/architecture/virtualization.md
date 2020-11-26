@@ -79,6 +79,10 @@ Running docker commands from inside a container
 - Linux: `-v /var/run/docker.sock:/var/run/docker.sock`
 - Windows: `-v //var/run/docker.sock:/var/run/docker.sock`
 
+### nginx reverse proxy
+
+### traefik reverse proxy
+
 ---
 
 ## Container Orchestration
@@ -194,7 +198,16 @@ spec:
 
 ### Helm
 
+### k3d Setup
+Install kubectl binary with curl on Linux:  
+Download the latest release with the command: curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"  
+To download a specific version, replace the $(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt) portion of the command with the specific version.For example, to download version v1.19.0 on Linux, type:curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.0/bin/linux/amd64/kubectl
 
+- Make the kubectl binary executable: `chmod +x ./kubectl`
+- Move the binary in to your PATH: `sudo mv ./kubectl /usr/local/bin/kubectl`
+- Test to ensure the version you installed is up-to-date: `kubectl version --client`
+- kube config: `k3d kubeconfig merge -d -a`
+- kubectx & kubens: `sudo apt install kubectx`
 
 ### Logging
 `kubectl -n <namespace> logs -f deployment/<app-name> --all-containers=true --since=10m`

@@ -56,6 +56,7 @@ Count total values including null values, use size attribute:
 - https://davidhamann.de/2017/06/26/pandas-select-elements-by-string/
 - https://proview-demo.nonprod.caqh.org/DirectAssure/api/POPracticeLocation/MatchReport/6053_20190606_144049
 
+"If you plan on using pandas and are just getting into it, I would highly recommend how to use df.groupby().apply() (ie split-apply-combine)and df.loc[df.loc[],:] effectively as I have found those to be the two most impactful things in the quality of my pandas programming. basically my rule for pandas is: if you are using loops there's a good chance there is a more efficient/easier way to accomplish it. And using df.apply() with custom lambda functions. They have been so amazing."
 
 ---
 ## Visualization

@@ -228,3 +228,14 @@ logging.to_syslog: false
 
 ---
 ## Correlation Token
+
+
+--
+## Hetrix Tools
+- Update Agent: `wget https://raw.github.com/hetrixtools/agent/master/hetrixtools_update.sh && bash hetrixtools_update.sh`
+- Install Django Agent: 
+- Install LAMP Stack Agent: `wget https://raw.github.com/hetrixtools/agent/master/hetrixtools_install.sh && bash hetrixtools_install.sh c27ea72ad602c327a2cd4f07133ee8a2 0 mysql,apache2,ssh 0 0 1 80,443,3306`
+
+--
+## DataDog
+uninstall agent: `sudo apt-get remove --purge datadog-agent -y`

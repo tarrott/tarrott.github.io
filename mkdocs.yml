@@ -19,7 +19,7 @@ nav:
     - OOP: software/oop.md
     - Functional Paradigm: software/functional_paradigm.md
     - Python: software/python.md
-    - GUIs: software/guis.md
+    - WebDev: software/webdev.md
   - Data:
     - Data Pipelines: data/pipelines.md
     - Data Analysis: data/analysis.md
