@@ -74,6 +74,10 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#binding-the-docker-socket">Binding the Docker Socket</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nginx-reverse-proxy">nginx reverse proxy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#traefik-reverse-proxy">traefik reverse proxy</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#container-orchestration">Container Orchestration</a>
@@ -99,6 +103,8 @@
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#helm">Helm</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#k3d-setup">k3d Setup</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#logging">Logging</a>
         <ul>
@@ -143,7 +149,7 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../software/python/">Python</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../software/guis/">GUIs</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/webdev/">WebDev</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Data</span></p>
@@ -286,6 +292,8 @@ end
 <li>Linux: <code>-v /var/run/docker.sock:/var/run/docker.sock</code></li>
 <li>Windows: <code>-v //var/run/docker.sock:/var/run/docker.sock</code></li>
 </ul>
+<h3 id="nginx-reverse-proxy">nginx reverse proxy</h3>
+<h3 id="traefik-reverse-proxy">traefik reverse proxy</h3>
 <hr />
 <h2 id="container-orchestration">Container Orchestration</h2>
 <h2 id="kubernetes">Kubernetes</h2>
@@ -404,6 +412,17 @@ spec:
 <li><code>kubectl create deployment sample --image my-app:latest --dry-run -o yaml</code></li>
 </ul>
 <h3 id="helm">Helm</h3>
+<h3 id="k3d-setup">k3d Setup</h3>
+<p>Install kubectl binary with curl on Linux:<br />
+Download the latest release with the command: curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"<br />
+To download a specific version, replace the $(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt) portion of the command with the specific version.For example, to download version v1.19.0 on Linux, type:curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.0/bin/linux/amd64/kubectl</p>
+<ul>
+<li>Make the kubectl binary executable: <code>chmod +x ./kubectl</code></li>
+<li>Move the binary in to your PATH: <code>sudo mv ./kubectl /usr/local/bin/kubectl</code></li>
+<li>Test to ensure the version you installed is up-to-date: <code>kubectl version --client</code></li>
+<li>kube config: <code>k3d kubeconfig merge -d -a</code></li>
+<li>kubectx &amp; kubens: <code>sudo apt install kubectx</code></li>
+</ul>
 <h3 id="logging">Logging</h3>
 <p><code>kubectl -n &lt;namespace&gt; logs -f deployment/&lt;app-name&gt; --all-containers=true --since=10m</code></p>
 <h6 id="stern">Stern</h6>

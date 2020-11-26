@@ -175,7 +175,7 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../software/python/">Python</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../software/guis/">GUIs</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/webdev/">WebDev</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Data</span></p>
@@ -324,6 +324,7 @@
 </ul>
 <hr />
 <h4 id="monolith">Monolith</h4>
+<p>Should be the default choice unless there exists a very good reason to incorporate a microservices architecture - (Sam Newman &amp; Martin Fowler goto; talk)[https://www.youtube.com/watch?v=GBTdnfD6s5Q]  </p>
 <ul>
 <li>Simpler to build, test and deploy</li>
 <li>Weaknesses:<ul>
@@ -337,14 +338,16 @@
 </li>
 </ul>
 <h4 id="microservice">Microservice</h4>
+<p>Can be incorporated incrementally by migrating small parts of the monolith application to microservices like a dial not an on/off switch - (Sam Newman &amp; Martin Fowler goto; talk)[https://www.youtube.com/watch?v=GBTdnfD6s5Q]   </p>
 <ul>
 <li>Fault isolation</li>
 <li>Easier management</li>
-<li>Easier development</li>
+<li>Isolated development and testing</li>
 <li>Ease of adding new features</li>
 <li>Ease of maintenance</li>
 <li>High availability</li>
 <li>Separated responsiblity/concerns (separate teams gain increased productivity and complete ownership)</li>
+<li>Increased scalability options</li>
 <li>Weaknesses:<ul>
 <li>greatly increased complexity in management and monitoring of the system (distributed logging, networking, service discovery, CICD, alerts, tracing, health checks, etc.)</li>
 <li>requires more components or code to manage and utilize the distributed nodes</li>

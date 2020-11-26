@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>GUIs - Engineering Wiki</title>
+  <title>WebDev - Engineering Wiki</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "GUIs";
-    var mkdocs_page_input_path = "software/guis.md";
+    var mkdocs_page_name = "WebDev";
+    var mkdocs_page_input_path = "software/webdev.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -87,9 +87,71 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">GUIs</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">WebDev</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#web-server">Web Server</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#nginx">Nginx</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#site-config-files">Site Config Files</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#apache">Apache</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#redirect-http-to-https-vhost">Redirect HTTP to HTTPS vhost</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#https-vhost-config">HTTPS vhost config</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#site-config-files_1">Site Config Files</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#canonical-domain-uri">Canonical Domain (URI)</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ssl">SSL</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lets-encrypt">Let's Encrypt</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#install-certbot">Install certbot</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#renew-certificate">Renew Certificate</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#view-certificates">View Certificates</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#automatically-generated-ssl-config">Automatically generated ssl config</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#jinja">Jinja</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#registering-custom-filters">Registering custom filters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#alertnative-to-register-custom-filter-in-django-settingspy">Alertnative to register custom filter in Django settings.py</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#flask">Flask</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#django">Django</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wordpress">WordPress</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#xampp">XAMPP</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#vue">Vue</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#javascript">JavaScript</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#css">CSS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#html">HTML</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a>
     </li>
@@ -157,7 +219,7 @@
         
       
     
-    <li>GUIs</li>
+    <li>WebDev</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -169,7 +231,154 @@
             <div class="section">
               
                 <h1 id="graphical-user-interfaces">Graphical User Interfaces</h1>
+<hr />
+<h2 id="web-server">Web Server</h2>
+<h4 id="nginx">Nginx</h4>
+<h6 id="site-config-files">Site Config Files</h6>
+<ul>
+<li>Test config files (and show location: <code>nginx -t</code></li>
+<li>Location: <code>/etc/nginx/sites-enabled/*.conf</code></li>
+<li>enable site: <code>ln -s /etc/nginx/sites-available/www.example.org.conf /etc/nginx/sites-enabled/</code></li>
+<li>reload apache service: <code>service nginx reload</code></li>
+</ul>
+<h4 id="apache">Apache</h4>
+<ul>
+<li>check status: <code>systemctl status apache2</code></li>
+</ul>
+<h6 id="redirect-http-to-https-vhost">Redirect HTTP to HTTPS vhost</h6>
+<pre><code>ServerAdmin dev@designtennis.com
+ServerName nedic.ca
+ServerAlias *.nedic.ca, www.nedic.ca
+Redirect 301 / https://nedic.ca/
+</code></pre>
+
+<h6 id="https-vhost-config">HTTPS vhost config</h6>
+<pre><code>    ServerAdmin dev@designtennis.com
+    ServerName nedic.ca
+    ServerAlias *.nedic.ca, www.nedic.ca
+    DocumentRoot /srv/www/nedic.ca/public_html/
+</code></pre>
+
+<pre><code>&lt;Directory /srv/www/nedic.ca/public_html&gt;
+Options +ExecCGI
+Require all granted
+&lt;/Directory&gt;
+
+ErrorLog ${APACHE_LOG_DIR}/nedic.ca-error.log
+CustomLog ${APACHE_LOG_DIR}/nedic.ca-access.log combined
+
+
+Alias /static /srv/www/nedic.ca/public_html/static
+Alias /media /srv/www/nedic.ca/public_html/media
+SetOutputFilter DEFLATE
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/rss+xml application/x-javascript application/atom_xml application/javascript
+WSGIDaemonProcess nedic.ca python-path=/srv/www/nedic.ca/env/lib/python3.6/site-packages:/srv/www/nedic.ca/application  processes=2 threads=15 display-name=%{edit}
+WSGIProcessGroup nedic.ca
+WSGIScriptAlias / /srv/www/nedic.ca/public_html/wsgi.py
+</code></pre>
+<h6 id="site-config-files_1">Site Config Files</h6>
+<ul>
+<li>Location: <code>/etc/apache2/sites-available</code></li>
+<li>enable site: <code>a2ensite {config file}</code></li>
+<li>disable site: <code>a2dissite {config file}</code></li>
+<li>reload apache service: <code>systemctl reload</code> apache2`</li>
+</ul>
+<h6 id="canonical-domain-uri">Canonical Domain (URI)</h6>
+<pre><code>RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.nedic\.ca$ [NC]
+RewriteRule (.*) https://nedic.ca$1 [L,R=301]
+</code></pre>
+<hr />
+<h2 id="ssl">SSL</h2>
+<h5 id="lets-encrypt">Let's Encrypt</h5>
+<h6 id="install-certbot">Install certbot</h6>
+<ul>
+<li><code>sudo add-apt-repository ppa:certbot/certbot</code></li>
+<li><code>sudo apt-get update</code></li>
+<li><code>sudo apt-get install certbot</code></li>
+</ul>
+<h6 id="renew-certificate">Renew Certificate</h6>
+<ul>
+<li>should run automatically<ul>
+<li>Ubuntu uses cronjob in <code>/etc/cron.d/cerbot</code></li>
+</ul>
+</li>
+<li>manually: <code>certbot renew</code></li>
+<li>expand (include subdomain): <code>ertbot -d {example.com,www.example.com} --expand</code></li>
+</ul>
+<h6 id="view-certificates">View Certificates</h6>
+<ul>
+<li><code>certbot certificates</code></li>
+</ul>
+<h5 id="automatically-generated-ssl-config">Automatically generated ssl config</h5>
+<pre><code>Include /etc/letsencrypt/options-ssl-apache.conf
+SSLCertificateFile /etc/letsencrypt/live/nedic.ca/fullchain.pem
+SSLCertificateKeyFile /etc/letsencrypt/live/nedic.ca/privkey.pem
+</code></pre>
+<hr />
+<h2 id="jinja">Jinja</h2>
+<h4 id="registering-custom-filters">Registering custom filters</h4>
+<pre><code>from django_jinja import library
+@library.filter
+def mylower(name):
+&quot;&quot;&quot;
+Usage: {{ 'Hello'|mylower() }}
+&quot;&quot;&quot;
+return name.lower()
+</code></pre>
+
+<h4 id="alertnative-to-register-custom-filter-in-django-settingspy">Alertnative to register custom filter in Django settings.py</h4>
+<pre><code>TEMPLATES = [
+{
+    &quot;BACKEND&quot;: &quot;django_jinja.backend.Jinja2&quot;,
+    &quot;APP_DIRS&quot;: True,
+    &quot;OPTIONS&quot;: {
+        &quot;match_extension&quot;: &quot;.jinja&quot;,
+        &quot;filters&quot;: {
+            &quot;myfilter&quot;: &quot;path.to.filters.myfilterfn&quot;,
+            ...
+        }
+    }
+}]
+</code></pre>
+
+<hr />
+<h2 id="flask">Flask</h2>
+<hr />
+<h2 id="django">Django</h2>
+<hr />
+<h2 id="wordpress">WordPress</h2>
+<p>export db: <code>wp db export</code>
+import db: <code>wp db import</code></p>
+<h4 id="xampp">XAMPP</h4>
+<ul>
+<li>"env: mysql: No such file or directory after <code>wp import</code>"<ul>
+<li>export mysql to path: <code>export PATH=$PATH:/Applications/XAMPP/xamppfiles/bin</code></li>
+</ul>
+</li>
+<li>"XAMPP (Mac) Virtual host showing 403"<ul>
+<li>"To fix this you can configure Apache to run as your OS X user. Open /Applications/XAMPP/xamppfiles/etc/httpd.conf and look for the following lines:"</li>
+<li>User/Group: The name (or #number) of the user/group to run httpd as. It is usually good practice to create a dedicated user and group for running httpd, as with most system services.</li>
+<li><code>User daemon</code></li>
+<li><code>Group daemon</code></li>
+<li>Change User to your OS X username or add new user as follow, and save the file:</li>
+<li><code>User yourusername</code></li>
+</ul>
+</li>
+</ul>
+<hr />
 <h2 id="vue">Vue</h2>
+<hr />
+<h2 id="javascript">JavaScript</h2>
+<p>install node and npm: <code>brew install nvm</code>
+list versions: <code>nvm list</code>
+install node version (comes with specific npm version): <code>nvm install [version]</code>
+show current version: <code>nvm current</code>
+use a different version: <code>nvm use [version]</code></p>
+<hr />
+<h2 id="css">CSS</h2>
+<hr />
+<h2 id="html">HTML</h2>
 <hr />
 <h2 id="resources">Resources</h2>
 <ul>

@@ -90,6 +90,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#correlation-token">Correlation Token</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hetrix-tools">Hetrix Tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#datadog">DataDog</a>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
@@ -119,7 +123,7 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../software/python/">Python</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../software/guis/">GUIs</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/webdev/">WebDev</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Data</span></p>
@@ -424,6 +428,16 @@ logging.to_syslog: false
 <h2 id="health-checks">Health Checks</h2>
 <hr />
 <h2 id="correlation-token">Correlation Token</h2>
+<p>--</p>
+<h2 id="hetrix-tools">Hetrix Tools</h2>
+<ul>
+<li>Update Agent: <code>wget https://raw.github.com/hetrixtools/agent/master/hetrixtools_update.sh &amp;&amp; bash hetrixtools_update.sh</code></li>
+<li>Install Django Agent: </li>
+<li>Install LAMP Stack Agent: <code>wget https://raw.github.com/hetrixtools/agent/master/hetrixtools_install.sh &amp;&amp; bash hetrixtools_install.sh c27ea72ad602c327a2cd4f07133ee8a2 0 mysql,apache2,ssh 0 0 1 80,443,3306</code></li>
+</ul>
+<p>--</p>
+<h2 id="datadog">DataDog</h2>
+<p>uninstall agent: <code>sudo apt-get remove --purge datadog-agent -y</code></p>
               
             </div>
           </div>

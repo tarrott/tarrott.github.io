@@ -87,6 +87,30 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Python</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pyenv">Pyenv</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#update-bashrc">Update .bashrc</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enumerate-iterable">Enumerate Iterable</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#higher-order-functions">Higher-order functions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#nest-definitions-and-lexical-scope">Nest Definitions and Lexical Scope</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#decorators">Decorators</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#python-requests-lib">Python Requests Lib</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#timeout">Timeout</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handle-errors">Handle Errors</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#type-checking">Type Checking</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#style-guidlines-pep8-linters">Style Guidlines: PEP8 &amp; Linters</a>
@@ -131,9 +155,17 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#sets">Sets</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vscode">VSCode</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#set-syntax">Set Syntax</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#format-file-in-syntax">Format File in Syntax</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../guis/">GUIs</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../webdev/">WebDev</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Data</span></p>
@@ -207,6 +239,106 @@
             <div class="section">
               
                 <h1 id="python">Python</h1>
+<h2 id="pyenv">Pyenv</h2>
+<p><code>brew install pyenv</code>
+<code>brew install pyenv-virtualenv</code>
+install version: <code>pyenv instal [version]</code>
+set version: <code>pyenv global [version]</code>
+list installed versions: <code>pyenv versions</code>
+list virtualenvs: <code>pyenv virtualenvs</code>
+activate virutalenv: <code>pyenv activate</code></p>
+<h4 id="update-bashrc">Update .bashrc</h4>
+<pre><code>if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then
+  eval &quot;$(pyenv init -)&quot;
+fi
+export PATH=&quot;$HOME/.pyenv/bin:$PATH&quot;
+</code></pre>
+
+<h2 id="enumerate-iterable">Enumerate Iterable</h2>
+<p><code>enumerate(iterable, start=0)</code></p>
+<pre><code>for index, element in enumerate(l1,100): 
+    print index, element 
+</code></pre>
+
+<hr />
+<h2 id="higher-order-functions">Higher-order functions</h2>
+<p>From Composing Programs by John DeNero, Chapter 1.6.1:  </p>
+<pre><code>def summation(n, term):
+    total, k = 0, 1
+    while k &lt;= n:
+        total, k = total + term(k), k + 1
+    return total
+
+def cube(x):
+    return x*x*x
+
+def sum_cubes(n):
+    return summation(n, cube)
+
+result = sum_cubes(3)
+</code></pre>
+
+<h3 id="nest-definitions-and-lexical-scope">Nest Definitions and Lexical Scope</h3>
+<p>From Composing Programs by John DeNero, Chapter 1.6.3:  </p>
+<pre><code>def average(x, y):
+    return (x + y)/2
+
+def improve(update, close, guess=1):
+    while not close(guess):
+        guess = update(guess)
+    return guess
+
+def approx_eq(x, y, tolerance=1e-3):
+    return abs(x - y) &lt; tolerance
+
+def sqrt(a):
+    def sqrt_update(x):
+        return average(x, a/x)
+    def sqrt_close(x):
+        return approx_eq(x * x, a)
+    return improve(sqrt_update, sqrt_close)
+
+result = sqrt(256)
+</code></pre>
+
+<p>Notice how the nested definition <code>sqrt_update</code> still has access to the <code>a</code>, which is a formal parameter of its enclosing function <code>sqrt</code>. The nested definition extends its parent environment.</p>
+<p>"The sqrt_update function carries with it some data: the value for a referenced in the environment in which it was defined. Because they "enclose" information in this way, locally defined functions are often called <code>closures</code>."</p>
+<h3 id="decorators">Decorators</h3>
+<p>import time
+from functools import wraps 
+def timethis(func): 
+''' Decorator that reports the execution time. ''' 
+        @wraps(func)
+        def wrapper(<em>args, </em>*kwargs): </p>
+<pre><code>    start = time.time()
+    result = func(*args, **kwargs) end = time.time() 
+    print(func.__name__, end-start) 
+    return result 
+return wrapper
+</code></pre>
+<p>@timethis
+def countdown(n):
+'''Counts down'''
+    whilen&gt;0:
+        n -= 1</p>
+<blockquote>
+<p>countdown(100000) 
+countdown 0.008917808532714844
+countdown(10000000) 
+countdown 0.87188299392912</p>
+</blockquote>
+<hr />
+<h2 id="python-requests-lib">Python Requests Lib</h2>
+<h4 id="timeout">Timeout</h4>
+<ul>
+<li>timeout request after 30 seconds: <code>resquests.get('https://example.org', timeout=30)</code></li>
+</ul>
+<h4 id="handle-errors">Handle Errors</h4>
+<ul>
+<li>base-class exception: <code>except requests.exceptions.RequestException as e: raise SystemExit(e)</code></li>
+<li>catch each exception separately: <code>except requests.exceptions.Timeout</code>, <code>TooManyRedirects</code>, or <code>RequestException</code></li>
+<li>raise exception for HTTP errors: try <code>Response.raise_for_status()</code> and <code>except requests.exceptions.HTTPError as err</code></li>
+</ul>
 <hr />
 <h2 id="type-checking">Type Checking</h2>
 <ul>
@@ -340,6 +472,15 @@ light_bulbs.add('LED')
 'LED' in light_bulbs  # True
 'halogen' in light_bulbs  # False
 </code></pre>
+
+<hr />
+<h2 id="vscode">VSCode</h2>
+<h4 id="set-syntax">Set Syntax</h4>
+<p>Command Pallete &gt; languages<br />
+"Change Language Mode"<br />
+e.g. "SQL Formatter" Extension</p>
+<h4 id="format-file-in-syntax">Format File in Syntax</h4>
+<p>Shift + Option + F (Mac)</p>
               
             </div>
           </div>
@@ -347,7 +488,7 @@ light_bulbs.add('LED')
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../guis/" class="btn btn-neutral float-right" title="GUIs">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../webdev/" class="btn btn-neutral float-right" title="WebDev">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../functional_paradigm/" class="btn btn-neutral" title="Functional Paradigm"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -379,7 +520,7 @@ light_bulbs.add('LED')
         <span><a href="../functional_paradigm/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../guis/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../webdev/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -121,7 +121,7 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../software/python/">Python</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../software/guis/">GUIs</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/webdev/">WebDev</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Data</span></p>
@@ -219,6 +219,24 @@
 <h3 id="end-to-end-tests">End-to-end Tests</h3>
 <hr />
 <h2 id="deploy">Deploy</h2>
+<p>Automated deployment characteristics:</p>
+<ul>
+<li>It can be triggered by just one action, like one command on the command line and it will do the job.</li>
+<li>The steps will be pre-defined, reproducible and predictable.</li>
+<li>There is little or no human intervention from the start to the end.</li>
+<li>It should show the deployment progress as it happens, better feedback</li>
+<li>It should be atomic, which means either all the steps are completed or nothing happens.</li>
+</ul>
+<p>Some good to have features for automated deployment tools are:</p>
+<ul>
+<li>It should be able to deploy the same code to multiple servers</li>
+<li>Each deployment should be done from a given branch/tag/commit of a Version Control System (VCS) like git</li>
+<li>It should trigger notifications in the form of email/chat message</li>
+<li>Everyone should be able to view which branch/tag is deployed</li>
+<li>When a deployment is in progress, it should stop other deployments to start</li>
+<li>Rollback of the last deployment should be easy and fast.</li>
+</ul>
+<p><a href="https://dev.to/geshan/the-best-automated-deployment-tool-is-the-one-that-fits-your-needs-3o8">Source</a></p>
 <ul>
 <li>ansible</li>
 <li>octopus</li>

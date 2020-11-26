@@ -55,8 +55,30 @@
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Linux</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ssh-config">SSH Config</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#user-administration">User Administration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cloud-vms">Cloud VMs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#gcp">GCP</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#system-diagnostics">System Diagnostics</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#cpu">CPU</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#memory">Memory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#disk">Disk</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#processes">Processes</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#file-system-management">File System Management</a>
         <ul>
@@ -78,7 +100,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#apk">apk</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#apt-apt-get">apt / apt-get</a>
+    <li class="toctree-l3"><a class="reference internal" href="#apt">apt</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#dpkg">dpkg</a>
     </li>
@@ -92,7 +114,11 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#cron-scheduler">Cron Scheduler</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sftp">SFTP</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#bash">Bash</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#git">Git</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#bash_profile-vs-bashrc">bash_profile vs. bashrc</a>
     </li>
@@ -149,7 +175,7 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../software/python/">Python</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../software/guis/">GUIs</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../software/webdev/">WebDev</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Data</span></p>
@@ -229,20 +255,73 @@
 </ul>
 <h2 id="configuration">Configuration</h2>
 <ul>
+<li>Disable hibernation: <code>sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target</code></li>
 <li>No password configured: <code>sudo passwd</code></li>
 <li><code>hostname -f</code></li>
 <li><code>dpkg-reconfigure tzdata / timedatectl set-timezone</code></li>
 <li>fdisk</li>
+<li>cmd prompt <code>export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "</code></li>
 </ul>
+<h4 id="ssh-config">SSH Config</h4>
+<p><code>~/.ssh/config</code></p>
+<pre><code>host shortcutname
+HostName server.domain.com
+Port 5555
+User username
+</code></pre>
+
+<hr />
+<h2 id="user-administration">User Administration</h2>
+<ul>
+<li>assign group: <code>usermod -aG examplegroup exampleusername</code></li>
+</ul>
+<hr />
+<h2 id="cloud-vms">Cloud VMs</h2>
+<h4 id="gcp">GCP</h4>
+<p>setup root pass: <code>sudo passwd</code></p>
 <hr />
 <h2 id="system-diagnostics">System Diagnostics</h2>
 <ul>
+<li><code>uptime -p</code></li>
+<li><code>uptime</code> also shows load average and number of users currently logged in</li>
+</ul>
+<p>"The three numbers show the load averages for the last minute, 5 minutes, and 15 minutes respectively. A load average of 1 reflects the full workload of a single processor on the system."</p>
+<h4 id="cpu">CPU</h4>
+<ul>
+<li>number of processors: <code>grep processor /proc/cpuinfo | wc -l</code></li>
+</ul>
+<h4 id="memory">Memory</h4>
+<ul>
 <li><code>free -h</code></li>
-<li>top / htop</li>
-<li>df -h</li>
-<li>vmstat</li>
-<li>ps -ef</li>
-<li>pgrep / pidof</li>
+<li><code>cat /proc/meminfo</code></li>
+<li><code>vmstat -s</code><ul>
+<li><code>vmstat 5 10</code> displays a system’s virtual memory statistics 10 times at 5-second intervals.<ul>
+<li><code>so</code> shows the amount of data being moved to the swap to free up memory</li>
+<li><code>si</code> shows the amount of data being pulled from the swap back into memory</li>
+</ul>
+</li>
+<li>When a server is constantly swapping into and out of memory, that indicates that the load on it is too great for the available resources.</li>
+<li>If your system consumes most of its swap area, that might mean that the server is trying to do more than its available memory permits not that it’s low on memory.</li>
+</ul>
+</li>
+<li><code>top</code> and <code>htop</code><ul>
+<li>sort by CPU (P) or Memory (M)</li>
+</ul>
+</li>
+</ul>
+<h4 id="disk">Disk</h4>
+<ul>
+<li><code>df -h</code></li>
+</ul>
+<h4 id="processes">Processes</h4>
+<ul>
+<li><code>ps -ef</code></li>
+<li><code>pgrep</code> and <code>pidof</code></li>
+<li>services (process name): <code>service --status-all</code><ul>
+<li>if services is unavailable check <code>/usr/sbin/service</code></li>
+<li>add to path</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h2 id="file-system-management">File System Management</h2>
@@ -290,6 +369,7 @@
 <li>grep</li>
 <li>awk</li>
 <li>sed / jq</li>
+<li><code>cut -d' ' -f2</code>: <code>-d</code> delimter and <code>-f</code> field number will get the second word when piped from stdin</li>
 </ul>
 <p><code>.vimrc</code></p>
 <pre><code>colorscheme evening
@@ -304,17 +384,21 @@ highlight ColorColum ctermbg=0 guibg=lightgrey
 <hr />
 <h2 id="package-management">Package Management</h2>
 <h4 id="apk">apk</h4>
-<h4 id="apt-apt-get">apt / apt-get</h4>
+<h4 id="apt">apt</h4>
+<ul>
+<li>view installed packages: <code>apt list --installed</code></li>
+<li>specific packge: <code>apt list -a pkgNameHere</code></li>
+</ul>
 <h4 id="dpkg">dpkg</h4>
 <h4 id="yum">yum</h4>
 <h4 id="pacman">pacman</h4>
 <hr />
 <h2 id="netowrking">Netowrking</h2>
 <ul>
-<li><code>nmap</code>: show exposed ports</li>
+<li><code>nmap [localhost or IP]</code>: show exposed ports</li>
 <li>ping</li>
 <li>traceroute</li>
-<li>netstat<ul>
+<li><code>netstat</code>: See if the service is listening on the correct socket<ul>
 <li>o flag: show PIDs</li>
 </ul>
 </li>
@@ -351,6 +435,11 @@ highlight ColorColum ctermbg=0 guibg=lightgrey
 </li>
 </ul>
 <hr />
+<h2 id="sftp">SFTP</h2>
+<p>current working directory: <code>pwd</code>
+upload files: <code>put path_to_local_file remote_file</code>
+download files: <code>get path_to_remote_file local_file</code></p>
+<hr />
 <h2 id="bash">Bash</h2>
 <ul>
 <li>alias<ul>
@@ -361,6 +450,11 @@ highlight ColorColum ctermbg=0 guibg=lightgrey
 <li>pwd</li>
 <li>ls -la</li>
 <li>cat / bat</li>
+</ul>
+<h2 id="git">Git</h2>
+<ul>
+<li>Make git commands (e.g. pull) more verbose: <code>GIT_SSH_COMMAND="ssh -vv"</code></li>
+<li>View files modified by git pull: <code>git diff --name-only HEAD@{0} HEAD@{1}</code></li>
 </ul>
 <h3 id="bash_profile-vs-bashrc">bash_profile vs. bashrc</h3>
 <ul>
