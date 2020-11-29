@@ -1,8 +1,10 @@
 # Linux
+- command docs: `man find`
 - `apt-get update && apt-get upgrade`
 - `yum update`
 
 ## Configuration
+- Deb hostname: edit `/etc/hostname` & rename `/etc/host` entries
 - Disable hibernation: `sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
 - No password configured: `sudo passwd`
 - `hostname -f`
@@ -10,7 +12,17 @@
 - fdisk
 - cmd prompt `export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "`
 
-#### SSH Config
+#### SSH Server Config
+- edit: `/etc/ssh/sshd_config`
+    - disable root login: `PermitRootLogin no`
+    - enable key checking: `PubkeyAuthentication yes`
+    - disable password logins:
+        - `PasswordAuthentication no`
+        - `PasswordAuthentication no`
+        - `UsePAM no`
+
+
+#### SSH Client Config
 `~/.ssh/config`
 ```
 host shortcutname
@@ -21,8 +33,13 @@ User username
 
 ---
 ## User Administration
-- assign group: `usermod -aG examplegroup exampleusername`
-
+- add user: `adduser <user>`
+- delete user: `userdel <user>`
+- assign group: `usermod -aG <group> <username>`
+- give sudo: 
+    - Deb: `usermod -aG sudo <user>`
+    - Fed: `usermod -aG wheel <user>`
+- copy ssh key: `ssh-copy-id -i $HOME/.ssh/id_rsa.pub <user@ip>`
 
 ---
 ## Cloud VMs
@@ -62,9 +79,18 @@ setup root pass: `sudo passwd`
     - if services is unavailable check `/usr/sbin/service`
     - add to path
 
+---
+## Finding files
+- executable location: `which vim`
+- location of file within a specific dir containing name: `find /var -name access.log`
+- files that have been edited in the last 3 hours: `find /home -mtime -3`
+- locate file anywhere in the filesystem: `locate access.log`
+    - requires updated db: `sudo updatedb`
+
 
 ---
 ## File System Management
+- check disk usage: `ncdu`
 - ln -s
 - cp -R
 - mkdir -p
@@ -101,6 +127,7 @@ setup root pass: `sudo passwd`
 ---
 ## Text Manipulation
 - grep
+    - Recursive, case insensitive grep: `grep -R -i "PermitRootLogin" /etc/*`
 - awk
 - sed / jq
 - `cut -d' ' -f2`: `-d` delimter and `-f` field number will get the second word when piped from stdin

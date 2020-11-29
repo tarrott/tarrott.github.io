@@ -92,5 +92,33 @@
 - handled using internet gateways and nat gateways. As with ingress traffic, egress traffic should also be controlled and restricted for a number of reasons.
 
 ---
+## Security Scripts
+```
+ #!/bin/bash
+ #
+ #   attacker - prints out the last failed login attempt
+ #
+ echo "The last failed login attempt came from IP address:"
+ grep -i "disconnected from" /var/log/auth.log|tail -1| cut -d: -f4| cut -f7 -d" "
+ ```
+
+ ```
+ #
+ ##  	topattack - list the most persistent attackers
+ #
+ if [ -z "$1" ]; then
+ echo -e "\nUsage: `basename $0` <num> - Lists the top <num> attackers by IP"
+ exit 0
+ fi
+ echo " "
+ echo "Persistant recent attackers"
+ echo " "
+ echo "Attempts   	IP "
+ echo "-----------------------"
+ grep "Disconnected from authenticating user root" /var/log/auth.log|cut -d: -f 4 |
+ ```
+
+
+---
 
 ## Kali Linux
