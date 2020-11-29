@@ -56,7 +56,9 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#ssh-config">SSH Config</a>
+    <li class="toctree-l3"><a class="reference internal" href="#ssh-server-config">SSH Server Config</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ssh-client-config">SSH Client Config</a>
     </li>
         </ul>
     </li>
@@ -79,6 +81,8 @@
     <li class="toctree-l3"><a class="reference internal" href="#processes">Processes</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#finding-files">Finding files</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#file-system-management">File System Management</a>
         <ul>
@@ -250,11 +254,13 @@
               
                 <h1 id="linux">Linux</h1>
 <ul>
+<li>command docs: <code>man find</code></li>
 <li><code>apt-get update &amp;&amp; apt-get upgrade</code></li>
 <li><code>yum update</code></li>
 </ul>
 <h2 id="configuration">Configuration</h2>
 <ul>
+<li>Deb hostname: edit <code>/etc/hostname</code> &amp; rename <code>/etc/host</code> entries</li>
 <li>Disable hibernation: <code>sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target</code></li>
 <li>No password configured: <code>sudo passwd</code></li>
 <li><code>hostname -f</code></li>
@@ -262,7 +268,21 @@
 <li>fdisk</li>
 <li>cmd prompt <code>export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "</code></li>
 </ul>
-<h4 id="ssh-config">SSH Config</h4>
+<h4 id="ssh-server-config">SSH Server Config</h4>
+<ul>
+<li>edit: <code>/etc/ssh/sshd_config</code><ul>
+<li>disable root login: <code>PermitRootLogin no</code></li>
+<li>enable key checking: <code>PubkeyAuthentication yes</code></li>
+<li>disable password logins:<ul>
+<li><code>PasswordAuthentication no</code></li>
+<li><code>PasswordAuthentication no</code></li>
+<li><code>UsePAM no</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ssh-client-config">SSH Client Config</h4>
 <p><code>~/.ssh/config</code></p>
 <pre><code>host shortcutname
 HostName server.domain.com
@@ -273,7 +293,15 @@ User username
 <hr />
 <h2 id="user-administration">User Administration</h2>
 <ul>
-<li>assign group: <code>usermod -aG examplegroup exampleusername</code></li>
+<li>add user: <code>adduser &lt;user&gt;</code></li>
+<li>delete user: <code>userdel &lt;user&gt;</code></li>
+<li>assign group: <code>usermod -aG &lt;group&gt; &lt;username&gt;</code></li>
+<li>give sudo: <ul>
+<li>Deb: <code>usermod -aG sudo &lt;user&gt;</code></li>
+<li>Fed: <code>usermod -aG wheel &lt;user&gt;</code></li>
+</ul>
+</li>
+<li>copy ssh key: <code>ssh-copy-id -i $HOME/.ssh/id_rsa.pub &lt;user@ip&gt;</code></li>
 </ul>
 <hr />
 <h2 id="cloud-vms">Cloud VMs</h2>
@@ -324,8 +352,20 @@ User username
 </li>
 </ul>
 <hr />
+<h2 id="finding-files">Finding files</h2>
+<ul>
+<li>executable location: <code>which vim</code></li>
+<li>location of file within a specific dir containing name: <code>find /var -name access.log</code></li>
+<li>files that have been edited in the last 3 hours: <code>find /home -mtime -3</code></li>
+<li>locate file anywhere in the filesystem: <code>locate access.log</code><ul>
+<li>requires updated db: <code>sudo updatedb</code></li>
+</ul>
+</li>
+</ul>
+<hr />
 <h2 id="file-system-management">File System Management</h2>
 <ul>
+<li>check disk usage: <code>ncdu</code></li>
 <li>ln -s</li>
 <li>cp -R</li>
 <li>mkdir -p</li>
@@ -366,7 +406,10 @@ User username
 <hr />
 <h2 id="text-manipulation">Text Manipulation</h2>
 <ul>
-<li>grep</li>
+<li>grep<ul>
+<li>Recursive, case insensitive grep: <code>grep -R -i "PermitRootLogin" /etc/*</code></li>
+</ul>
+</li>
 <li>awk</li>
 <li>sed / jq</li>
 <li><code>cut -d' ' -f2</code>: <code>-d</code> delimter and <code>-f</code> field number will get the second word when piped from stdin</li>
