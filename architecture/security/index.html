@@ -62,7 +62,11 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Security</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#rsa-gpg">RSA &amp; GPG</a>
+    <li class="toctree-l2"><a class="reference internal" href="#webserver-security-audit">Webserver Security Audit</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#rsa-gpg">RSA &amp; GPG</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#server-security-best-practices">Server Security Best Practices</a>
     </li>
@@ -73,6 +77,14 @@
     <li class="toctree-l4"><a class="reference internal" href="#firewall">Firewall</a>
     </li>
         </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mandatory-access-control-mac">Mandatory Access Control (MAC)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#selinux">SELinux</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#securing-applications">Securing Applications</a>
     </li>
         </ul>
     </li>
@@ -228,6 +240,16 @@
 </ul>
 </li>
 </ul>
+<h2 id="webserver-security-audit">Webserver Security Audit</h2>
+<ul>
+<li>open ports (should be limited to 80 &amp; 443)</li>
+<li>SSH/RDP (22 &amp; 3389) should be using IP whitelisting or a VPN for access</li>
+<li>check for up-to-date packages<ul>
+<li>apache2: <code>curl --head | grep Server</code></li>
+<li>JS libraries (e.g. jQuery <code>jQuery().jquery</code> in browser console)</li>
+</ul>
+</li>
+</ul>
 <h3 id="rsa-gpg">RSA &amp; GPG</h3>
 <ul>
 <li><code>ssh-keygen -t rsa -C user@email</code><ul>
@@ -253,6 +275,20 @@
 <h4 id="firewall">Firewall</h4>
 <ul>
 <li>ufw</li>
+</ul>
+<hr />
+<h2 id="mandatory-access-control-mac">Mandatory Access Control (MAC)</h2>
+<ul>
+<li>opposed to Discretionary Access Control(DAC)</li>
+</ul>
+<h4 id="selinux">SELinux</h4>
+<ul>
+<li>sets policies to manage how users, files, directories, memory, sockets, tcp/udp ports, etc. interact with each other</li>
+<li>policies can stop a process (e.g. <code>chmod -R 777 /home</code>) from running, even as root</li>
+</ul>
+<h4 id="securing-applications">Securing Applications</h4>
+<ul>
+<li>apparmor - only allow commands/applications to run specific functionality</li>
 </ul>
 <hr />
 <h2 id="secrets">Secrets</h2>
@@ -329,7 +365,8 @@
 </ul>
 <hr />
 <h2 id="security-scripts">Security Scripts</h2>
-<p><code>#!/bin/bash
+<p>recent logins and sudo usage logged in <code>/var/log/auth.log</code>
+<code>#!/bin/bash
  #
  #   attacker - prints out the last failed login attempt
  #

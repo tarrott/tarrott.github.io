@@ -96,6 +96,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kube-context-and-namespace">Kube context and namespace</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#kubectl">Kubectl</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#yaml-configuration">YAML Configuration</a>
@@ -343,6 +345,17 @@ end
 <p><code>minikube start -p &lt;profile&gt; --memory=8192 --cpu=4 --disk-size=50g</code></p>
 <h6 id="invoke-a-kubernetes-service">Invoke a kubernetes service</h6>
 <p><code>minikube service &lt;service_name&gt;</code></p>
+<h3 id="kube-context-and-namespace">Kube context and namespace</h3>
+<ul>
+<li><code>kubectx</code></li>
+<li><code>kubens</code></li>
+<li>add new cluster context for kubectl:<ul>
+<li>add <code>&lt;cluster_name&gt;-kubeconfig.yaml</code> to <code>~/.kube/configs/</code></li>
+<li>add to .bash_profile or .bashrc: <code>export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:$HOME/.kube/configs/&lt;cluster_name&gt;-kubeconfig.yaml</code></li>
+<li>source ~/.bash_profile</li>
+</ul>
+</li>
+</ul>
 <h3 id="kubectl">Kubectl</h3>
 <ul>
 <li><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">Cheatsheet</a></li>

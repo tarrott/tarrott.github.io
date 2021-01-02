@@ -54,6 +54,30 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Linux</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#package-management">Package Management</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#apk">apk</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#apt">apt</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dpkg">dpkg</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#yum">yum</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pacman">pacman</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#compile-from-source">Compile from Source</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#debianubuntu">Debian/Ubuntu</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#nmap-example">nmap example</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#ssh-server-config">SSH Server Config</a>
@@ -84,8 +108,20 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#finding-files">Finding files</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#log-rotation">Log Rotation</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#file-system-management">File System Management</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#links">Links</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#hard-links">Hard links</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#symbolic-links">Symbolic links</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#acls">ACLS</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#filepaths">Filepaths</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#daily-driver">Daily Driver</a>
@@ -98,23 +134,17 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reading-files">Reading Files</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#text-manipulation">Text Manipulation</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#package-management">Package Management</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#apk">apk</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#apt">apt</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#dpkg">dpkg</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#yum">yum</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#pacman">pacman</a>
-    </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#archiving-files-directories">Archiving Files &amp; Directories</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#netowrking">Netowrking</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#firewalls">Firewalls</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#cron-scheduler">Cron Scheduler</a>
     </li>
@@ -128,6 +158,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#shell-scripting">Shell Scripting</a>
         <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#common-commands">Common commands</a>
+    </li>
     <li class="toctree-l4"><a class="reference internal" href="#script-arguments">Script arguments</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#functions">Functions</a>
@@ -255,12 +287,75 @@
                 <h1 id="linux">Linux</h1>
 <ul>
 <li>command docs: <code>man find</code></li>
-<li><code>apt-get update &amp;&amp; apt-get upgrade</code></li>
-<li><code>yum update</code></li>
+<li>run previous command with sudo: <code>sudo !!</code></li>
 </ul>
+<hr />
+<h2 id="package-management">Package Management</h2>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Pacman/Rosetta">comparison</a></li>
+</ul>
+<h4 id="apk">apk</h4>
+<h4 id="apt">apt</h4>
+<ul>
+<li>view installed packages: <code>apt list --installed</code></li>
+<li>specific packge: <code>apt list -a pkgNameHere</code></li>
+<li>updates<ul>
+<li><code>apt update</code></li>
+<li><code>apt list --upgradable</code></li>
+<li><code>apt upgrade</code></li>
+<li>update dev version (e.g. 18.04.3 to 18.04.5): <code>apt dist-upgrade</code> &amp; <code>reboot</code></li>
+<li>update specific package:<ul>
+<li>e.g. apache2: <code>add-apt-repository ppa:ondrej/apache2 &amp;&amp; apt update &amp;&amp; apt install apache2</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>remove package files no longer needed: <code>apt autoclean</code></li>
+</ul>
+<h4 id="dpkg">dpkg</h4>
+<h4 id="yum">yum</h4>
+<pre><code>- `yum update`
+</code></pre>
+<h4 id="pacman">pacman</h4>
+<hr />
+<h2 id="compile-from-source">Compile from Source</h2>
+<h4 id="debianubuntu">Debian/Ubuntu</h4>
+<ul>
+<li>install essential build tools: <code>sudo apt install build-essential</code></li>
+</ul>
+<h6 id="nmap-example">nmap example</h6>
+<ul>
+<li>check current nmap version: <code>nmap -V</code></li>
+<li>get tarball link for the latest development release for nmap from nmap.org download section under "source code distribution"</li>
+<li><code>wget -v https://nmap.org/dist/nmap-7.91.tar.bz2</code></li>
+<li>uncompress the bzip2 file with: <code>tar -jxvf nmap-7.91.tar.bz2</code><ul>
+<li><code>-j</code> flag filters the archive through bzip2</li>
+<li><code>-x</code> flag for extract</li>
+<li><code>-v</code> flag for verbose</li>
+<li><code>-f</code> flag specifies the following filename</li>
+</ul>
+</li>
+<li>read the INSTALL file to get compile instructions:<ul>
+<li><code>./configure</code></li>
+<li><code>make</code></li>
+<li><code>sudo make install</code> (uses root privileges because it installs files outside of home directory)</li>
+</ul>
+</li>
+<li>update the index of files the <code>locate</code> command uses: <code>sudo updatedb</code></li>
+<li>find nmap installs: <code>locate /bin/nmap</code><ul>
+<li>In general, /bin is for key parts of the operating system, /usr/bin for less critical utilities and /usr/local/bin for software chosen to be installed manually. When a command is run it will search through each of the directories given in the PATH environment variable, and use the first match. So, if /bin/nmap exists, it will run instead of /usr/local/bin</li>
+</ul>
+</li>
+<li>Security Risk NOTE: since namp was installed outside of the apt system, this binary will not get updates when <code>apt update</code> is ran. This is okay for a utility like namp, but for an exposed service (apache, mysql, etc.) it is important to track security alerts for the application (including its dependencies), and patch it to the latest versions when they're available. This is both tedius and a serious security risk if not done.</li>
+</ul>
+<hr />
 <h2 id="configuration">Configuration</h2>
 <ul>
-<li>Deb hostname: edit <code>/etc/hostname</code> &amp; rename <code>/etc/host</code> entries</li>
+<li><code>hostnamectl set-hostname &lt;name&gt;</code><ul>
+<li>the line <code>preserve_hostname</code> might need to be changed to <code>true</code> in <code>/etc/cloud/cloud.cfg</code> to save hostname for cloud servers after server reboot</li>
+<li>old way hostname: edit <code>/etc/hostname</code> &amp; rename <code>/etc/host</code> entries</li>
+</ul>
+</li>
 <li>Disable hibernation: <code>sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target</code></li>
 <li>No password configured: <code>sudo passwd</code></li>
 <li><code>hostname -f</code></li>
@@ -294,7 +389,10 @@ User username
 <h2 id="user-administration">User Administration</h2>
 <ul>
 <li>add user: <code>adduser &lt;user&gt;</code></li>
-<li>delete user: <code>userdel &lt;user&gt;</code></li>
+<li>add group: <code>addgroup &lt;group&gt;</code></li>
+<li>asign group: <code>adduser &lt;user&gt; &lt;group&gt;</code></li>
+<li>delete user: <code>deluser &lt;user&gt;</code></li>
+<li><code>useradd</code>, <code>usermod</code>, and <code>userdel</code> are low level utlities and the above methods should usually be used by sysadmins</li>
 <li>assign group: <code>usermod -aG &lt;group&gt; &lt;username&gt;</code></li>
 <li>give sudo: <ul>
 <li>Deb: <code>usermod -aG sudo &lt;user&gt;</code></li>
@@ -302,7 +400,14 @@ User username
 </ul>
 </li>
 <li>copy ssh key: <code>ssh-copy-id -i $HOME/.ssh/id_rsa.pub &lt;user@ip&gt;</code></li>
+<li>give permissions to run specific commands: <code>visudo</code></li>
 </ul>
+<pre><code># Allow user &quot;helper&quot; to run &quot;sudo reboot&quot;
+# ...and don't prompt for a password
+#
+helper ALL = NOPASSWD:/sbin/reboot
+</code></pre>
+
 <hr />
 <h2 id="cloud-vms">Cloud VMs</h2>
 <h4 id="gcp">GCP</h4>
@@ -354,19 +459,26 @@ User username
 <hr />
 <h2 id="finding-files">Finding files</h2>
 <ul>
-<li>executable location: <code>which vim</code></li>
-<li>location of file within a specific dir containing name: <code>find /var -name access.log</code></li>
-<li>files that have been edited in the last 3 hours: <code>find /home -mtime -3</code></li>
 <li>locate file anywhere in the filesystem: <code>locate access.log</code><ul>
 <li>requires updated db: <code>sudo updatedb</code></li>
 </ul>
 </li>
+<li>executable location: <code>which vim</code></li>
+<li>location of file within a specific dir containing name: <code>find /var -name access.log</code></li>
+<li>files that have been edited in the last 3 hours: <code>find /home -mtime -3</code></li>
+<li>search through a directory of text files: <code>grep -R -i "PermitRootLogin" /etc/*</code></li>
+</ul>
+<h2 id="log-rotation">Log Rotation</h2>
+<ul>
+<li><code>logrotate</code> usually automatically configured and ran by cron in <code>/etc/cron.daily/logrotate</code></li>
+<li>overall logrotate config file stored in <code>/etc/logrotate.conf</code></li>
+<li>individual logrotate recipes are stored in <code>/etc/logrotate.d/</code></li>
+<li>for example, the <code>/etc/logratote.d/apache2</code> config file could be edited so that the log file is emailed to an auditor each time it is rotated</li>
 </ul>
 <hr />
 <h2 id="file-system-management">File System Management</h2>
 <ul>
 <li>check disk usage: <code>ncdu</code></li>
-<li>ln -s</li>
 <li>cp -R</li>
 <li>mkdir -p</li>
 <li>touch</li>
@@ -374,9 +486,41 @@ User username
 <li>rm</li>
 <li>scp</li>
 <li>tree</li>
+<li>set the sticky bit for a directory: <code>chmod 1777 &lt;dir_name&gt;</code><ul>
+<li>only the owner of each file in this directory can delete the file</li>
+</ul>
+</li>
+</ul>
+<h4 id="links">Links</h4>
+<h6 id="hard-links">Hard links</h6>
+<ul>
+<li><code>ln /path/to/target/file hardlinkname</code></li>
+<li>can only link to files, not directories</li>
+<li>cannot link to remote files on different partitions/disks</li>
+<li>links reference the same inode as the target file, and therefore the physical location on disk<ul>
+<li>if the target file is moved or deleted, the hard link will still retain a copy of the original contents</li>
+</ul>
+</li>
+</ul>
+<h6 id="symbolic-links">Symbolic links</h6>
+<ul>
+<li><code>ln -s /path/to/target softlinkname</code></li>
+<li>can additionally link to directories, remote files, and files on different partitions/disks</li>
+<li>links will no longer reference the target file if it has been moved or deleted</li>
+<li>symlinks get their own inode because they are referencing abstract filenames/dirs and not the target's physical location<ul>
+<li>if the target is recreated with the same name then the symlink will reference this new target</li>
+</ul>
+</li>
+</ul>
+<h4 id="acls">ACLS</h4>
+<ul>
+<li>allow for more details filesystem permissions (e.g. allowing a user who is not the owner or in the file's group to access the file)</li>
+<li><code>getfacl</code></li>
+<li><code>setfacl</code></li>
 </ul>
 <h4 id="filepaths">Filepaths</h4>
 <ul>
+<li><code>man hier</code> for filesystem hierarchy</li>
 <li><a href="http://www.pathname.com/fhs/">Filesystem Hierarchy Standard</a></li>
 <li><a href="https://help.ubuntu.com/community/LinuxFilesystemTreeOverview">Linux Filesystem Tree Overview</a></li>
 </ul>
@@ -403,16 +547,43 @@ User username
 <li><code>/media</code> is intended as a mount point for external devices, such as hard drives or removable media (floppies, CDs, DVDs).</li>
 <li><code>/mnt</code> is also a place for mount points, but dedicated specifically to "temporarily mounted" devices, such as network filesyste</li>
 </ul>
+<h2 id="reading-files">Reading Files</h2>
+<ul>
+<li><code>less</code><ul>
+<li>move to top and bottom of file: <code>gg</code> and <code>G</code></li>
+<li>search: <code>/</code> then <code>n</code> and <code>N</code> for (next &amp; previous selection)</li>
+</ul>
+</li>
+<li><code>more</code></li>
+<li><code>tail</code> and <code>head</code><ul>
+<li>follow a log while it is written to: <code>tail -f /var/log/apache2/access.log</code></li>
+</ul>
+</li>
+</ul>
 <hr />
 <h2 id="text-manipulation">Text Manipulation</h2>
 <ul>
-<li>grep<ul>
+<li><code>grep</code><ul>
+<li>filter for lines in specific file: <code>grep "authenticating /var/log/apache2/access.log</code></li>
 <li>Recursive, case insensitive grep: <code>grep -R -i "PermitRootLogin" /etc/*</code></li>
+<li>find all lines that contain a specific string: <code>cat /var/log/apache2/access.log | grep '0.0.0.0' | wc -l</code></li>
+<li>use <code>-v</code> to find the inverse line that do NOT contain a specific string: <code>cat /var/log/apache2/access.log | grep -v '0.0.0.0' | wc -l</code> </li>
 </ul>
 </li>
-<li>awk</li>
-<li>sed / jq</li>
+<li><code>awk</code></li>
+<li><code>sed</code><ul>
+<li>print line containing first occurance of a string: <code>sed -n '/STRING/p /var/log/apache/access.log | head -1</code></li>
+<li>print line containing last occurance of a string: <code>sed -n '/STRING/p /var/log/apache/access.log | tail -1</code></li>
+</ul>
+</li>
+<li><code>jq</code></li>
+<li>`cut<ul>
 <li><code>cut -d' ' -f2</code>: <code>-d</code> delimter and <code>-f</code> field number will get the second word when piped from stdin</li>
+<li>display the 10th word onwards (use space as the delimiter): <code>grep "authenticating" /var/log/auth.log| grep "root"| cut -f 10- -d" "</code></li>
+</ul>
+</li>
+<li><code>sort</code>: sort order</li>
+<li><code>uniq</code>: filter unique values</li>
 </ul>
 <p><code>.vimrc</code></p>
 <pre><code>colorscheme evening
@@ -425,31 +596,51 @@ highlight ColorColum ctermbg=0 guibg=lightgrey
 </code></pre>
 
 <hr />
-<h2 id="package-management">Package Management</h2>
-<h4 id="apk">apk</h4>
-<h4 id="apt">apt</h4>
-<ul>
-<li>view installed packages: <code>apt list --installed</code></li>
-<li>specific packge: <code>apt list -a pkgNameHere</code></li>
-</ul>
-<h4 id="dpkg">dpkg</h4>
-<h4 id="yum">yum</h4>
-<h4 id="pacman">pacman</h4>
+<h2 id="archiving-files-directories">Archiving Files &amp; Directories</h2>
+<p>gather files and directories into one place with tar: <code>tar -cvf myinits.tar /etc/init.d/</code>
+compress the tarball with gzip: <code>gzip myinits.tar</code>
+in 1 step: <code>tar -cvzf myinits.tgz /etc/init.d/</code>
+    - <code>c</code> switch: create an archive file
+    - <code>v</code> switch: print verbose output
+    - <code>z</code> switch: compress the result
+    - <code>f</code> switch: create the output tarball with the following filename
+uncompress compressed tarball: <code>tar -xvf myinits.tgz</code>
+    - <code>C</code> switch: specify a different directory to uncompress to</p>
 <hr />
 <h2 id="netowrking">Netowrking</h2>
 <ul>
+<li>find local ip: <code>ip a</code></li>
+<li><code>ping</code></li>
+<li><code>telnet</code></li>
 <li><code>nmap [localhost or IP]</code>: show exposed ports</li>
-<li>ping</li>
-<li>traceroute</li>
+<li><code>ss</code>:<ul>
+<li>more modern replacement for <code>netstat</code></li>
+<li>view open ports (both internal and exposed): <code>ss -tlp</code></li>
+</ul>
+</li>
 <li><code>netstat</code>: See if the service is listening on the correct socket<ul>
+<li>view open ports: <code>netstat -tulpn</code></li>
 <li>o flag: show PIDs</li>
 </ul>
 </li>
-<li>telnet</li>
+<li><code>traceroute</code></li>
 <li>mtr</li>
-<li>curl<ul>
+<li><code>curl</code><ul>
 <li>I flag: show header info only</li>
 <li>L flag: follow redirects</li>
+</ul>
+</li>
+</ul>
+<h3 id="firewalls">Firewalls</h3>
+<ul>
+<li>netfilter</li>
+<li><code>iptables</code><ul>
+<li>view traffic rules: <code>iptables -L</code></li>
+</ul>
+</li>
+<li><code>nftables</code></li>
+<li><code>ufw</code><ul>
+<li>setup: <code>ufw allow http &amp;&amp; ufw enable</code></li>
 </ul>
 </li>
 </ul>
@@ -496,6 +687,8 @@ download files: <code>get path_to_remote_file local_file</code></p>
 </ul>
 <h2 id="git">Git</h2>
 <ul>
+<li>Delete remote branch: <code>git push -d &lt;remote_name&gt; &lt;branch_name&gt;</code></li>
+<li>Delete local branch: <code>git push -D &lt;branch_name&gt;</code></li>
 <li>Make git commands (e.g. pull) more verbose: <code>GIT_SSH_COMMAND="ssh -vv"</code></li>
 <li>View files modified by git pull: <code>git diff --name-only HEAD@{0} HEAD@{1}</code></li>
 </ul>
@@ -547,7 +740,33 @@ alias infa='cd $INFA_HOME'
 </code></pre>
 
 <h3 id="shell-scripting">Shell Scripting</h3>
+<ul>
+<li>run the shell script as a custom command, such as <code>topattackers</code></li>
+<li>write the shell script and make it executeable: <code>chmod +x topattackers</code></li>
+<li>run it with <code>./topattackers</code></li>
+<li>allow for it to be run anywhere throughout the system by moving it somewhere the PATH variable sees it<ul>
+<li>best place to store it is where manually installed software lives: <code>sudo mv ./topattackers /usr/local/bin/topattackers</code></li>
+</ul>
+</li>
+<li>now the script can be called by simply typing the command <code>topattackers</code></li>
+</ul>
+<h4 id="common-commands">Common commands</h4>
+<ul>
+<li>print to screen: <code>echo</code> follow by a string or variable</li>
+<li>get user input: <code>read</code> followed by the variable name the input will be stored to</li>
+<li>use a variable with <code>$varname</code></li>
+<li>make program wait: <code>sleep</code> followed by an int for the seconds</li>
+<li>write to file: <code>echo $varname &gt; text.txt</code><ul>
+<li><code>&gt;</code> will overwrite output to the following filename</li>
+<li><code>&gt;&gt;</code> will append output to the following filename</li>
+</ul>
+</li>
+</ul>
 <h4 id="script-arguments">Script arguments</h4>
+<ul>
+<li><code>$0</code></li>
+<li><code>$1, $2</code> etc.</li>
+</ul>
 <h4 id="functions">Functions</h4>
 <hr />
 <h2 id="distros">Distros</h2>

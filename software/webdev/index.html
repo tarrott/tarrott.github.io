@@ -127,17 +127,19 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#jinja">Jinja</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#registering-custom-filters">Registering custom filters</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#alertnative-to-register-custom-filter-in-django-settingspy">Alertnative to register custom filter in Django settings.py</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#flask">Flask</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#django">Django</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#jinja">Jinja</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#registering-custom-filters">Registering custom filters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#alertnative-to-register-custom-filter-in-django-settingspy">Alertnative to register custom filter in Django settings.py</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#wordpress">WordPress</a>
         <ul>
@@ -152,6 +154,16 @@
     <li class="toctree-l2"><a class="reference internal" href="#css">CSS</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#html">HTML</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vscode">VSCode</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#user-snippets">User Snippets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set-syntax">Set Syntax</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#format-file-in-syntax">Format File in Syntax</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a>
     </li>
@@ -316,7 +328,151 @@ SSLCertificateFile /etc/letsencrypt/live/nedic.ca/fullchain.pem
 SSLCertificateKeyFile /etc/letsencrypt/live/nedic.ca/privkey.pem
 </code></pre>
 <hr />
-<h2 id="jinja">Jinja</h2>
+<h2 id="flask">Flask</h2>
+<hr />
+<h2 id="django">Django</h2>
+<ol>
+<li>Setup<ul>
+<li>create virtualenv, pip install django, output django version to requirements.txt</li>
+<li>create project: <code>startproject &lt;project_name&gt;</code></li>
+<li>create first app: <code>&lt;project_name&gt;/manage.py startapp &lt;app_name&gt;</code></li>
+</ul>
+</li>
+<li>Setup routing for first app<ul>
+<li>add <code>include</code> function to <project_name>/urls.py: <code>from django.urls import path, include</code></li>
+<li>create <code>urls.py</code> in first app directory</li>
+<li>add path to first app: <code>path('', include('&lt;app_name&gt;.urls'))</code></li>
+<li>add <code>path</code> function and <code>urlpatterns</code> list to first app's <code>urls.py</code></li>
+<li>add <code>views.py</code> to first app's <code>urls.py</code>: <code>from . import views</code></li>
+<li>add a path to first app's <code>urlpatterns</code>: <code>path('', views.home, name='&lt;app_name&gt;-home')</code></li>
+</ul>
+</li>
+<li>Create views<ul>
+<li>create view functions: <code>def home(request):</code></li>
+<li>add context: <code>context = {...}</code></li>
+<li>render template: <code>return render(request, '&lt;app_name&gt;/home.html', context)</code> </li>
+</ul>
+</li>
+<li>Add templates<ul>
+<li>create <code>templates</code> directory within first app's directory</li>
+<li>create a app directory within the templates directory: <code>&lt;project_name&gt;/&lt;app_name&gt;/templates/&lt;app_name&gt;</code></li>
+<li>create HTML templates within the <code>templates/&lt;app_name&gt;</code> directory</li>
+<li>add template inheritence: create a <code>base.html</code> template to be extended in all other templates<ul>
+<li>(Optional) Add bootstrap in <code>base.html</code> from bootstrap starter template (metadata, css, and javascript)</li>
+</ul>
+</li>
+<li>add HTML snippets</li>
+<li>replace anchor tag hrefs with url names: <code>{% &lt;app-name&gt;-home %}</code></li>
+</ul>
+</li>
+<li>Add static assests and media directories<ul>
+<li>add static directory: <code>&lt;app_name&gt;/static/&lt;app_name&gt;</code></li>
+<li>add main css file: <code>&lt;app_name&gt;/static/&lt;app_name&gt;/main.css</code></li>
+<li>load static directory within template: <code>{% load static %}</code></li>
+<li>load a static asset: <code>&lt;link rel="stylesheet" href="{% static '&lt;app-name&gt;/main.css' %"&gt;</code></li>
+<li>in <code>settings.py</code> add the following:<ul>
+<li>full path to static directory: <code>STATIC_ROOT = os.path.join(BASE_DIR, 'static')</code></li>
+<li>public URL of the static directory and how it will be accessed through the browser: <code>STATIC_URL = '/static/'</code></li>
+<li>full path to media directory: <code>MEDIA_ROOT = os.path.join(BASE_DIR, 'media')</code></li>
+<li>public URL of the media directory and how it will be accessed through the browser: <code>MEDIA_URL = '/media'</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Create admin user<ul>
+<li><code>&lt;project_name&gt;/manage.py migrate</code></li>
+<li><code>&lt;project_name&gt;/manage.py createsuperuser</code></li>
+</ul>
+</li>
+<li>Create models<ul>
+<li>inherit from the Model class: <code>class &lt;model_name&gt;(models.Model)</code></li>
+<li>reference a user foreign key: <code>from django.contrib.auth.models import User</code><ul>
+<li>delete anything referencing the user: <code>user = models.ForeignKey(User, on_delete=models.CASCADE)</code></li>
+<li>retain anything referencing the user and set the reference to null: <code>user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)</code></li>
+</ul>
+</li>
+<li>util for using mutable time fields: <code>from django.utils import timezone</code><ul>
+<li>mutable date: <code>date_created = models.DateTimeField(default=timezone.now)</code></li>
+<li>use data at time of add/edit: <code>date_updated = models.DateTimeField(auto_now=True)</code></li>
+</ul>
+</li>
+<li>add descriptive text when querying: <code>def __str__(self): return self.name</code></li>
+<li>run <code>makemigrations</code></li>
+<li>view raw SQL: <code>manage.py sqlmigrate &lt;app_name&gt; &lt;migration_number&gt;</code></li>
+<li>apply migrations: <code>migrate</code></li>
+<li>register in admin site: <code>admin.site.register(&lt;model_name&gt;)</code><ul>
+<li>import <code>from .models import &lt;model_name&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Interact with Models in Django Python shell<ul>
+<li><code>manage.py shell</code></li>
+<li>import users: <code>from django.contrib.auth.models import User</code></li>
+<li>import models: <code>from &lt;app_name&gt;.models import &lt;model_name&gt;</code></li>
+<li>get all, get id, first, or last objects: <code>User.objects.all()</code> or <code>.get(1)</code>or <code>.first()</code> or <code>.last()</code></li>
+<li>filter results: <code>user = User.objects.filter(username='&lt;string&gt;).first()</code></li>
+<li>check attributes: <code>user.pk</code></li>
+<li>get all objects referencing a user: <code>user.&lt;model_name&gt;_set.all()</code><ul>
+<li>add new object for this user: <code>user.&lt;model_name&gt;_set.create(&lt;model_attributes&gt;)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Query database in view<ul>
+<li>import model in views file: <code>from .models import &lt;model_name&gt;</code></li>
+<li>add it into the response context: <code>context = {'announcements': Announcement.objects.all()</code></li>
+</ul>
+</li>
+<li>User creation<ul>
+<li>default form: <code>from django.contrib.auth.forms import UserCreationForm</code></li>
+<li>get form data: <code>f request.method == 'POST': form = UserRegisterForm(request.POST)</code></li>
+<li>validate form: <code>if form.is_valid():</code></li>
+<li>create user: <code>form.save()</code></li>
+<li>format form with <code>django-crispy-forms</code><ul>
+<li>add to installed apps: <code>'crispy_forms',</code></li>
+<li>set frontend framework in django settings: <code>CRISPY_TEMPLATE_PACK = 'bootstrap4'</code></li>
+</ul>
+</li>
+<li>log user in after registration<ul>
+<li>required imports: <code>from django.contrib.auth import authenticate, login</code></li>
+<li><code>if form.is_valid():</code> then <code>login(request, authenticate(username=username, password=password))</code></li>
+</ul>
+</li>
+<li>update redirect to specific page after login in django settings: <code>LOGIN_REDIRECT_URL = 'profile'</code></li>
+</ul>
+</li>
+<li>Restrict pages to logged in users<ul>
+<li>import decorator: <code>from django.contrib.auth.decorators import login_required</code></li>
+<li>add decorator to any view function returning a restricted page: <code>@login_required</code></li>
+<li>for class-based views:<ul>
+<li>import mixin: <code>from django.contrib.auth.mixins import LoginRequiredMixin</code></li>
+<li>include within class: <code>class AccountView(LoginRequiredMixin, View):</code></li>
+</ul>
+</li>
+<li>alternatively, include for specific class method:<ul>
+<li>import: <code>from django.utils.decorators import method_decorator</code></li>
+<li>method decorator: <code>@method_decorator(login_required)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Extend Users model<ul>
+<li>import User model: <code>from django.contrib.auth.models import User</code></li>
+<li>create extended model: <code>class Profile(models.Model):</code></li>
+<li>create a one-to-one relationship with a user model: <code>user = models.OneToOneField(User, on_delete=models.CASCADE)</code></li>
+<li>add to admin site in admin.py: <code>from .models import Profile</code> <code>admin.site.register(Profile)</code></li>
+</ul>
+</li>
+<li>Django Signals (to automatically execute some behavior)<ul>
+<li>import post-save signal: <code>from django.db.models.signals import post_save</code></li>
+<li>import sender: <code>from django.contrib.auth.models import User</code></li>
+<li>import receiver: <code>from django.dispatch import receiver</code></li>
+<li>import related models: <code>from .models import Profile</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="jinja">Jinja</h3>
 <h4 id="registering-custom-filters">Registering custom filters</h4>
 <pre><code>from django_jinja import library
 @library.filter
@@ -342,10 +498,6 @@ return name.lower()
 }]
 </code></pre>
 
-<hr />
-<h2 id="flask">Flask</h2>
-<hr />
-<h2 id="django">Django</h2>
 <hr />
 <h2 id="wordpress">WordPress</h2>
 <p>export db: <code>wp db export</code>
@@ -379,6 +531,43 @@ use a different version: <code>nvm use [version]</code></p>
 <h2 id="css">CSS</h2>
 <hr />
 <h2 id="html">HTML</h2>
+<hr />
+<h2 id="vscode">VSCode</h2>
+<ul>
+<li>pull up intellisense on mac: <code>Option + Esc</code> (<code>Alt</code> on Windows)</li>
+</ul>
+<h4 id="user-snippets">User Snippets</h4>
+<p>Django code block snippets for html templates:  </p>
+<pre><code>{
+    &quot;Django for-loop code block&quot;: {
+        &quot;prefix&quot;: [&quot;for&quot;, &quot;django&quot;, &quot;code&quot;, &quot;code-block&quot;],
+        &quot;body&quot;: [&quot;{% for ${1:element} in ${2:iterable} %}&quot;, &quot;\t$0&quot;,&quot;{% endfor %}&quot;]
+    },
+    &quot;Django if code block&quot;: {
+        &quot;prefix&quot;: [&quot;if&quot;, &quot;django&quot;, &quot;code&quot;, &quot;code-block&quot;],
+        &quot;body&quot;: [&quot;{% if ${1:condition} %}&quot;, &quot;\t$0&quot;,&quot;{% endif %}&quot;]
+    },
+    &quot;Django if/else code block&quot;: {
+        &quot;prefix&quot;: [&quot;if/else&quot;, &quot;django&quot;, &quot;code&quot;, &quot;code-block&quot;],
+        &quot;body&quot;: [&quot;{% if ${1:condition} %}&quot;, &quot;\t$0&quot;, &quot;{% else %}&quot;, &quot;\t&quot;, &quot;{% endif %}&quot;]
+    },
+    &quot;Django if/elif code block&quot;: {
+        &quot;prefix&quot;: [&quot;if/elif&quot;, &quot;django&quot;, &quot;code&quot;, &quot;code-block&quot;],
+        &quot;body&quot;: [&quot;{% if ${1:condition} %}&quot;, &quot;\t$0&quot;, &quot;{% elif ${2:condition} %}&quot;, &quot;\t&quot;, &quot;{% endif %}&quot;]
+    },
+    &quot;Django if/elif/else code block&quot;: {
+        &quot;prefix&quot;: [&quot;if/elif/else&quot;, &quot;django&quot;, &quot;code&quot;, &quot;code-block&quot;],
+        &quot;body&quot;: [&quot;{% if ${1:condition} %}&quot;, &quot;\t$0&quot;, &quot;{% elif ${2:condition} %}&quot;, &quot;\t&quot;, &quot;{% else %}&quot;, &quot;\t&quot;, &quot;{% endif %}&quot;]
+    }
+}
+</code></pre>
+
+<h4 id="set-syntax">Set Syntax</h4>
+<p>Command Pallete &gt; languages<br />
+"Change Language Mode"<br />
+e.g. "SQL Formatter" Extension</p>
+<h4 id="format-file-in-syntax">Format File in Syntax</h4>
+<p>Shift + Option + F (Mac)</p>
 <hr />
 <h2 id="resources">Resources</h2>
 <ul>

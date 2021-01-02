@@ -155,14 +155,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#sets">Sets</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#vscode">VSCode</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#set-syntax">Set Syntax</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#format-file-in-syntax">Format File in Syntax</a>
-    </li>
-        </ul>
-    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../webdev/">WebDev</a>
@@ -304,29 +296,58 @@ result = sqrt(256)
 <p>Notice how the nested definition <code>sqrt_update</code> still has access to the <code>a</code>, which is a formal parameter of its enclosing function <code>sqrt</code>. The nested definition extends its parent environment.</p>
 <p>"The sqrt_update function carries with it some data: the value for a referenced in the environment in which it was defined. Because they "enclose" information in this way, locally defined functions are often called <code>closures</code>."</p>
 <h3 id="decorators">Decorators</h3>
-<p>import time
-from functools import wraps 
-def timethis(func): 
-''' Decorator that reports the execution time. ''' 
-        @wraps(func)
-        def wrapper(<em>args, </em>*kwargs): </p>
-<pre><code>    start = time.time()
-    result = func(*args, **kwargs) end = time.time() 
-    print(func.__name__, end-start) 
-    return result 
-return wrapper
+<p>Using Decorators to time functions  </p>
+<pre><code>import time
+from functools import wraps
+
+
+def timethis(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs) 
+        end = time.time() 
+        print(func.__name__, end-start) 
+        return result 
+    return wrapper
+
+
+@timethis
+def square_world(world):
+    list_len = int(len(world)**.5)
+    new_list = []
+    for x in range(len(world)):    
+        if (x)%list_len == 0:
+            new_list.append(world[x:x+list_len])
+    return new_list
+
+
+@timethis
+def square_world_modified(world):
+    list_len = int(len(world)**.5)
+    new_list = []
+    for x in range(0, len(world), list_len):
+        section = world[x:x+list_len]
+        new_list.append(section)
+
+
+def create_sample_world(size):
+    world = []
+    for x in range(size):
+        world.append(x)
+    return world
+
+
+sample_worlds = (1000, 1000000, 10000000)
+
+for sample_size in sample_worlds:
+    world = create_sample_world(sample_size)
+    print(f'World size: {sample_size}')
+    square_world(world)
+    square_world_modified(world)
+    print()
 </code></pre>
-<p>@timethis
-def countdown(n):
-'''Counts down'''
-    whilen&gt;0:
-        n -= 1</p>
-<blockquote>
-<p>countdown(100000) 
-countdown 0.008917808532714844
-countdown(10000000) 
-countdown 0.87188299392912</p>
-</blockquote>
+
 <hr />
 <h2 id="python-requests-lib">Python Requests Lib</h2>
 <h4 id="timeout">Timeout</h4>
@@ -472,15 +493,6 @@ light_bulbs.add('LED')
 'LED' in light_bulbs  # True
 'halogen' in light_bulbs  # False
 </code></pre>
-
-<hr />
-<h2 id="vscode">VSCode</h2>
-<h4 id="set-syntax">Set Syntax</h4>
-<p>Command Pallete &gt; languages<br />
-"Change Language Mode"<br />
-e.g. "SQL Formatter" Extension</p>
-<h4 id="format-file-in-syntax">Format File in Syntax</h4>
-<p>Shift + Option + F (Mac)</p>
               
             </div>
           </div>

@@ -107,6 +107,14 @@
     <li class="toctree-l3"><a class="reference internal" href="#postgresql">PostgreSQL</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#mysql">MySQL</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#left-join-eg-get-admin-user-data-across-multiple-tables">Left Join (e.g. get admin user data across multiple tables):</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#concatonate-multiple-rows-into-one-field">Concatonate multiple rows into one field</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#rename-values">Rename values</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#sqlite">SQLite</a>
     </li>
@@ -264,6 +272,37 @@
 </tbody>
 </table>
 <h4 id="mysql">MySQL</h4>
+<h6 id="left-join-eg-get-admin-user-data-across-multiple-tables">Left Join (e.g. get admin user data across multiple tables):</h6>
+<pre><code>SELECT u.username, u.first_name, u.last_name, p.can_access_cms, p.can_impersonate_user, c.name, d.name 
+FROM schema.users_user u 
+LEFT JOIN schema.users_userpermissions p
+ON u.id = p.user_id
+LEFT JOIN schema.clubs_club_admins ca
+ON u.id = ca.user_id 
+LEFT JOIN schema.clubs_club c
+ON ca.club_id = c.id 
+LEFT JOIN schema.clubs_department_admins da
+ON u.id = da.user_id 
+LEFT JOIN schema.clubs_department d
+ON da.department_id = d.id
+WHERE is_superuser = 1;
+</code></pre>
+
+<h6 id="concatonate-multiple-rows-into-one-field">Concatonate multiple rows into one field</h6>
+<p>e.g. combine rows that list different values of a field for the same (user) id</p>
+<pre><code>SELECT person_id,
+    GROUP_CONCAT(jobs SEPARATOR ', ')
+FROM jobs
+GROUP BY person_id;
+</code></pre>
+
+<h6 id="rename-values">Rename values</h6>
+<p>e.g. Display Yes or No for a binary field</p>
+<pre><code>SELECT 'worker_id', 
+IF('has_background_check' = 1, 'Yes', 'No') AS 'background_check'
+FROM workers;
+</code></pre>
+
 <h4 id="sqlite">SQLite</h4>
 <h4 id="oracle">Oracle</h4>
 <h4 id="sql-server">SQL Server</h4>
