@@ -72,29 +72,58 @@ Notice how the nested definition `sqrt_update` still has access to the `a`, whic
 "The sqrt_update function carries with it some data: the value for a referenced in the environment in which it was defined. Because they "enclose" information in this way, locally defined functions are often called `closures`."
 
 ### Decorators
+Using Decorators to time functions  
+```
 import time
-from functools import wraps 
-def timethis(func): 
-''' Decorator that reports the execution time. ''' 
-        @wraps(func)
-        def wrapper(*args, **kwargs): 
+from functools import wraps
 
+
+def timethis(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
         start = time.time()
-        result = func(*args, **kwargs) end = time.time() 
+        result = func(*args, **kwargs) 
+        end = time.time() 
         print(func.__name__, end-start) 
         return result 
     return wrapper
 
-@timethis
-def countdown(n):
-'''Counts down'''
-    whilen>0:
-        n -= 1
 
-> countdown(100000) 
-countdown 0.008917808532714844
-> countdown(10000000) 
-countdown 0.87188299392912
+@timethis
+def square_world(world):
+    list_len = int(len(world)**.5)
+    new_list = []
+    for x in range(len(world)):    
+        if (x)%list_len == 0:
+            new_list.append(world[x:x+list_len])
+    return new_list
+
+
+@timethis
+def square_world_modified(world):
+    list_len = int(len(world)**.5)
+    new_list = []
+    for x in range(0, len(world), list_len):
+        section = world[x:x+list_len]
+        new_list.append(section)
+
+
+def create_sample_world(size):
+    world = []
+    for x in range(size):
+        world.append(x)
+    return world
+
+
+sample_worlds = (1000, 1000000, 10000000)
+
+for sample_size in sample_worlds:
+    world = create_sample_world(sample_size)
+    print(f'World size: {sample_size}')
+    square_world(world)
+    square_world_modified(world)
+    print()
+```
 
 ---
 ## Python Requests Lib
@@ -227,15 +256,3 @@ light_bulbs.add('LED')
 'LED' in light_bulbs  # True
 'halogen' in light_bulbs  # False
 ```
-
----
-## VSCode
-
-#### Set Syntax
-Command Pallete > languages  
-"Change Language Mode"  
-e.g. "SQL Formatter" Extension
-
-#### Format File in Syntax
-Shift + Option + F (Mac)
-

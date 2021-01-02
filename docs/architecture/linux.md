@@ -1,10 +1,55 @@
 # Linux
 - command docs: `man find`
-- `apt-get update && apt-get upgrade`
-- `yum update`
+- run previous command with sudo: `sudo !!`
 
+
+---
+## Package Management
+- [comparison](https://wiki.archlinux.org/index.php/Pacman/Rosetta)
+#### apk
+#### apt
+- view installed packages: `apt list --installed`
+- specific packge: `apt list -a pkgNameHere`
+- updates
+    - `apt update`
+    - `apt list --upgradable`
+    - `apt upgrade`
+    - update dev version (e.g. 18.04.3 to 18.04.5): `apt dist-upgrade` & `reboot`
+    - update specific package:
+        - e.g. apache2: `add-apt-repository ppa:ondrej/apache2 && apt update && apt install apache2`
+- remove package files no longer needed: `apt autoclean`
+#### dpkg
+#### yum
+    - `yum update`
+#### pacman
+
+---
+## Compile from Source
+#### Debian/Ubuntu
+- install essential build tools: `sudo apt install build-essential`
+###### nmap example
+- check current nmap version: `nmap -V`
+- get tarball link for the latest development release for nmap from nmap.org download section under "source code distribution"
+- `wget -v https://nmap.org/dist/nmap-7.91.tar.bz2`
+- uncompress the bzip2 file with: `tar -jxvf nmap-7.91.tar.bz2`
+    - `-j` flag filters the archive through bzip2
+    - `-x` flag for extract
+    - `-v` flag for verbose
+    - `-f` flag specifies the following filename
+- read the INSTALL file to get compile instructions:
+    - `./configure`
+    - `make`
+    - `sudo make install` (uses root privileges because it installs files outside of home directory)
+- update the index of files the `locate` command uses: `sudo updatedb`
+- find nmap installs: `locate /bin/nmap`
+    - In general, /bin is for key parts of the operating system, /usr/bin for less critical utilities and /usr/local/bin for software chosen to be installed manually. When a command is run it will search through each of the directories given in the PATH environment variable, and use the first match. So, if /bin/nmap exists, it will run instead of /usr/local/bin
+- Security Risk NOTE: since namp was installed outside of the apt system, this binary will not get updates when `apt update` is ran. This is okay for a utility like namp, but for an exposed service (apache, mysql, etc.) it is important to track security alerts for the application (including its dependencies), and patch it to the latest versions when they're available. This is both tedius and a serious security risk if not done.
+
+---
 ## Configuration
-- Deb hostname: edit `/etc/hostname` & rename `/etc/host` entries
+- `hostnamectl set-hostname <name>`
+    - the line `preserve_hostname` might need to be changed to `true` in `/etc/cloud/cloud.cfg` to save hostname for cloud servers after server reboot
+    - old way hostname: edit `/etc/hostname` & rename `/etc/host` entries
 - Disable hibernation: `sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
 - No password configured: `sudo passwd`
 - `hostname -f`
@@ -34,12 +79,22 @@ User username
 ---
 ## User Administration
 - add user: `adduser <user>`
-- delete user: `userdel <user>`
+- add group: `addgroup <group>`
+- asign group: `adduser <user> <group>`
+- delete user: `deluser <user>`
+- `useradd`, `usermod`, and `userdel` are low level utlities and the above methods should usually be used by sysadmins
 - assign group: `usermod -aG <group> <username>`
 - give sudo: 
     - Deb: `usermod -aG sudo <user>`
     - Fed: `usermod -aG wheel <user>`
 - copy ssh key: `ssh-copy-id -i $HOME/.ssh/id_rsa.pub <user@ip>`
+- give permissions to run specific commands: `visudo`
+```
+# Allow user "helper" to run "sudo reboot"
+# ...and don't prompt for a password
+#
+helper ALL = NOPASSWD:/sbin/reboot
+```
 
 ---
 ## Cloud VMs
@@ -81,17 +136,24 @@ setup root pass: `sudo passwd`
 
 ---
 ## Finding files
+- locate file anywhere in the filesystem: `locate access.log`
+    - requires updated db: `sudo updatedb`
 - executable location: `which vim`
 - location of file within a specific dir containing name: `find /var -name access.log`
 - files that have been edited in the last 3 hours: `find /home -mtime -3`
-- locate file anywhere in the filesystem: `locate access.log`
-    - requires updated db: `sudo updatedb`
+- search through a directory of text files: `grep -R -i "PermitRootLogin" /etc/*`
+
+
+## Log Rotation
+- `logrotate` usually automatically configured and ran by cron in `/etc/cron.daily/logrotate`
+- overall logrotate config file stored in `/etc/logrotate.conf`
+- individual logrotate recipes are stored in `/etc/logrotate.d/`
+- for example, the `/etc/logratote.d/apache2` config file could be edited so that the log file is emailed to an auditor each time it is rotated
 
 
 ---
 ## File System Management
 - check disk usage: `ncdu`
-- ln -s
 - cp -R
 - mkdir -p
 - touch
@@ -99,8 +161,32 @@ setup root pass: `sudo passwd`
 - rm
 - scp
 - tree
+- set the sticky bit for a directory: `chmod 1777 <dir_name>`
+    - only the owner of each file in this directory can delete the file
+
+#### Links
+###### Hard links
+- `ln /path/to/target/file hardlinkname`
+- can only link to files, not directories
+- cannot link to remote files on different partitions/disks
+- links reference the same inode as the target file, and therefore the physical location on disk
+    - if the target file is moved or deleted, the hard link will still retain a copy of the original contents
+
+###### Symbolic links
+- `ln -s /path/to/target softlinkname`
+- can additionally link to directories, remote files, and files on different partitions/disks
+- links will no longer reference the target file if it has been moved or deleted
+- symlinks get their own inode because they are referencing abstract filenames/dirs and not the target's physical location
+    - if the target is recreated with the same name then the symlink will reference this new target
+
+
+#### ACLS
+- allow for more details filesystem permissions (e.g. allowing a user who is not the owner or in the file's group to access the file)
+- `getfacl`
+- `setfacl`
 
 #### Filepaths
+- `man hier` for filesystem hierarchy
 - [Filesystem Hierarchy Standard](http://www.pathname.com/fhs/)
 - [Linux Filesystem Tree Overview](https://help.ubuntu.com/community/LinuxFilesystemTreeOverview)
 
@@ -124,13 +210,32 @@ setup root pass: `sudo passwd`
 - `/media` is intended as a mount point for external devices, such as hard drives or removable media (floppies, CDs, DVDs).
 - `/mnt` is also a place for mount points, but dedicated specifically to "temporarily mounted" devices, such as network filesyste
 
+
+## Reading Files
+- `less`
+    - move to top and bottom of file: `gg` and `G`
+    - search: `/` then `n` and `N` for (next & previous selection)
+- `more`
+- `tail` and `head`
+    - follow a log while it is written to: `tail -f /var/log/apache2/access.log`
+
 ---
 ## Text Manipulation
-- grep
+- `grep`
+    - filter for lines in specific file: `grep "authenticating /var/log/apache2/access.log`
     - Recursive, case insensitive grep: `grep -R -i "PermitRootLogin" /etc/*`
-- awk
-- sed / jq
-- `cut -d' ' -f2`: `-d` delimter and `-f` field number will get the second word when piped from stdin
+    - find all lines that contain a specific string: `cat /var/log/apache2/access.log | grep '0.0.0.0' | wc -l`
+    - use `-v` to find the inverse line that do NOT contain a specific string: `cat /var/log/apache2/access.log | grep -v '0.0.0.0' | wc -l` 
+- `awk`
+- `sed`
+    - print line containing first occurance of a string: `sed -n '/STRING/p /var/log/apache/access.log | head -1`
+    - print line containing last occurance of a string: `sed -n '/STRING/p /var/log/apache/access.log | tail -1`
+- `jq`
+- `cut
+    - `cut -d' ' -f2`: `-d` delimter and `-f` field number will get the second word when piped from stdin
+    - display the 10th word onwards (use space as the delimiter): `grep "authenticating" /var/log/auth.log| grep "root"| cut -f 10- -d" "`
+- `sort`: sort order
+- `uniq`: filter unique values
 
 `.vimrc`
 ```
@@ -144,27 +249,43 @@ highlight ColorColum ctermbg=0 guibg=lightgrey
 ```
 
 ---
-## Package Management
-#### apk
-#### apt
-- view installed packages: `apt list --installed`
-- specific packge: `apt list -a pkgNameHere`
-#### dpkg
-#### yum
-#### pacman
+## Archiving Files & Directories
+gather files and directories into one place with tar: `tar -cvf myinits.tar /etc/init.d/`
+compress the tarball with gzip: `gzip myinits.tar`
+in 1 step: `tar -cvzf myinits.tgz /etc/init.d/`
+    - `c` switch: create an archive file
+    - `v` switch: print verbose output
+    - `z` switch: compress the result
+    - `f` switch: create the output tarball with the following filename
+uncompress compressed tarball: `tar -xvf myinits.tgz`
+    - `C` switch: specify a different directory to uncompress to
+
 
 ---
 ## Netowrking
+- find local ip: `ip a`
+- `ping`
+- `telnet`
 - `nmap [localhost or IP]`: show exposed ports
-- ping
-- traceroute
+- `ss`:
+    - more modern replacement for `netstat`
+    - view open ports (both internal and exposed): `ss -tlp`
 - `netstat`: See if the service is listening on the correct socket
+    - view open ports: `netstat -tulpn`
     - o flag: show PIDs
-- telnet
+- `traceroute`
 - mtr
-- curl
+- `curl`
     - I flag: show header info only
     - L flag: follow redirects
+
+### Firewalls
+- netfilter
+- `iptables`
+    - view traffic rules: `iptables -L`
+- `nftables`
+- `ufw`
+    - setup: `ufw allow http && ufw enable`
 
 ---
 ## Cron Scheduler
@@ -195,8 +316,9 @@ download files: `get path_to_remote_file local_file`
 - pwd
 - ls -la
 - cat / bat
-
 ## Git
+- Delete remote branch: `git push -d <remote_name> <branch_name>`
+- Delete local branch: `git push -D <branch_name>`
 - Make git commands (e.g. pull) more verbose: `GIT_SSH_COMMAND="ssh -vv"`
 - View files modified by git pull: `git diff --name-only HEAD@{0} HEAD@{1}`
 
@@ -249,9 +371,25 @@ alias infa='cd $INFA_HOME'
 ```
 
 ### Shell Scripting
+- run the shell script as a custom command, such as `topattackers`
+- write the shell script and make it executeable: `chmod +x topattackers`
+- run it with `./topattackers`
+- allow for it to be run anywhere throughout the system by moving it somewhere the PATH variable sees it
+    - best place to store it is where manually installed software lives: `sudo mv ./topattackers /usr/local/bin/topattackers`
+- now the script can be called by simply typing the command `topattackers`
+
+#### Common commands
+- print to screen: `echo` follow by a string or variable
+- get user input: `read` followed by the variable name the input will be stored to
+- use a variable with `$varname`
+- make program wait: `sleep` followed by an int for the seconds
+- write to file: `echo $varname > text.txt`
+    - `>` will overwrite output to the following filename
+    - `>>` will append output to the following filename
 
 #### Script arguments
-
+- `$0`
+- `$1, $2` etc.
 #### Functions
 
 

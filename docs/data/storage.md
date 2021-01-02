@@ -19,7 +19,39 @@ Command	| Action
 \q      | Quit psql
 
 #### MySQL
+###### Left Join (e.g. get admin user data across multiple tables):
+```
+SELECT u.username, u.first_name, u.last_name, p.can_access_cms, p.can_impersonate_user, c.name, d.name 
+FROM schema.users_user u 
+LEFT JOIN schema.users_userpermissions p
+ON u.id = p.user_id
+LEFT JOIN schema.clubs_club_admins ca
+ON u.id = ca.user_id 
+LEFT JOIN schema.clubs_club c
+ON ca.club_id = c.id 
+LEFT JOIN schema.clubs_department_admins da
+ON u.id = da.user_id 
+LEFT JOIN schema.clubs_department d
+ON da.department_id = d.id
+WHERE is_superuser = 1;
+```
 
+###### Concatonate multiple rows into one field
+e.g. combine rows that list different values of a field for the same (user) id
+```
+SELECT person_id,
+    GROUP_CONCAT(jobs SEPARATOR ', ')
+FROM jobs
+GROUP BY person_id;
+```
+
+###### Rename values 
+e.g. Display Yes or No for a binary field
+```
+SELECT 'worker_id', 
+IF('has_background_check' = 1, 'Yes', 'No') AS 'background_check'
+FROM workers;
+```
 
 #### SQLite
 

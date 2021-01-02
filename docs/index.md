@@ -1,5 +1,12 @@
 # Engineering Wiki
 
+## Key Responsibilites
+1. Software Engineer
+2. Data Engineer
+3. System Administrator
+    - installing and updating software (security updates)
+    - managing backups (working with archive files)
+
 ## Gardening (Projects)
 
 

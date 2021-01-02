@@ -133,6 +133,14 @@ Running docker commands from inside a container
 `minikube service <service_name>`
 
 
+### Kube context and namespace
+- `kubectx`
+- `kubens`
+- add new cluster context for kubectl:
+    - add `<cluster_name>-kubeconfig.yaml` to `~/.kube/configs/`
+    - add to .bash_profile or .bashrc: `export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:$HOME/.kube/configs/<cluster_name>-kubeconfig.yaml`
+    - source ~/.bash_profile
+
 ### Kubectl
 - [Cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 - `kubectl version`

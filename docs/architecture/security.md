@@ -15,6 +15,15 @@
     - operating systems
     - cloud & networking configuration
 
+
+## Webserver Security Audit
+- open ports (should be limited to 80 & 443)
+- SSH/RDP (22 & 3389) should be using IP whitelisting or a VPN for access
+- check for up-to-date packages
+    - apache2: `curl --head | grep Server`
+    - JS libraries (e.g. jQuery `jQuery().jquery` in browser console)
+
+
 ### RSA & GPG
 - `ssh-keygen -t rsa -C user@email`
     - user in comment should match the user to login to remote system
@@ -26,7 +35,6 @@
 - add vulnerability monitoring
 - implement monitoring and alerting tools
 
-
 ---
 ## Securing a Web Server
 [SSL Test](https://www.ssllabs.com/ssltest/analyze.html)
@@ -36,6 +44,18 @@
 
 #### Firewall
 - ufw
+
+
+---
+## Mandatory Access Control (MAC)
+- opposed to Discretionary Access Control(DAC)
+
+#### SELinux
+- sets policies to manage how users, files, directories, memory, sockets, tcp/udp ports, etc. interact with each other
+- policies can stop a process (e.g. `chmod -R 777 /home`) from running, even as root
+
+#### Securing Applications
+- apparmor - only allow commands/applications to run specific functionality
 
 ---
 ## Secrets
@@ -93,6 +113,7 @@
 
 ---
 ## Security Scripts
+recent logins and sudo usage logged in `/var/log/auth.log`
 ```
  #!/bin/bash
  #
