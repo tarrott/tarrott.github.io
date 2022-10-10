@@ -371,6 +371,9 @@ alias infa='cd $INFA_HOME'
 ```
 
 ### Shell Scripting
+#### Shebang
+`#!/usr/bin/env bash`
+#### Notes
 - run the shell script as a custom command, such as `topattackers`
 - write the shell script and make it executeable: `chmod +x topattackers`
 - run it with `./topattackers`
